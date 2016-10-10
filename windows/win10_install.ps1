@@ -1,5 +1,5 @@
-choco install googlechrome
-choco install skype
-choco install sublimetext3
-choco install visualstudio2015community
-choco install sqlserver2014express
+choco install googlechrome -yr
+choco install skype -yr
+choco install sublimetext3 -yr
+choco install visualstudio2015community -yr
+choco install sqlserver2014express -yr
