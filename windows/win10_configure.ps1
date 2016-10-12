@@ -1,1 +1,1 @@
-Enable-WindowsOptionalFeature -online -feature "NetFx3"
+choco install NetFx3 -s windowsfeatures
