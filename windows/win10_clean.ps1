@@ -25,17 +25,16 @@ Get-AppxPackage *windowsmaps* | Remove-AppxPackage
 Get-AppxPackage *xbox* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *zune* | Remove-AppxPackage
 
+rm $env:home\OneDrive -r -for
 taskkill /f /im OneDrive.exe
 C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
 
-$userDirectory = "c:\Users\$([Environment]::Username)"
-rm $userDirectory\Contacts -r -for
-rm $userDirectory\Favorites -r -for
-rm $userDirectory\Links -r -for
-rm $userDirectory\Music -r -for
-rm $userDirectory\OneDrive -r -for
-rm $userDirectory\Pictures -r -for
-rm "$userDirectory\Searches" -r -for
-rm "$userDirectory\Saved Games" -r -for
-rm "$userDirectory\Videos" -r -for
+rm $env:home\Contacts -r -for
+rm $env:home\Favorites -r -for
+rm $env:home\Links -r -for
+rm $env:home\Music -r -for
+rm $env:home\Pictures -r -for
+rm $env:home\Searches" -r -for
+rm $env:home\Saved Games" -r -for
+rm $env:home\Videos" -r -for
 
