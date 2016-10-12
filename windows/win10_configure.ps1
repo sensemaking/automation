@@ -1,0 +1,1 @@
+Enable-WindowsOptionalFeature -online -feature "NetFx3"
