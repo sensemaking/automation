@@ -1,5 +1,3 @@
-read-host "`nN.B. For reasons that are beyond me xbox uninstall will work but error. Please ignore"
-
 Get-AppxPackage *3d* | Remove-AppxPackage
 Get-AppxPackage *alarms* | Remove-AppxPackage
 Get-AppxPackage *bing* | Remove-AppxPackage
@@ -24,7 +22,7 @@ Get-AppxPackage *store* | Remove-AppxPackage
 Get-AppxPackage *tunein* | Remove-AppxPackage
 Get-AppxPackage *twitter* | Remove-AppxPackage
 Get-AppxPackage *windowsmaps* | Remove-AppxPackage
-Get-AppxPackage *xbox* | Remove-AppxPackage
+Get-AppxPackage *xbox* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *zune* | Remove-AppxPackage
 
 taskkill /f /im OneDrive.exe
@@ -35,9 +33,9 @@ rm $userDirectory\Contacts -r -for
 rm $userDirectory\Favorites -r -for
 rm $userDirectory\Links -r -for
 rm $userDirectory\Music -r -for
+rm $userDirectory\OneDrive -r -for
 rm $userDirectory\Pictures -r -for
 rm "$userDirectory\Searches" -r -for
 rm "$userDirectory\Saved Games" -r -for
-rm "$userDirectory\Tracing" -r -for
 rm "$userDirectory\Videos" -r -for
 

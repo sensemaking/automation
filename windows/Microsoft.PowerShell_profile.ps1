@@ -1,10 +1,9 @@
-$smHome = "d:\sensemaking"
 set-variable -name HOME -value $smHome -force
 (get-psprovider FileSystem).Home = $smHome
 cd ~
 
 import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-import-module "$env:ChocolateyToolsLocation\poshgit\dahlbyk-posh-git-c39da78\posh-git"
+import-module "$env:ChocolateyToolsLocation\poshgit\*\posh-git"
 
 $paths = 'C:\Program Files\Git\bin', 'C:\Program Files\Git\usr\bin', 'C:\Program Files\Git\cmd', 'c:\Windows\System32\inetsrv', 'c:\Program Files\Sublime Text 3'
 $paths | % {
