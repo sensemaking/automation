@@ -34,7 +34,7 @@ rm $env:home\Favorites -r -for
 rm $env:home\Links -r -for
 rm $env:home\Music -r -for
 rm $env:home\Pictures -r -for
-rm $env:home\Searches" -r -for
-rm $env:home\Saved Games" -r -for
-rm $env:home\Videos" -r -for
+rm $env:home\Searches -r -for
+rm $env:home\Saved Games -r -for
+rm $env:home\Videos -r -for
 
