@@ -29,12 +29,12 @@ rm $env:home\OneDrive -r -for
 taskkill /f /im OneDrive.exe
 C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
 
-rm $env:home\Contacts -r -for
-rm $env:home\Favorites -r -for
-rm $env:home\Links -r -for
-rm $env:home\Music -r -for
-rm $env:home\Pictures -r -for
-rm $env:home\Searches -r -for
-rm $env:home\Saved Games -r -for
-rm $env:home\Videos -r -for
+rm $env:home\Contacts -r -for -erroraction 'silentlycontinue'
+rm $env:home\Favorites -r -for -erroraction 'silentlycontinue'
+rm $env:home\Links -r -for -erroraction 'silentlycontinue'
+rm $env:home\Music -r -for -erroraction 'silentlycontinue'
+rm $env:home\Pictures -r -for -erroraction 'silentlycontinue'
+rm $env:home\Searches -r -for -erroraction 'silentlycontinue'
+rm $env:home\Saved Games -r -for -erroraction 'silentlycontinue'
+rm $env:home\Videos -r -for -erroraction 'silentlycontinue'
 
