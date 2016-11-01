@@ -35,6 +35,6 @@ rm $env:home\Links -r -for -erroraction 'silentlycontinue'
 rm $env:home\Music -r -for -erroraction 'silentlycontinue'
 rm $env:home\Pictures -r -for -erroraction 'silentlycontinue'
 rm $env:home\Searches -r -for -erroraction 'silentlycontinue'
-rm $env:home\Saved Games -r -for -erroraction 'silentlycontinue'
+rm "$env:home\Saved Games" -r -for -erroraction 'silentlycontinue'
 rm $env:home\Videos -r -for -erroraction 'silentlycontinue'
 
