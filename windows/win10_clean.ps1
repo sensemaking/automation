@@ -1,3 +1,6 @@
+import-module "$env:home\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
+install-WindowsUpdate -acceptEula
+
 Get-AppxPackage *3d* | Remove-AppxPackage
 Get-AppxPackage *alarms* | Remove-AppxPackage
 Get-AppxPackage *bing* | Remove-AppxPackage
@@ -38,3 +41,4 @@ rm $env:home\Searches -r -for -erroraction 'silentlycontinue'
 rm "$env:home\Saved Games" -r -for -erroraction 'silentlycontinue'
 rm $env:home\Videos -r -for -erroraction 'silentlycontinue'
 
+write-host "`nRestart before running configuration and installation scripts`n" -fore red

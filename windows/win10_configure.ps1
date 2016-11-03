@@ -1,9 +1,10 @@
+import-module "$env:home\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
 Disable-UAC
 Disable-GameBarTips
 Disable-MicrosoftUpdate
 Disable-BingSearch
 
-Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowFullPathInTitleBar
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions -EnableShowFullPathInTitleBar
 Set-TaskbarOptions -Unlock -Dock Bottom -Combine Always
 $key = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
 Set-ItemProperty $key DontUsePowerShellOnWinX 0
@@ -20,6 +21,9 @@ choco uninstall MSRDC-Infrastructure -s windowsfeatures -yr
 choco uninstall SMB1Protocol -s windowsfeatures -yr
 choco uninstall WorkFolders-Client -s windowsfeatures -yr
 choco uninstall MediaPlayback -s windowsfeatures -yr
+
+
+
 
 
 
