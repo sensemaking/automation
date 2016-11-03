@@ -22,7 +22,7 @@ choco uninstall SMB1Protocol -s windowsfeatures -yr
 choco uninstall WorkFolders-Client -s windowsfeatures -yr
 choco uninstall MediaPlayback -s windowsfeatures -yr
 
-
+Restart-Computer
 
 
 

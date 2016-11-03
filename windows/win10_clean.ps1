@@ -41,4 +41,4 @@ rm $env:home\Searches -r -for -erroraction 'silentlycontinue'
 rm "$env:home\Saved Games" -r -for -erroraction 'silentlycontinue'
 rm $env:home\Videos -r -for -erroraction 'silentlycontinue'
 
-write-host "`nRestart before running configuration and installation scripts`n" -fore red
+Restart-Computer
