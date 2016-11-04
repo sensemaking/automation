@@ -22,6 +22,7 @@ choco uninstall SMB1Protocol -s windowsfeatures -yr
 choco uninstall WorkFolders-Client -s windowsfeatures -yr
 choco uninstall MediaPlayback -s windowsfeatures -yr
 
+Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
 
 

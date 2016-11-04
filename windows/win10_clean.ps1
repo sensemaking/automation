@@ -41,4 +41,5 @@ rm $env:home\Searches -r -for -erroraction 'silentlycontinue'
 rm "$env:home\Saved Games" -r -for -erroraction 'silentlycontinue'
 rm $env:home\Videos -r -for -erroraction 'silentlycontinue'
 
+Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
