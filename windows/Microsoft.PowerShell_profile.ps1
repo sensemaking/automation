@@ -5,7 +5,7 @@ cd ~
 import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 import-module "c:\tools\poshgit\*\posh-git"
 
-$paths = "$env:programFiles\Git\bin", "${env:programFiles(x86)}\Google\Chrome\Application\", "$env:winDir\System32\inetsrv", "$env:programFiles\Sublime Text 3", "${env:programFiles(x86)}\Skype\Phone"
+$paths = "$env:programFiles\Git\bin", "${env:programFiles(x86)}\Google\Chrome\Application\", "$env:winDir\System32\inetsrv", "$env:programFiles\Sublime Text 3", "${env:programFiles(x86)}\Skype\Phone", "C:\Program Files (x86)\TeamViewer"
 $paths | % {
 	if(-not (($env:path -split ';') -contains $_)) {
 		$env:path += ';' + $_
