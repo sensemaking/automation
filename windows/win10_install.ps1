@@ -1,5 +1,5 @@
-
 choco install googlechrome -yr
+choco install slack -yr
 choco install skype -yr
 choco install teamviewer -yr
 choco install visualstudiocode -yr
