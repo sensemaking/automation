@@ -32,14 +32,14 @@ rm $env:home\OneDrive -r -for
 taskkill /f /im OneDrive.exe
 C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
 
-rm $env:home\Contacts -r -for -erroraction 'silentlycontinue'
-rm $env:home\Favorites -r -for -erroraction 'silentlycontinue'
-rm $env:home\Links -r -for -erroraction 'silentlycontinue'
-rm $env:home\Music -r -for -erroraction 'silentlycontinue'
-rm $env:home\Pictures -r -for -erroraction 'silentlycontinue'
-rm $env:home\Searches -r -for -erroraction 'silentlycontinue'
-rm "$env:home\Saved Games" -r -for -erroraction 'silentlycontinue'
-rm $env:home\Videos -r -for -erroraction 'silentlycontinue'
+rm $env:USERPROFILE\Contacts -r -for -erroraction 'silentlycontinue'
+rm $env:USERPROFILE\Favorites -r -for -erroraction 'silentlycontinue'
+rm $env:USERPROFILE\Links -r -for -erroraction 'silentlycontinue'
+rm $env:USERPROFILE\Music -r -for -erroraction 'silentlycontinue'
+rm $env:USERPROFILE\Pictures -r -for -erroraction 'silentlycontinue'
+rm $env:USERPROFILE\Searches -r -for -erroraction 'silentlycontinue'
+rm "$env:USERPROFILE\Saved Games" -r -for -erroraction 'silentlycontinue'
+rm $env:USERPROFILE\Videos -r -for -erroraction 'silentlycontinue'
 
 Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
