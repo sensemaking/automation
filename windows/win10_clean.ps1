@@ -1,4 +1,4 @@
-import-module "$env:home\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
+import-module "$env:userprofile\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
 install-WindowsUpdate -acceptEula
 
 Get-AppxPackage *3d* | Remove-AppxPackage
@@ -28,18 +28,18 @@ Get-AppxPackage *windowsmaps* | Remove-AppxPackage
 Get-AppxPackage *xbox* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *zune* | Remove-AppxPackage
 
-rm $env:home\OneDrive -r -for
+rm $env:userprofile\OneDrive -r -for
 taskkill /f /im OneDrive.exe
 C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
 
-rm $env:USERPROFILE\Contacts -r -for -erroraction 'silentlycontinue'
-rm $env:USERPROFILE\Favorites -r -for -erroraction 'silentlycontinue'
-rm $env:USERPROFILE\Links -r -for -erroraction 'silentlycontinue'
-rm $env:USERPROFILE\Music -r -for -erroraction 'silentlycontinue'
-rm $env:USERPROFILE\Pictures -r -for -erroraction 'silentlycontinue'
-rm $env:USERPROFILE\Searches -r -for -erroraction 'silentlycontinue'
-rm "$env:USERPROFILE\Saved Games" -r -for -erroraction 'silentlycontinue'
-rm $env:USERPROFILE\Videos -r -for -erroraction 'silentlycontinue'
+rm $env:userprofile\Contacts -r -for -erroraction 'silentlycontinue'
+rm $env:userprofile\Favorites -r -for -erroraction 'silentlycontinue'
+rm $env:userprofile\Links -r -for -erroraction 'silentlycontinue'
+rm $env:userprofile\Music -r -for -erroraction 'silentlycontinue'
+rm $env:userprofile\Pictures -r -for -erroraction 'silentlycontinue'
+rm $env:userprofile\Searches -r -for -erroraction 'silentlycontinue'
+rm "$env:userprofile\Saved Games" -r -for -erroraction 'silentlycontinue'
+rm $env:userprofile\Videos -r -for -erroraction 'silentlycontinue'
 
 Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
