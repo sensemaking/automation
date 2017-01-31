@@ -19,3 +19,11 @@ function global:prompt {
     $global:LASTEXITCODE = $realLASTEXITCODE
     return "> "
 }
+
+function Ssh-SignIn {
+
+     Start-SshAgent
+
+     & "$env:programFiles\Git\usr\bin\ssh-add.exe" $env:USERPROFILE\.ssh\sm_rsa
+
+}
