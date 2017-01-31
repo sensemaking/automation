@@ -21,9 +21,6 @@ function global:prompt {
 }
 
 function Ssh-SignIn {
-
      Start-SshAgent
-
      & "$env:programFiles\Git\usr\bin\ssh-add.exe" $env:USERPROFILE\.ssh\sm_rsa
-
 }
