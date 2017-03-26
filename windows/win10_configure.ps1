@@ -1,7 +1,5 @@
 import-module "$env:home\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
-Disable-UAC
 Disable-GameBarTips
-Disable-MicrosoftUpdate
 Disable-BingSearch
 
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions -EnableShowFullPathInTitleBar
@@ -11,7 +9,6 @@ Set-ItemProperty $key DontUsePowerShellOnWinX 0
 Set-ItemProperty $key ShowTaskViewButton 0
 Stop-Process -ProcessName explorer -Force
 
-choco uninstall MicrosoftWindowsPowerShellV2Root -s windowsfeatures -yr
 choco uninstall NetFx4-AdvSrvs -s windowsfeatures -yr
 choco uninstall Printing-Foundation-Features -s windowsfeatures -yr
 choco uninstall Printing-PrintToPDFServices-Features -s windowsfeatures -yr
