@@ -7,14 +7,14 @@ function Ssh-SignIn{
         }
     }
 
-	& "$env:programFiles\Git\usr\bin\ssh-add.exe" $env:USERPROFILE\.ssh\sm_rsa
+    & "$env:programFiles\Git\usr\bin\ssh-add.exe" $env:USERPROFILE\.ssh\sm_rsa
 }
 
 function Status([Project] $project = [Project]::All){
     function Show-Status($targetProject){
-            Write-Host `nStatus for $targetProject.Key -Fore Green
-            Set-Location $targetProject.Value.Directory
-            git status -s
+        Write-Host `nStatus for $targetProject.Key -Fore Green
+        Set-Location $targetProject.Value.Directory
+        git status -s
     } 
 
     $dir = Get-Location
@@ -32,12 +32,10 @@ function Pull ([Project] $project = [Project]::None){
 
     Status $project
 
-    if((Read-Host) -eq 'Y'){
-        $dir = Get-Location
-        (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Pull $_ }
-        Write-Host `n
-        Set-Location $dir
-    }
+    $dir = Get-Location
+    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Pull $_ }
+    Write-Host `n
+    Set-Location $dir
 }
 
 function Push ([Project] $project = [Project]::None, $message){
@@ -51,10 +49,8 @@ function Push ([Project] $project = [Project]::None, $message){
 
     Status $project
 
-    if((Read-Host) -eq 'Y'){
-        $dir = Get-Location 
-        (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Commit $_ }
-        write-host `n
-        Set-Location $dir
-    }
+    $dir = Get-Location 
+    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Commit $_ }
+    write-host `n
+    Set-Location $dir
 }
