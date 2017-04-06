@@ -19,7 +19,6 @@ function Status([Project] $project = [Project]::All){
 
     $dir = Get-Location
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Show-Status $_ }
-    Write-Host `n
     Set-Location $dir
 }
 
@@ -34,7 +33,6 @@ function Pull ([Project] $project = [Project]::None){
 
     $dir = Get-Location
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Pull $_ }
-    Write-Host `n
     Set-Location $dir
 }
 
@@ -51,6 +49,5 @@ function Push ([Project] $project = [Project]::None, $message){
 
     $dir = Get-Location 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Commit $_ }
-    write-host `n
     Set-Location $dir
 }

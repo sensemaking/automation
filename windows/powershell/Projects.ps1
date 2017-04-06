@@ -3,16 +3,16 @@ Add-Type -TypeDefinition @"
 public enum Project
 {
     None = 0,
-    ProjectName = 1,
-    All = ProjectName
+    Automation = 1,
+    All = Automation + 1
 }
 "@
 
 function global:Get-Projects {
     return @{ 
-        [Project]::ProjectName = [PSCustomObject]@{ 
-            Directory = ""; 
-            CodeSolution = $null; 
+        [Project]::Automation = [PSCustomObject]@{ 
+            Directory = "~\automation"; 
+            CodeSolution = "~\automation"; 
             VsSolution = $null; 
             Script = $null
         }; 
