@@ -10,39 +10,6 @@ function Ssh-SignIn{
 	& "$env:programFiles\Git\usr\bin\ssh-add.exe" $env:USERPROFILE\.ssh\sm_rsa
 }
 
-function Checkout ($branch, [Project] $project = [Project]::All){
-    function Git-Checkout($targetProject){
-        Set-Location $targetProject.Value.Directory
-        git checkout $branch -q
-    }
-
-    Status $project
-    Write-Host "Do you want to continue (Y/N)?" -Fore Yellow 
-    if((Read-Host) -eq 'Y'){
-        $dir = Get-Location
-        (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Checkout $_ }
-        Branches $project
-        Set-Location $dir
-    }
-}
-
-function Pull ([Project] $project = [Project]::All){
-    function Git-Pull($targetProject){
-        Write-Host `nPulling $targetProject.Key -Fore Green
-        Set-Location $targetProject.Value.Directory
-        git pull
-    }
-
-    Status $project
-    Write-Host "Do you want to continue (Y/N)?" -Fore Yellow 
-    if((Read-Host) -eq 'Y'){
-        $dir = Get-Location
-        (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Pull $_ }
-        Write-Host `n
-        Set-Location $dir
-    }
-}
-	
 function Status([Project] $project = [Project]::All){
     function Show-Status($targetProject){
             Write-Host `nStatus for $targetProject.Key -Fore Green
@@ -55,35 +22,25 @@ function Status([Project] $project = [Project]::All){
     Write-Host `n
     Set-Location $dir
 }
-	
-function Branches([Project] $project = [Project]::All){
-    function Show-Branch($targetProject){
-            Write-Host `nBranches for $targetProject.Key -Fore Green
-            Set-Location $targetProject.Value.Directory
-            git branch
-    } 
 
-    $dir = Get-Location
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Show-Branch $_ }
-    Write-Host `n
-    Set-Location $dir
+function Pull ([Project] $project = [Project]::None){
+    function Git-Pull($targetProject){
+        Write-Host `nPulling $targetProject.Key -Fore Green
+        Set-Location $targetProject.Value.Directory
+        git pull
+    }
+
+    Status $project
+
+    if((Read-Host) -eq 'Y'){
+        $dir = Get-Location
+        (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Pull $_ }
+        Write-Host `n
+        Set-Location $dir
+    }
 }
 
-function New-Branch($branch, [Project] $project = [Project]::All){
-    function Create-Branch($targetProject){
-            Write-Host `nCreating $branch for $targetProject.Key -Fore Green
-            Set-Location $targetProject.Value.Directory
-            git checkout -b $branch
-            git push -u origin $branch
-    } 
-
-    $dir = Get-Location
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Create-Branch $_ }
-    Write-Host `n
-    Set-Location $dir
-}
-
-function Commit ($message, [Project] $project = [Project]::All){
+function Push ([Project] $project = [Project]::None, $message){
     function Git-Commit($targetProject){
         Write-Host `nCommitting $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
@@ -93,7 +50,7 @@ function Commit ($message, [Project] $project = [Project]::All){
     }
 
     Status $project
-    Write-Host "Do you want to continue (Y/N)?" -Fore Yellow 
+
     if((Read-Host) -eq 'Y'){
         $dir = Get-Location 
         (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Commit $_ }
