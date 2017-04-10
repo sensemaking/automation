@@ -2,7 +2,7 @@ $paths =
 	"$env:programFiles\Git\bin", 
 	"${env:programFiles(x86)}\Google\Chrome\Application\", 
 	"$env:winDir\System32\inetsrv", 
-	"$env:USERPROFILE\AppData\Local\slack\app-2.4.1",
+	"$env:USERPROFILE\AppData\Local\slack\",
 	"$env:programFiles\PostgreSQL\9.6\bin",
 	"$env:programFiles\PostgreSQL\9.6\pgAdmin 4\bin"
 
