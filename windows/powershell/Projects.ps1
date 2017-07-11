@@ -4,7 +4,7 @@ public enum Project
 {
     None = 0,
     Automation = 1,
-    All = Automation + 1
+    All = Automation + 2
 }
 "@
 
