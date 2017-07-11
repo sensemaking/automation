@@ -1,32 +1,32 @@
 import-module "$env:userprofile\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
 install-WindowsUpdate -acceptEula
 
-Get-AppxPackage *3d* | Remove-AppxPackage
-Get-AppxPackage *alarms* | Remove-AppxPackage
-Get-AppxPackage *bing* | Remove-AppxPackage
-Get-AppxPackage *camera* | Remove-AppxPackage
-Get-AppxPackage *communi* | Remove-AppxPackage
-Get-AppxPackage *candy* | Remove-AppxPackage
-Get-AppxPackage *farm* | Remove-AppxPackage
-Get-AppxPackage *feedback* | Remove-AppxPackage
-Get-AppxPackage *getstarted* | Remove-AppxPackage
-Get-AppxPackage *messaging* | Remove-AppxPackage
-Get-AppxPackage *netflix* | Remove-AppxPackage
-Get-AppxPackage *office* | Remove-AppxPackage
-Get-AppxPackage *oneconnect* | Remove-AppxPackage
-Get-AppxPackage *people* | Remove-AppxPackage
-Get-AppxPackage *phone* | Remove-AppxPackage
-Get-AppxPackage *photo* | Remove-AppxPackage
-Get-AppxPackage *skype* | Remove-AppxPackage
-Get-AppxPackage *solit* | Remove-AppxPackage
-Get-AppxPackage *soundrec* | Remove-AppxPackage
-Get-AppxPackage *sticky* | Remove-AppxPackage
-Get-AppxPackage *store* | Remove-AppxPackage
-Get-AppxPackage *tunein* | Remove-AppxPackage
-Get-AppxPackage *twitter* | Remove-AppxPackage
-Get-AppxPackage *windowsmaps* | Remove-AppxPackage
+Get-AppxPackage *3d* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *alarms* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *bing* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *camera* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *communi* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *candy* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *farm* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *feedback* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *getstarted* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *messaging* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *netflix* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *office* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *oneconnect* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *people* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *phone* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *photo* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *skype* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *solit* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *soundrec* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *sticky* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *store* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *tunein* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *twitter* | Remove-AppxPackage -erroraction 'silentlycontinue'
+Get-AppxPackage *windowsmaps* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *xbox* | Remove-AppxPackage -erroraction 'silentlycontinue'
-Get-AppxPackage *zune* | Remove-AppxPackage
+Get-AppxPackage *zune* | Remove-AppxPackage -erroraction 'silentlycontinue'
 
 rm $env:userprofile\OneDrive -r -for
 taskkill /f /im OneDrive.exe
