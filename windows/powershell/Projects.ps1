@@ -10,12 +10,7 @@ public enum Project
 
 function global:Get-Projects {
     return @{ 
-        [Project]::Automation = [PSCustomObject]@{ 
-            Directory = "~\automation"; 
-            CodeSolution = "~\automation"; 
-            VsSolution = $null; 
-            Script = $null
-        }; 
+        [Project]::Automation = [PSCustomObject]@{ Directory = "~\automation"; CodeSolution = "~\automation"; VsSolution = $null; Script = $null }; 
     }
 }
 
