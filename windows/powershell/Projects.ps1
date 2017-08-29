@@ -38,10 +38,3 @@ function global:Open ([Project] $project){
 
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Open-Project $_ }
 }
-
-function global:Migrate([Project] $project = [Project]::xEngine) {
-    $dir = Get-Location
-    GoTo $project
-    & "Migrations\bin\Run.exe"
-    Set-Location $dir
-}
