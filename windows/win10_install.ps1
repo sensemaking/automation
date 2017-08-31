@@ -1,3 +1,4 @@
+choco install googlechrome -yr
 choco install slack -yr
 choco install teamviewer -yr
 choco install visualstudio2017community -yr

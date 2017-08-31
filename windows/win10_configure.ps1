@@ -1,9 +1,9 @@
-import-module "$env:home\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
+import-module "$env:userprofile\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
 Disable-GameBarTips
 Disable-BingSearch
 
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions -EnableShowFullPathInTitleBar
-Set-TaskbarOptions -Unlock -Dock Bottom -Combine Always
+Set-TaskbarOptions -Unlock -Dock Bottom -Combine Always -Size Small
 $key = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
 Set-ItemProperty $key DontUsePowerShellOnWinX 0
 Set-ItemProperty $key ShowTaskViewButton 0

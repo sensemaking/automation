@@ -1,3 +1,5 @@
+choco install boxstarter --version 2.9.26 -yr
+
 import-module "$env:userprofile\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
 install-WindowsUpdate -acceptEula
 
