@@ -1,5 +1,6 @@
 $paths = 
-	"$env:programFiles\Git\bin", 
+	"$env:programFiles\Git\bin",
+	"$env:programFiles\Microsoft VS Code",
 	"${env:programFiles(x86)}\Google\Chrome\Application\", 
 	"$env:winDir\System32\inetsrv", 
 	"$env:USERPROFILE\AppData\Local\slack\",
