@@ -14,7 +14,7 @@ function Status([Project] $project = [Project]::All){
     function Show-Status($targetProject){
         Write-Host `nStatus for $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
-        git status
+        git status .
     } 
 
     $dir = Get-Location
