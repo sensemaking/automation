@@ -38,3 +38,18 @@ function global:Open ([Project] $project){
 
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Open-Project $_ }
 }
+
+function global:Build ([Project] $project){
+    function Build-Project($targetProject){
+        if ($_.Value.VsSolution -ne $null) { 
+            nuget.exe restore (Resolve-Path ($_.Value.VsSolution))
+            MSBuild.exe (Resolve-Path ($_.Value.VsSolution)) /p:Config=Release /v:quiet
+            $migrationPath = (Split-Path($_.Value.VsSolution)) + "\Migrations"
+            if(Test-Path($migrationPath)){
+                & (Resolve-Path $migrationPath\bin\Run.exe)
+            }
+        } 
+    }
+
+    (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Build-Project $_ }
+}
