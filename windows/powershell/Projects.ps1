@@ -45,12 +45,12 @@ function global:Build ([Project] $project){
             Write-Host `nBuilding $targetProject.Key `n -Fore Green
             nuget.exe restore (Resolve-Path ($_.Value.VsSolution))
             MSBuild.exe (Resolve-Path ($_.Value.VsSolution)) /p:Config=Release /v:quiet
+            Migrate $project
+            Test $project
         } 
     }
 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Build-Project $_ }
-    Migrate $project
-    Test $project
 }
 
 function global:Migrate ([Project] $project){
