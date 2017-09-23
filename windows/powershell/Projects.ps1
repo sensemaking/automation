@@ -45,8 +45,8 @@ function global:Build ([Project] $project){
             Write-Host `nBuilding $targetProject.Key `n -Fore Green
             nuget.exe restore (Resolve-Path ($_.Value.VsSolution))
             MSBuild.exe (Resolve-Path ($_.Value.VsSolution)) /p:Config=Release /v:quiet
-            Migrate $project
-            Test $project
+            Migrate $targetProject.Key
+            Test $targetProject.Key
         } 
     }
 
@@ -73,7 +73,7 @@ function global:Test ([Project] $project){
             Write-Host `nRunning Tests $targetProject.Key `n -Fore Green
             $dir = Get-Location
             Set-Location $_.Value.Directory
-            nunit3-console.exe (Get-ChildItem *Testing*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' }) --noresult
+            nunit3-console.exe (Get-ChildItem *Testing*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' }) --noresult --noheader
             Set-Location $dir
         } 
     }
