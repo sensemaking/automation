@@ -39,7 +39,7 @@ function Pull ([Project] $project = [Project]::None){
 
 function Push ([Project] $project = [Project]::None, $message = "_"){
     function Git-Commit($targetProject){
-        Write-Host `nCommitting $targetProject.Key -Fore Green
+        Write-Host Committing $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
         git add .
         git commit -m $message --no-status
