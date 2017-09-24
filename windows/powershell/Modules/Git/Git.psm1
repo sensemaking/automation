@@ -20,6 +20,7 @@ function Status([Project] $project = [Project]::All){
     $dir = Get-Location
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Show-Status $_ }
     Set-Location $dir
+    Write-Host `n
 }
 
 function Pull ([Project] $project = [Project]::None){
