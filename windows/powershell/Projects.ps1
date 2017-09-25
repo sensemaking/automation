@@ -15,6 +15,10 @@ function global:Get-Projects {
 }
 
 function global:GoTo ([Project] $project){
+    if($project -eq [Project]::None){
+        Write-Host "`nNo project provided`n" -Fore Red
+        return
+    }
     if($project -eq [Project]::All){
         Write-Host "`nCan't go to 'All' projects`n" -Fore Red
         return
