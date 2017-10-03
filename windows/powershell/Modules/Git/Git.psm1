@@ -1,13 +1,13 @@
 function Ssh-SignIn{
     Stop-Process -Name 'ssh-agent' -ErrorAction SilentlyContinue
         
-    & "$env:programFiles\Git\usr\bin\ssh-agent.exe" | % {
+    & "ssh-agent.exe" | % {
         if ($_ -match '(?<key>[^=]+)=(?<value>[^;]+);') {
             [void][Environment]::SetEnvironmentVariable($Matches['key'], $Matches['value'])
         }
     }
 
-    & "$env:programFiles\Git\usr\bin\ssh-add.exe" $env:USERPROFILE\.ssh\sm_rsa
+    & "ssh-add.exe" $env:USERPROFILE\.ssh\sm_rsa
 }
 
 function Status([Project] $project = [Project]::All){
