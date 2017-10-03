@@ -14,7 +14,7 @@ function Status([Project] $project = [Project]::All){
     function Show-Status($targetProject){
         Write-Host `nStatus for $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
-        git status .
+        git status . -s
     } 
 
     $dir = Get-Location
@@ -30,8 +30,6 @@ function Pull ([Project] $project = [Project]::None){
         git pull
     }
 
-    Status $project
-
     $dir = Get-Location
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Pull $_ }
     Set-Location $dir
@@ -45,8 +43,6 @@ function Push ([Project] $project = [Project]::None, $message = "_"){
         git commit -m $message --no-status
         git push
     }
-
-    Status $project
 
     $dir = Get-Location 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Commit $_ }
