@@ -26,7 +26,7 @@ function global:GoTo ([Project] $project){
     Set-Location (Get-Projects).Get_Item($project).Directory
 }
 
-function global:Open ([Project] $project){
+function global:Open ([Project] $project = [Project]::None){
     function Open-Project($targetProject){
         if ($_.Value.VsSolution -ne $null) { 
             & $_.Value.VsSolution 
@@ -43,7 +43,7 @@ function global:Open ([Project] $project){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Open-Project $_ }
 }
 
-function global:Build ([Project] $project){
+function global:Build ([Project] $project = [Project]::All){
     function Build-Project($targetProject){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nBuilding $targetProject.Key `n -Fore Green
@@ -57,7 +57,7 @@ function global:Build ([Project] $project){
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Build-Project $_ }
 }
 
-function global:Migrate ([Project] $project){
+function global:Migrate ([Project] $project = [Project]::All){
     function Migrate-Project($targetProject){
         if ($_.Value.VsSolution -ne $null) { 
             $solutionPath = (Split-Path($_.Value.VsSolution))
@@ -71,7 +71,7 @@ function global:Migrate ([Project] $project){
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Migrate-Project $_ }
 }
 
-function global:Test ([Project] $project){
+function global:Test ([Project] $project = [Project]::All){
     function Test-Project($targetProject){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nRunning Tests $targetProject.Key `n -Fore Green
