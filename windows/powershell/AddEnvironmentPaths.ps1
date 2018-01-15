@@ -1,5 +1,6 @@
 $paths = 
 	"$env:programFiles\Git\bin",
+	"$env:programFiles\Git\usr\bin",
 	"$env:programFiles(x86)\MSBuild\14.0\Bin",
 	"$env:programFiles\Microsoft VS Code",
 	"${env:programFiles(x86)}\Google\Chrome\Application\", 
