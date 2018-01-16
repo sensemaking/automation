@@ -7,7 +7,8 @@ $paths =
 	"$env:winDir\System32\inetsrv", 
 	"$env:USERPROFILE\AppData\Local\slack\",
 	"${env:programFiles(x86)}\nunit.org\nunit-console\",
-	"${env:programFiles(x86)}\TeamViewer"
+	"${env:programFiles(x86)}\TeamViewer",
+	"${env:programFiles(x86)}\MSBuild\14.0\Bin"
 
 $paths | % {
 	if(-not (($env:path -split ';') -contains $_)) {
