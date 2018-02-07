@@ -40,6 +40,7 @@ function Push ([Project] $project = [Project]::None, $message = "_"){
         Write-Host Committing $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
         git pull
+        Build $targetProject
         git add .
         git commit -m $message --no-status
         git push
