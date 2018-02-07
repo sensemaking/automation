@@ -48,3 +48,15 @@ function Push ([Project] $project = [Project]::None, $message = "_"){
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Commit $_ }
     Set-Location $dir
 }
+
+function Revert ([Project] $project = [Project]::None){
+    function Git-Revert($targetProject){
+        Write-Host `nReverting $targetProject.Key -Fore Green
+        Set-Location $targetProject.Value.Directory
+        git stash | git stash drop
+    }
+
+    $dir = Get-Location
+    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Revert $_ }
+    Set-Location $dir
+}
