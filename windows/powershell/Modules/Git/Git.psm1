@@ -40,7 +40,6 @@ function Push ([Project] $project = [Project]::None, $message = "_"){
         Write-Host Committing $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
         git pull
-        Build $targetProject
         git add .
         git commit -m $message --no-status
         git push
@@ -55,7 +54,7 @@ function Revert ([Project] $project = [Project]::None){
     function Git-Revert($targetProject){
         Write-Host `nReverting $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
-        git stash | git stash drop
+        git stash | git stash drop | git clean -qf
     }
 
     $dir = Get-Location
