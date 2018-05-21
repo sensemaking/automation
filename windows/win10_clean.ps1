@@ -1,7 +1,3 @@
-choco install boxstarter --version 2.9.26 -yr
-
-import-module "$env:userprofile\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
-install-WindowsUpdate -acceptEula
 
 Get-AppxPackage *3d* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *alarms* | Remove-AppxPackage -erroraction 'silentlycontinue'
@@ -30,8 +26,8 @@ Get-AppxPackage *windowsmaps* | Remove-AppxPackage -erroraction 'silentlycontinu
 Get-AppxPackage *xbox* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *zune* | Remove-AppxPackage -erroraction 'silentlycontinue'
 
-rm $env:userprofile\OneDrive -r -for
 taskkill /f /im OneDrive.exe
+rm $env:userprofile\OneDrive -r -for
 C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
 
 rm $env:userprofile\Contacts -r -for -erroraction 'silentlycontinue'

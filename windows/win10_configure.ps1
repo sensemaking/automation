@@ -1,3 +1,5 @@
+choco install boxstarter
+
 import-module "$env:userprofile\AppData\Roaming\Boxstarter\Boxstarter.Chocolatey"
 Disable-GameBarTips
 Disable-BingSearch
