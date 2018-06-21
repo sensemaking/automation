@@ -23,7 +23,7 @@ function global:GoTo ([Project] $project){
         Write-Host "`nCan't go to 'All' projects`n" -Fore Red
         return
     }
-    Set-Location (Get-Projects).Get_Item($project).Directory
+    start (Get-Projects).Get_Item($project).Directory
 }
 
 function global:Open ([Project] $project = [Project]::None){
