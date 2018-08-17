@@ -26,6 +26,19 @@ function global:GoTo ([Project] $project){
     Invoke-Item (Get-Projects).Get_Item($project).Directory
 }
 
+function global:Prime ([Project] $project){
+    function Prime-Project($targetProject){
+            if(Test-Path "$($_.Value.Directory)\primer.ps1") {
+                & "$($_.Value.Directory)\primer.ps1"
+            }
+            else{
+                Write-Host "`n$project does not have a primer`n" -ForegroundColor Red
+            }
+    }
+
+    (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
+}
+
 function global:Open ([Project] $project = [Project]::None){
     function Open-Project($targetProject){
         if ($_.Value.VsSolution -ne $null) { 
