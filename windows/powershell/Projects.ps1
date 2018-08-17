@@ -29,7 +29,9 @@ function global:GoTo ([Project] $project){
 function global:Prime ([Project] $project){
     function Prime-Project($targetProject){
             if(Test-Path "$($_.Value.Directory)\primer.ps1") {
+                Write-Host "`nRunning $project Primer" -ForegroundColor Green
                 & "$($_.Value.Directory)\primer.ps1"
+                Write-Host "`n$project Primed & Ready To Go`n" -ForegroundColor Green
             }
             else{
                 Write-Host "`n$project does not have a primer`n" -ForegroundColor Red
