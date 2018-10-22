@@ -23,7 +23,22 @@ function global:GoTo ([Project] $project){
         Write-Host "`nCan't go to 'All' projects`n" -Fore Red
         return
     }
-    Set-Location (Get-Projects).Get_Item($project).Directory
+    Invoke-Item (Get-Projects).Get_Item($project).Directory
+}
+
+function global:Prime ([Project] $project){
+    function Prime-Project($targetProject){
+            if(Test-Path "$($_.Value.Directory)\primer.ps1") {
+                Write-Host "`nRunning $project Primer" -ForegroundColor Green
+                & "$($_.Value.Directory)\primer.ps1"
+                Write-Host "`n$project Primed & Ready To Go" -ForegroundColor Green
+            }
+            else{
+                Write-Host "`n$project does not have a primer`n" -ForegroundColor Red
+            }
+    }
+
+    (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
 }
 
 function global:Open ([Project] $project = [Project]::None){
