@@ -63,7 +63,7 @@ function global:Build ([Project] $project = [Project]::All){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nBuilding $targetProject.Key `n -Fore Green
             nuget.exe restore (Resolve-Path ($_.Value.VsSolution)) -v quiet
-            MSBuild.exe (Resolve-Path ($_.Value.VsSolution)) /p:Config=Release /v:quiet
+            MSBuild.exe (Resolve-Path ($_.Value.VsSolution)) /p:Config=Release /p:TreatWarningsAsErrors=true /v:quiet 
             Migrate $targetProject.Key
             Test $targetProject.Key
         } 
