@@ -1,6 +1,7 @@
 
 choco install brave -yr
 choco install 7zip -yr
+choco install teamviewer
 choco install visualstudio2019community -yr
 choco install visualstudiocode -yr
 choco install nodejs -yr
