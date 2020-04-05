@@ -1,4 +1,5 @@
 
+choco install conemu
 choco install brave -yr
 choco install 7zip -yr
 choco install teamviewer
