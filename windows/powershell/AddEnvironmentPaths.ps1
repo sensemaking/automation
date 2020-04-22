@@ -8,7 +8,9 @@ $paths =
 	"$env:USERPROFILE\AppData\Local\slack\",
 	"${env:programFiles(x86)}\nunit.org\nunit-console\",
 	"${env:programFiles(x86)}\TeamViewer",
-	"$env:programFiles\curl\bin"
+	"$env:programFiles\curl\bin",
+	"${env:programFiles(x86)}\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin",
+	"$env:USERPROFILE\AppData\Local\Postman",
 
 $paths | % {
 	if(-not (($env:path -split ';') -contains $_)) {
