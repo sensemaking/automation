@@ -2,6 +2,8 @@ set-variable -name HOME -value $smHome -force
 (get-psprovider FileSystem).Home = $smHome
 set-location ~
 
+remove-item alias:curl
+
 import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 & $PSScriptRoot\AddEnvironmentPaths.ps1
 & $PSScriptRoot\Projects.ps1
@@ -38,5 +40,3 @@ function prompt {
     $LASTEXITCODE = $origLastExitCode
     "$('>' * ($nestedPromptLevel + 1)) "
 }
-
-remove-item alias:curl
