@@ -12,4 +12,9 @@ choco install visualstudiocode -yr
 choco install nodejs -yr
 choco install yarn -yr
 
+$WshShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ComEmu.lnk")
+$Shortcut.TargetPath = "$env:programFiles\ConEmu\ConEmu64.exe"
+$Shortcut.Save()
+
 Restart-Computer
