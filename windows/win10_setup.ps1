@@ -3,7 +3,7 @@ mkdir $smRoot -force
 
 write-host "`nInstalling chocolatey" -fore yellow
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install git -yr
 
@@ -17,7 +17,7 @@ write-host "`n$sshdirectory\sm_rsa.pub has been generated" -fore green
 write-host "`nAdd the key to your github account" -fore red 
 read-host "`n`nThen press any key"
 
-cd $smRoot
+Set-Location $smRoot
 & "$env:programFiles\Git\usr\bin\ssh-agent.exe" | % {
         if ($_ -match '(?<key>[^=]+)=(?<value>[^;]+);') {
             [void][Environment]::SetEnvironmentVariable($Matches['key'], $Matches['value'])
@@ -27,11 +27,11 @@ ssh-add "$sshdirectory\sm_rsa"
 git clone git@github.com:sensemaking/automation.git
 Stop-Process -Name 'ssh-agent' -ErrorAction SilentlyContinue
 
-cp "$smroot\automation\windows\powershell\*" (split-path $PROFILE) -r
+Copy-Item "$smroot\automation\windows\powershell\*" (split-path $PROFILE) -r
 
-$content = {(gc "$smRoot\automation\windows\powershell\Microsoft.PowerShell_profile.ps1")}.Invoke()
+$content = {(Get-Content "$smRoot\automation\windows\powershell\Microsoft.PowerShell_profile.ps1")}.Invoke()
 $content.Insert(0, "`$smHome = `"$smRoot`"") 
-$content | sc $PROFILE
+$content | Set-Content $PROFILE
 
 write-host "`nSetup Complete. Please edit Project.ps1 found at (Split-Path $PROFILE)" -fore green
 
