@@ -1,6 +1,6 @@
 Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministration\WebAdministration.psd1
-
 $hostsFile = "C:\Windows\System32\drivers\etc\hosts" 
+
 function Add-Host($hostName, $ip = "127.0.0.1") {
     "$ip`t" + "$hostName" | Out-File $hostsFile -Append -Encoding ascii
 }
@@ -27,10 +27,11 @@ function Enable-Tls($name, $hostName) {
         New-SelfSignedCertificate -DnsName $hostName -CertStoreLocation "cert:\LocalMachine\My"
         $sslPath = "IIS:\SslBindings\!443!$hostName"
         $cert = Get-Certificate($hostName)
-        New-Item -Path $sslPath -Value $cert
+        if(!(Test-Path -Path $sslPath)) {
+            New-Item -Path $sslPath -Value $cert
+        }
     } 
 }
-
 
 function Get-Certificate($name) {
     return Get-ChildItem Cert:\LocalMachine\my | ? {$_.Subject -eq "CN=$name"} | Select -First 1
