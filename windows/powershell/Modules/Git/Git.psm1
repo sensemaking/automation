@@ -34,12 +34,7 @@ function Pull ([Project] $project = [Project]::All){
     Set-Location $dir
 }
 
-function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild){
-    if ($message -eq $null){
-        Write-Host Bad developer! Where is your commit message.`n -Fore Red
-        return
-    }
-    
+function Push ([Project] $project = [Project]::None, $message = "_", [Switch] $noBuild){
     function Git-Push($targetProject){
         Write-Host `nCommitting $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory        

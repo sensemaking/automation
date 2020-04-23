@@ -23,7 +23,7 @@ function Update-Automation {
 
   Copy-Item "$automationDir\windows\powershell\modules" (Split-Path $PROFILE) -r -fo
 
-  powershell.exe
+  powershell.exe -nologo
 }
 
 function prompt {
