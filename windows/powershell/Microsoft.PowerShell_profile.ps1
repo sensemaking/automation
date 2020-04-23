@@ -2,19 +2,20 @@ set-variable -name HOME -value $smHome -force
 (get-psprovider FileSystem).Home = $smHome
 set-location ~
 
+remove-item alias:curl
+
 import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 & $PSScriptRoot\AddEnvironmentPaths.ps1
 & $PSScriptRoot\Projects.ps1
 
-(get-projects).GetEnumerator() | Where { [bool]$_.Value.Script } |  % { import-module $_.Value.Script -DisableNameChecking }
+(get-projects).GetEnumerator() | Where-Object { [bool]$_.Value.Script } |  % { import-module $_.Value.Script -DisableNameChecking }
 
 function Edit-Profile { code (Split-Path $PROFILE) }
 
 function Edit-Hosts{ code c:\windows\system32\drivers\etc\hosts }
 
 function Update-Automation { 
-  $automationDir =((get-projects).GetEnumerator() | where { $_.Name -eq "Automation" }).Value.Directory 
-  $profileDir = Join-Path (Split-Path $PROFILE) "Modules"
+  $automationDir =((get-projects).GetEnumerator() | Where-Object { $_.Name -eq "Automation" }).Value.Directory 
   
   if(!(Test-Path $automationDir)){ clone Automation }
 
@@ -38,5 +39,3 @@ function prompt {
     $LASTEXITCODE = $origLastExitCode
     "$('>' * ($nestedPromptLevel + 1)) "
 }
-
-remove-item alias:curl

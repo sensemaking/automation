@@ -27,17 +27,17 @@ Get-AppxPackage *xbox* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *zune* | Remove-AppxPackage -erroraction 'silentlycontinue'
 
 taskkill /f /im OneDrive.exe
-rm $env:userprofile\OneDrive -r -for
+Remove-Item $env:userprofile\OneDrive -r -for
 C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
 
-rm $env:userprofile\Contacts -r -for -erroraction 'silentlycontinue'
-rm $env:userprofile\Favorites -r -for -erroraction 'silentlycontinue'
-rm $env:userprofile\Links -r -for -erroraction 'silentlycontinue'
-rm $env:userprofile\Music -r -for -erroraction 'silentlycontinue'
-rm $env:userprofile\Pictures -r -for -erroraction 'silentlycontinue'
-rm $env:userprofile\Searches -r -for -erroraction 'silentlycontinue'
-rm "$env:userprofile\Saved Games" -r -for -erroraction 'silentlycontinue'
-rm $env:userprofile\Videos -r -for -erroraction 'silentlycontinue'
+Remove-Item $env:userprofile\Contacts -r -for -erroraction 'silentlycontinue'
+Remove-Item $env:userprofile\Favorites -r -for -erroraction 'silentlycontinue'
+Remove-Item $env:userprofile\Links -r -for -erroraction 'silentlycontinue'
+Remove-Item $env:userprofile\Music -r -for -erroraction 'silentlycontinue'
+Remove-Item $env:userprofile\Pictures -r -for -erroraction 'silentlycontinue'
+Remove-Item $env:userprofile\Searches -r -for -erroraction 'silentlycontinue'
+Remove-Item "$env:userprofile\Saved Games" -r -for -erroraction 'silentlycontinue'
+Remove-Item $env:userprofile\Videos -r -for -erroraction 'silentlycontinue'
 
 choco uninstall NetFx4-AdvSrvs -s windowsfeatures -yr
 choco uninstall Printing-Foundation-Features -s windowsfeatures -yr
@@ -48,6 +48,10 @@ choco uninstall MSRDC-Infrastructure -s windowsfeatures -yr
 choco uninstall SMB1Protocol -s windowsfeatures -yr
 choco uninstall WorkFolders-Client -s windowsfeatures -yr
 choco uninstall MediaPlayback -s windowsfeatures -yr
+choco uninstall SmbDirect -s windowsfeatures -yr
+choco uninstall MicrosoftWindowsPowerShellV2Root -s windowsfeatures -yr
+choco uninstall MicrosoftWindowsPowerShellV2 -s windowsfeatures -yr
+choco uninstall Internet-Explorer-Optional-amd64 -s windowsfeatures -yr
 
 Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
