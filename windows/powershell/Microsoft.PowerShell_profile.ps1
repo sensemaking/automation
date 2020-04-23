@@ -10,8 +10,6 @@ import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 
 (get-projects).GetEnumerator() | Where-Object { [bool]$_.Value.Script } |  % { import-module $_.Value.Script -DisableNameChecking }
 
-Clear-Host 
-
 function Edit-Profile { code (Split-Path $PROFILE) }
 
 function Edit-Hosts{ code c:\windows\system32\drivers\etc\hosts }
