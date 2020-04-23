@@ -1,6 +1,5 @@
 $paths = 
 	"$env:programFiles\Git\bin",
-	"$env:programFiles\Git\usr\bin",
 	"$env:programFiles\Microsoft VS Code",
 	"${env:programFiles(x86)}\Google\Chrome\Application\", 
 	"$env:USERPROFILE\AppData\Local\BraveSoftware\Brave-Browser\Application",
