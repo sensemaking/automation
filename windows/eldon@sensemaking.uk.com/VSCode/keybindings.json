@@ -1,0 +1,13 @@
+[
+     { "key": "ctrl+shift+s", "command": "workbench.action.files.saveAll"},
+     { "key": "ctrl+n", "command": "workbench.action.quickOpen"},
+     { "key": "alt+shift+l", "command": "workbench.view.explorer"},
+     { "key": "shift+escape", "command": "workbench.action.toggleSidebarVisibility"},
+     { "key": "alt+c", "command": "workbench.action.closeActiveEditor"},
+     { "key": "alt+a alt+b", "command": "workbench.action.closeOtherEditors" },
+     { "key": "ctrl+b", "command": "editor.action.goToDeclaration" },
+     { "key": "alt+f7", "command": "references-view.find" },
+     { "key": "ctrl+m ctrl+m", "command": "editor.fold" },
+     { "key": "ctrl+m ctrl+u", "command": "editor.unfold" },
+     { "key": "ctrl+m ctrl+o", "command": "editor.foldAll" }
+  ]

@@ -1,0 +1,25 @@
+{
+    "extensions.ignoreRecommendations": false,
+    "telemetry.enableTelemetry": false,
+    "window.zoomLevel": 0,
+    "workbench.tips.enabled": false,
+    "workbench.settings.editor": "json",
+    "explorer.openEditors.visible": 0,
+    "editor.minimap.enabled": false,
+    "search.exclude": {
+        "**/.cache": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+    },
+    "files.watcherExclude": {
+        "**/.cache": true,
+        "**/node_modules": true,
+        "**/.vscode": true,
+    },
+    "files.exclude": {
+        "**/.cache": true,
+        "**/node_modules": true,
+    },
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "editor.codeLens": false
+}

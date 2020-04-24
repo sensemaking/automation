@@ -16,14 +16,6 @@ $WshShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ComEmu.lnk")
 $Shortcut.TargetPath = "$env:programFiles\ConEmu\ConEmu64.exe"
 $Shortcut.Save()
-
-AssociateFileExtensions .txt,.ps1,.psm1,.js "$env:programFiles\Microsoft VS Code\Code.exe"
-
-function AssociateFileExtensions ($Extensions, $OpenAppPath){
-    $Extensions | % {
-        $fileType = (cmd /c "assoc $_").Split("=")[-1]
-        cmd /c "ftype $fileType=""$OpenAppPath"" ""%1"""
-    }
-}
     
+Read-Host "Computer will restart then please run .\automation\windows\win10_install.ps1"
 Restart-Computer
