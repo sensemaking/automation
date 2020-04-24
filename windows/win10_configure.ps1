@@ -20,11 +20,14 @@ function AssociateFileExtensions ($Extensions, $OpenAppPath){
     }
 }
 
-
 $email = read-host `nPlease enter your email address
 
 git config --global user.name $email
 git config --global user.email $email
+
+& ".\$email\VSCode\extensions.ps1"
+
+Copy-Item ".\$email\VSCode\*.json" "$env:userprofile\AppData\Roaming\Code\User"
 
 Restart-Computer
 

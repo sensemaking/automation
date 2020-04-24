@@ -1,3 +1,4 @@
+Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministration\WebAdministration.psd1
 
 choco install conemu -yr
 choco install brave -yr
@@ -11,6 +12,12 @@ choco install nunit -yr
 choco install visualstudiocode -yr
 choco install nodejs -yr
 choco install yarn -yr
+
+Enable-WindowsOptionalFeature -Online -All -FeatureName IIS-WebServerRole
+Enable-WindowsOptionalFeature -Online -All -FeatureName IIS-ASPNET45
+
+Get-ChildItem IIS:\Sites | % { Remove-Website $_.Name }
+Get-ChildItem IIS:\AppPools | % { Remove-WebAppPool $_.Name }
 
 $WshShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ComEmu.lnk")
