@@ -24,6 +24,6 @@ function global:Update-Projects {
 
    pull Automation
  
-   Copy-Item "$automationDir\windows\powershell\ArxProjects.ps1" -Destination "$profileDir\Projects.ps1" -fo
+   Copy-Item "$automationDir\windows\powershell\Projects.ps1" -Destination "$profileDir\Projects.ps1" -fo
    powershell.exe -nologo
 }
