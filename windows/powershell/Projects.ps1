@@ -5,7 +5,7 @@ public enum Project
     None = 0,
     Automation = 1,
     Common = 2,
-    Slumber = 3,
+    Slumber = 4,
     All = Automation + Common + Slumber
 }
 "@
