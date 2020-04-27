@@ -4,13 +4,15 @@ public enum Project
 {
     None = 0,
     Automation = 1,
-    All = Automation + 2
+    Common = 2,
+    All = Automation + Common;
 }
 "@
 
 function global:Get-Projects {
     return @{ 
         [Project]::Automation = [PSCustomObject]@{ Git = "git@github.com:sensemaking/automation.git"; Directory = "~\automation"; Script = $null; VsSolution = $null; CodeSolution = "~\automation"; HasJs = $false; };
+        [Project]::Common = [PSCustomObject]@{ Git = "git@github.com:sensemaking/common.git"; Directory = "~\common"; Script = $null; VsSolution = "Common.sln"; CodeSolution = $null; HasJs = $false; };
     }
 }
 
