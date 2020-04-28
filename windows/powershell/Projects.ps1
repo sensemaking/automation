@@ -10,7 +10,7 @@ public enum Project
     Web = 16,
     Slumber = 32,
     Core = 64,
-    All = Automation + Common + Slumber
+    All = Automation + Common + Slumber + Persistence + Messaging + Web + Core
 }
 "@
 

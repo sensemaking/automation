@@ -22,6 +22,12 @@ function AssociateFileExtensions ($Extensions, $OpenAppPath){
 
 $email = read-host `nPlease enter your email address
 
+write-host "`nCreate a personal access token on github with all repo, and :packages permissions" -fore yellow
+$token = read-host `nPlease enter your personal access token here
+$username = rea-host `nPlease enter your GitHub username
+
+dotnet nuget add source https://nuget.pkg.github.com/sensemaking/index.json -n GitHub -u $username -p $token --store-password-in-clear-text
+
 git config --global user.name $email
 git config --global user.email $email
 
