@@ -105,7 +105,7 @@ function Test ([Project] $project = [Project]::All){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nRunning .NET Tests $targetProject.Key `n -Fore Green
             Set-Location $_.Value.Directory
-            nunit3-console.exe (Get-ChildItem *Testing*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Nancy*' -and $_.FullName -notlike '*Builders*'}) --noresult --noheader
+            nunit3-console.exe (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --noresult --noheader
             BreakOnFailure $dir 'Testing Failed'
         }
         
