@@ -57,7 +57,7 @@ function Build ([Project] $project = [Project]::All){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nBuilding .NET $targetProject.Key `n -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)
-            dotnet build --configuration Release -nologo --verbosity q
+            dotnet build --configuration Release -nologo --verbosity q -warnAsError
             BreakOnFailure $dir '**************** Build Failed ****************'
         }         
 
@@ -105,7 +105,7 @@ function Test ([Project] $project = [Project]::All){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nRunning .NET Tests $targetProject.Key `n -Fore Green
             Set-Location $_.Value.Directory
-            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --nologo --verbosity q -err
+            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --nologo --verbosity q
             BreakOnFailure $dir 'Testing Failed'
         }
         
