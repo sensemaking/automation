@@ -105,7 +105,7 @@ function Test ([Project] $project = [Project]::All){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nRunning .NET Tests $targetProject.Key `n -Fore Green
             Set-Location $_.Value.Directory
-            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --noresult --noheader
+            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) 
             BreakOnFailure $dir 'Testing Failed'
         }
         
