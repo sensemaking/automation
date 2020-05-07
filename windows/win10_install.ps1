@@ -11,6 +11,7 @@ choco install visualstudiocode -yr
 choco install nodejs -yr
 choco install yarn -yr
 choco install dotnetcore-sdk -yr
+choco install azure-cli -yr
 
 Enable-WindowsOptionalFeature -Online -All -FeatureName IIS-WebServerRole
 Enable-WindowsOptionalFeature -Online -All -FeatureName IIS-ASPNET45
