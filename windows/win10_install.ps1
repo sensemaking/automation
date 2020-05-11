@@ -6,12 +6,13 @@ choco install 7zip -yr
 choco install teamviewer -yr
 choco install slack -yr
 choco install visualstudio2019community -yr
-choco install postman -yr
 choco install visualstudiocode -yr
-choco install nodejs -yr
-choco install yarn -yr
 choco install dotnetcore-sdk -yr
 choco install azure-cli -yr
+choco install sqllocaldb -yr
+choco install nodejs -yr
+choco install yarn -yr
+choco install postman -yr
 
 Enable-WindowsOptionalFeature -Online -All -FeatureName IIS-WebServerRole
 Enable-WindowsOptionalFeature -Online -All -FeatureName IIS-ASPNET45
