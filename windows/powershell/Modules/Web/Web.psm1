@@ -6,8 +6,8 @@ function Add-Host($hostName, $ip = "127.0.0.1") {
 }
 
 function Add-Site($name, $port, $path, $hostName){
-    Remove-Website $name -ErrorAction SilentlyContinue
-    Remove-WebAppPool $name -ErrorAction SilentlyContinue
+    Remove-Website $name
+    Remove-WebAppPool $name
     Remove-Certificate $name
 
     $appPool = New-WebAppPool $name -force
@@ -17,7 +17,7 @@ function Add-Site($name, $port, $path, $hostName){
 	
     New-Website -Name $name -Port $port -PhysicalPath $path -ApplicationPool $name -HostHeader $hostName | Out-Null
 
-    #Enable-Tls $name $hostName
+    Enable-Tls $name $hostName
 }
 
 function Enable-Tls($name, $hostName) {    
