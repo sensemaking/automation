@@ -25,11 +25,11 @@ function Enable-Tls($name, $hostName) {
 
     if((Get-Certificate($hostName)) -eq $null){
         New-SelfSignedCertificate -DnsName $hostName -CertStoreLocation "cert:\LocalMachine\My"
-        $sslPath = "IIS:\SslBindings\!443!$hostName"
-        $cert = Get-Certificate($hostName)
-        if(!(Test-Path -Path $sslPath)) {
-            New-Item -Path $sslPath -Value $cert
-        }
+        #$sslPath = "IIS:\SslBindings\!443!$hostName"
+        #$cert = Get-Certificate($hostName)
+        #if(!(Test-Path -Path $sslPath)) {
+        #    New-Item -Path $sslPath -Value $cert
+        #}
     } 
 }
 
