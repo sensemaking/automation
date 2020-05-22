@@ -57,7 +57,7 @@ function Build ([Project] $project = [Project]::All){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nBuilding .NET $targetProject.Key -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)
-            dotnet build --configuration Release -nologo --verbosity q -warnAsError
+            dotnet build $solutionPath --configuration Release -nologo --verbosity q -warnAsError
             BreakOnFailure $dir '**************** Build Failed ****************'
         }         
 
