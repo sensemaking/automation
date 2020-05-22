@@ -14,7 +14,7 @@ function Add-Site($name, $port, $path, $hostName){
 }
 
 function Add-Host($hostName, $ip = "127.0.0.1") {
-    "$ip`t$hostName" | Out-File C:\Windows\System32\drivers\etc\hosts -Append -Encoding ascii
+    "`r`n$ip`t$hostName" | Out-File C:\Windows\System32\drivers\etc\hosts -Append -NoNewLine -Encoding ascii
 }
 
 function Add-AppPool($name) {    
