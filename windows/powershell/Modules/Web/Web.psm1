@@ -17,7 +17,7 @@ function Add-Site($name, $port, $path, $hostName){
 	
     New-Website -Name $name -Port $port -PhysicalPath $path -ApplicationPool $name -HostHeader $hostName | Out-Null
 
-    Enable-Tls $name $hostName
+    #Enable-Tls $name $hostName
 }
 
 function Enable-Tls($name, $hostName) {    
