@@ -25,6 +25,7 @@ function Enable-Tls($name, $hostName) {
 
     if((Get-Certificate($hostName)) -eq $null){
         $cert = New-SelfSignedCertificate -DnsName $hostName -CertStoreLocation "cert:\LocalMachine\My"
+        $binding = Get-WebBinding -Name $name -Protocol https
         $binding.AddSslCertificate($cert.GetCertHashString(), "my")
         #$sslPath = "IIS:\SslBindings\!443!$hostName"
         #$cert = Get-Certificate($hostName)
