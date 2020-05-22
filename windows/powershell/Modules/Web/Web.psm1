@@ -21,10 +21,11 @@ function Add-Site($name, $port, $path, $hostName){
 
 function Enable-Tls($name, $hostName) {
     $port = 443
-    New-WebBinding -Name $name -IP "*" -Port $port -Protocol https -HostHeader $hostName 
+    $binding = New-WebBinding -Name $name -IP "*" -Port $port -Protocol https -HostHeader $hostName 
 
     if((Get-Certificate($hostName)) -eq $null){
-        New-SelfSignedCertificate -DnsName $hostName -CertStoreLocation "cert:\LocalMachine\My"
+        $cert = New-SelfSignedCertificate -DnsName $hostName -CertStoreLocation "cert:\LocalMachine\My"
+        $binding.AddSslCertificate($cert.GetCertHashString(), "my")
         #$sslPath = "IIS:\SslBindings\!443!$hostName"
         #$cert = Get-Certificate($hostName)
         #if(!(Test-Path -Path $sslPath)) {
