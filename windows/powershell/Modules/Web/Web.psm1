@@ -6,8 +6,8 @@ function Add-Host($hostName, $ip = "127.0.0.1") {
 }
 
 function Add-Site($name, $port, $path, $hostName){
-    Remove-Website $name
-    Remove-WebAppPool $name
+    Remove-Website $name -ErrorAction SilentlyContinue
+    Remove-WebAppPool $name -ErrorAction SilentlyContinue
     Remove-Certificate $name
 
     $appPool = New-WebAppPool $name -force
