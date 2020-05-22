@@ -16,6 +16,8 @@ function Add-Site($name, $port, $path, $hostName){
     $appPool | Set-Item
 	
     New-Website -Name $name -Port $port -PhysicalPath $path -ApplicationPool $name -HostHeader $hostName | Out-Null
+
+    Enable-Tls($name, $hostName)
 }
 
 function Enable-Tls($name, $hostName) {    
@@ -31,4 +33,3 @@ function Remove-Certificate($name) {
 
 Export-ModuleMember -function Add-Host
 Export-ModuleMember -function Add-Site
-Export-ModuleMember -function Enable-Tls
