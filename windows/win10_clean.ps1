@@ -53,5 +53,5 @@ choco uninstall MicrosoftWindowsPowerShellV2Root -s windowsfeatures -yr
 choco uninstall MicrosoftWindowsPowerShellV2 -s windowsfeatures -yr
 choco uninstall Internet-Explorer-Optional-amd64 -s windowsfeatures -yr
 
-Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
+Read-Host "Computer will restart then please run .\automation\windows\win10_install.ps1"
 Restart-Computer

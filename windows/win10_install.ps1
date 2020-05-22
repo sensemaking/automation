@@ -25,5 +25,5 @@ $Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\AppData\Roaming\Microsoft
 $Shortcut.TargetPath = "$env:programFiles\ConEmu\ConEmu64.exe"
 $Shortcut.Save()
     
-Read-Host "Computer will restart then please run .\automation\windows\win10_install.ps1"
+Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
