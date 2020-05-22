@@ -2,7 +2,7 @@ Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministrati
 
 function Add-Site($name, $port, $path, $hostName){
     #(Get-Content -path C:\Windows\System32\drivers\etc\hosts -Raw) -replace "127.0.0.1`tupredict.api.local`r`n",""
-    Remove-Host $name
+    # Remove-Host $name
     Remove-Website $name -ErrorAction SilentlyContinue
     Remove-WebAppPool $name -ErrorAction SilentlyContinue
     Remove-Certificate $name
