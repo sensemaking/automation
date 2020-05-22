@@ -21,7 +21,7 @@ function Add-Site($name, $port, $path, $hostName){
 }
 
 function Enable-Tls($name, $hostName) {    
-    New-WebBinding -Name $name -IP "*" -Port 443 -Protocol https -HostHeader $hostName 
+    New-WebBinding -Name $name -IP "*" -Port "443" -Protocol https -HostHeader $hostName 
     $cert = New-SelfSignedCertificate -DnsName $hostName -CertStoreLocation "cert:\LocalMachine\My"
     $binding = Get-WebBinding -Name $name -Protocol https
     $binding.AddSslCertificate($cert.GetCertHashString(), "my")
