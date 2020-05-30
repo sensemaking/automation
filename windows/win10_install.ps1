@@ -1,3 +1,4 @@
+
 Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministration\WebAdministration.psd1
 
 choco install conemu -yr
@@ -10,6 +11,7 @@ choco install visualstudiocode -yr
 choco install dotnetcore-sdk -yr
 choco install azure-cli -yr
 choco install sqllocaldb -yr
+choco install sql-server-2019-cumulative-update -yr
 choco install sql-server-management-studio -yr
 choco install nodejs -yr
 choco install yarn -yr
