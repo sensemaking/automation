@@ -11,7 +11,7 @@ choco install visualstudiocode -yr
 choco install dotnetcore-sdk -yr
 choco install azure-cli -yr
 choco install sqllocaldb -yr
-choco install sql-server-2019-cumulative-update -yr
+choco install sql-server-2017-cumulative-update -yr
 choco install sql-server-management-studio -yr
 choco install nodejs -yr
 choco install yarn -yr
