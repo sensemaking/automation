@@ -2,7 +2,7 @@ Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministrati
 
 function Add-LocalDb($dbName){
     if((SqlLocalDB.exe info) -contains $dbName) {
-        SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id($dbName) null) drop database $dbName"
+        SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id($dbName) is not null) drop database $dbName"
         SqlLocalDB.exe stop $dbName 
         SqlLocalDB.exe delete $dbName 
     }
