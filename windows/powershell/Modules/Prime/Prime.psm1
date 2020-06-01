@@ -48,4 +48,4 @@ function Remove-Certificate($name) {
 }
 
 Export-ModuleMember -function Add-Site
-Export-ModuleMember -function Add-LocalDbInstance
+Export-ModuleMember -function Add-LocalDb
