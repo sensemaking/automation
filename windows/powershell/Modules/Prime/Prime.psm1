@@ -9,6 +9,7 @@ function Add-LocalDbInstance($dbName){
     SqlLocalDB.exe create $dbName
     SqlLocalDB.exe start $dbName
     SqlLocalDB.exe share $dbName $dbName
+    SqlLocalDB.exe stop $dbName
 }
 
 function Add-Site($name, $port, $path, $hostName){
