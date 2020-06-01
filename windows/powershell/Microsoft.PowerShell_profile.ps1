@@ -10,6 +10,8 @@ import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 
 (get-projects).GetEnumerator() | Where-Object { [bool]$_.Value.Script } |  % { import-module $_.Value.Script -DisableNameChecking }
 
+Ssh-SignIn
+
 function Edit-Profile { code (Split-Path $PROFILE) }
 
 function Edit-Hosts{ code c:\windows\system32\drivers\etc\hosts }
@@ -21,7 +23,7 @@ function Update-Automation {
 
   pull Automation
 
-  Remove-Item "$automationDir\windows\powershell\modules" (Split-Path $PROFILE) -r -fo
+  Remove-Item "$(Split-Path $PROFILE)\Modules\*" -r -for
   Copy-Item "$automationDir\windows\powershell\modules" (Split-Path $PROFILE) -r -fo
 
   powershell.exe -nologo
