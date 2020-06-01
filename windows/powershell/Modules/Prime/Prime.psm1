@@ -1,5 +1,16 @@
 Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministration\WebAdministration.psd1
 
+function Add-LocalDbInstance($dbName){
+    if((SqlLocalDB.exe info) -contains $dbName) {
+        SqlLocalDB.exe stop $dbName 
+        SqlLocalDB.exe delete $dbName 
+    }
+    
+    SqlLocalDB.exe create $dbName
+    SqlLocalDB.exe start $dbName
+    SqlLocalDB.exe share $dbName $db
+}
+
 function Add-Site($name, $port, $path, $hostName){
     Remove-Website $name -ErrorAction SilentlyContinue
     Remove-WebAppPool $name -ErrorAction SilentlyContinue
@@ -33,3 +44,4 @@ function Remove-Certificate($name) {
 }
 
 Export-ModuleMember -function Add-Site
+Export-ModuleMember -function Add-LocalDbInstance
