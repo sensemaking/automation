@@ -11,9 +11,9 @@ function Add-LocalDb($dbName){
     SqlLocalDB.exe start $dbName
     SqlLocalDB.exe share $dbName $dbName
 
-    #Write-host $PSScriptRoot
-    #mkdir "$PSScriptRoot\.db"
-    #SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id($dbName) is null) create database $dbName on ( NAME=$dbName, FILENAME = '$PSScriptRoot\.db\$dbName.mdf' ) log on ( NAME=${dbName}Log, FILENAME = '$PSScriptRoot\.db\$dbName.ldf' )"
+    Write-host $PSScriptRoot
+    mkdir "$PSScriptRoot\.db"
+    SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id($dbName) is null) create database $dbName on ( NAME=$dbName, FILENAME = '$PSScriptRoot\.db\$dbName.mdf' ) log on ( NAME=${dbName}Log, FILENAME = '$PSScriptRoot\.db\$dbName.ldf' )"
     
     SqlLocalDB.exe stop $dbName
 }
