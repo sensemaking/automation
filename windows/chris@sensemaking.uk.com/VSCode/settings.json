@@ -6,6 +6,8 @@
     "workbench.settings.editor": "json",
     "explorer.openEditors.visible": 0,
     "editor.minimap.enabled": false,
+    "editor.codeLens": false,
+    "breadcrumbs.enabled": false,
     "search.exclude": {
         "**/.cache": true,
         "**/node_modules": true,
@@ -20,6 +22,5 @@
         "**/.cache": true,
         "**/node_modules": true,
     },
-    "javascript.updateImportsOnFileMove.enabled": "never",
-    "editor.codeLens": false
+    "javascript.updateImportsOnFileMove.enabled": "never"
 }

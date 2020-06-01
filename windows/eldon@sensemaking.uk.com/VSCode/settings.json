@@ -7,6 +7,7 @@
     "explorer.openEditors.visible": 0,
     "editor.minimap.enabled": false,
     "editor.codeLens": false,
+    "breadcrumbs.enabled": false,
     "search.exclude": {
         "**/.cache": true,
         "**/node_modules": true,
