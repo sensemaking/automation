@@ -2,6 +2,7 @@ Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministrati
 
 function Add-LocalDb($dbName){
     if((SqlLocalDB.exe info) -contains $dbName) {
+        SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id($dbName) null) drop database $dbName"
         SqlLocalDB.exe stop $dbName 
         SqlLocalDB.exe delete $dbName 
     }
@@ -10,8 +11,10 @@ function Add-LocalDb($dbName){
     SqlLocalDB.exe start $dbName
     SqlLocalDB.exe share $dbName $dbName
 
-    SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id($dbName) is null) create database $dbName"
-
+    #Write-host $PSScriptRoot
+    #mkdir "$PSScriptRoot\.db"
+    #SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id($dbName) is null) create database $dbName on ( NAME=$dbName, FILENAME = '$PSScriptRoot\.db\$dbName.mdf' ) log on ( NAME=${dbName}Log, FILENAME = '$PSScriptRoot\.db\$dbName.ldf' )"
+    
     SqlLocalDB.exe stop $dbName
 }
 
