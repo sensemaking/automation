@@ -10,7 +10,7 @@ function Add-LocalDb($dbName){
     SqlLocalDB.exe start $dbName
     SqlLocalDB.exe share $dbName $dbName
 
-    SQLCMD.exe -S "(localdb)\$dbName" -E -Q "create database $dbName"
+    SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id($dbName) is null) create database $dbName"
 
     SqlLocalDB.exe stop $dbName
 }
