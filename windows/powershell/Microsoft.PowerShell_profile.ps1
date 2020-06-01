@@ -26,6 +26,7 @@ function Update-Automation {
   Remove-Item "$(Split-Path $PROFILE)\Modules\*" -r -for
   Copy-Item "$automationDir\windows\powershell\modules" (Split-Path $PROFILE) -r -fo
 
+  Write-Host "`nUpdated automation scripts. Reloading shell`n"
   powershell.exe -nologo
 }
 
