@@ -1,8 +1,6 @@
 Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministration\WebAdministration.psd1
 
 function Add-LocalDb($dbName, $location){
-    Remove-Item $location\* -r -for
-
     if((SqlLocalDB.exe info) -contains $dbName) {
         SqlLocalDB.exe stop $dbName 
         SqlLocalDB.exe delete $dbName 
@@ -13,6 +11,7 @@ function Add-LocalDb($dbName, $location){
     SqlLocalDB.exe share $dbName $dbName
 
     mkdir $location -ErrorAction SilentlyContinue
+    Remove-Item $location\* -for
     SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id('$dbName') is null) create database $dbName on ( NAME=$dbName, FILENAME = '$location\$dbName.mdf' ) log on ( NAME=${dbName}Log, FILENAME = '$location\$dbName.ldf' )"
     
     SqlLocalDB.exe stop $dbName
