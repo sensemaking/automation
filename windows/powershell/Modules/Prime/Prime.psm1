@@ -9,6 +9,9 @@ function Add-LocalDbInstance($dbName){
     SqlLocalDB.exe create $dbName
     SqlLocalDB.exe start $dbName
     SqlLocalDB.exe share $dbName $dbName
+
+    SQLCMD.exe -S "(localdb)\$dbName" -E -Q "create database $dbName"
+
     SqlLocalDB.exe stop $dbName
 }
 
