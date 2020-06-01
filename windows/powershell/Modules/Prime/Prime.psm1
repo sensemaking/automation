@@ -1,8 +1,9 @@
 Import-Module C:\Windows\System32\WindowsPowerShell\v1.0\Modules\WebAdministration\WebAdministration.psd1
 
 function Add-LocalDb($dbName, $location){
+    Remove-Item $location\* -r -for
+
     if((SqlLocalDB.exe info) -contains $dbName) {
-        Remove-Item $location\* -r -for
         SqlLocalDB.exe stop $dbName 
         SqlLocalDB.exe delete $dbName 
     }
