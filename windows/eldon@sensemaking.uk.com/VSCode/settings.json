@@ -26,5 +26,8 @@
     "vim.handleKeys": {
         "<C-c>": false,
         "<C-v>": false
+    },    
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
