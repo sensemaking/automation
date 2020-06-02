@@ -10,7 +10,7 @@ function Add-LocalDb($dbName, $location){
     SqlLocalDB.exe start $dbName
     SqlLocalDB.exe share $dbName $dbName
 
-    Remove-Item $location -r -for -ErrorAction SilentlyContinue
+    Remove-Item $location -r -for -ErrorAction SilentlyContinue 
     mkdir $location > $null
     SQLCMD.exe -S "(localdb)\$dbName" -E -Q "if(db_id('$dbName') is null) create database $dbName on ( NAME=$dbName, FILENAME = '$location\$dbName.mdf' ) log on ( NAME=${dbName}Log, FILENAME = '$location\$dbName.ldf' )"
     
