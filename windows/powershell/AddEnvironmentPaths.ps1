@@ -7,6 +7,7 @@ $paths =
 	"$env:programFiles\Git\bin",
 	"$env:programFiles\Microsoft VS Code",
 	"${env:programFiles(x86)}\Microsoft Visual Studio\2019\Community\Common7\IDE",
+	"$env:programFiles\Azure Data Studio",
 	"$env:USERPROFILE\AppData\Local\Postman",
 	"$env:winDir\System32\inetsrv"
 
