@@ -65,7 +65,7 @@ function Build ([Project] $project = [Project]::All){
             Write-Host `nBuilding JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution         
             yarn          
-            yarn run static:build
+            yarn run build
             BreakOnFailure $dir '**************** Javascript Build Failed ****************'
         }
 
@@ -113,7 +113,7 @@ function Test ([Project] $project = [Project]::All){
             Write-Host `nRunning JavaScript Tests $targetProject.Key `n -Fore Green
             $dir = Get-Location
             Set-Location $_.Value.CodeSolution
-            yarn run static:test
+            yarn run test
             BreakOnFailure $dir 'Javascript Testing Failed'
         }
 
