@@ -12,15 +12,21 @@
         "**/.cache": true,
         "**/node_modules": true,
         "**/.vscode": true,
+        "**/build": true,
+        "**/dist": true
     },
     "files.watcherExclude": {
         "**/.cache": true,
         "**/node_modules": true,
         "**/.vscode": true,
+        "**/build": true,
+        "**/dist": true
     },
     "files.exclude": {
         "**/.cache": true,
         "**/node_modules": true,
+        "**/build": true,
+        "**/dist": true
     },
     "javascript.updateImportsOnFileMove.enabled": "never",
     "[html]": {
