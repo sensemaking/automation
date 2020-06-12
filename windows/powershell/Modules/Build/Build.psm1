@@ -57,7 +57,9 @@ function Build ([Project] $project = [Project]::All){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nBuilding .NET $targetProject.Key -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)
-            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --nologo --verbosity m
+            dotnet build $solutionPath --configuration Release -nologo --verbosity q -warnAsError
+            Migrate
+            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --nologo --verbosity m --no-build
             BreakOnFailure $dir '**************** Build Failed ****************'
         }         
 
@@ -66,11 +68,6 @@ function Build ([Project] $project = [Project]::All){
             Set-Location $_.Value.CodeSolution         
             yarn run test
             BreakOnFailure $dir '**************** Javascript Build Failed ****************'
-        }
-
-        if($_.Value.VsSolution -ne $null -Or $_.Value.CodeSolution -ne $null) {
-            Migrate $targetProject.Key
-            Test $targetProject.Key
         }
 
         Set-Location $dir
@@ -95,31 +92,6 @@ function Migrate ([Project] $project = [Project]::All){
     }
 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Migrate-Project $_ }
-}
-
-function Test ([Project] $project = [Project]::All){
-    function Test-Project($targetProject){
-        $dir = Get-Location
-
-        if ($_.Value.VsSolution -ne $null) { 
-            Write-Host `nRunning .NET Tests $targetProject.Key `n -Fore Green
-            Set-Location $_.Value.Directory
-            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --nologo --verbosity m
-            BreakOnFailure $dir 'Testing Failed'
-        }
-        
-        if ($_.Value.HasJs) {
-            Write-Host `nRunning JavaScript Tests $targetProject.Key `n -Fore Green
-            $dir = Get-Location
-            Set-Location $_.Value.CodeSolution
-            yarn run test
-            BreakOnFailure $dir 'Javascript Testing Failed'
-        }
-
-        Set-Location $dir
-    }
-
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Test-Project $_ }
 }
 
 function Watch([Project] $project = [Project]::All) {
