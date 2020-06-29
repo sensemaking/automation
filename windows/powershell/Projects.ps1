@@ -23,7 +23,7 @@ function global:Get-Projects {
         [Project]::Persistence = [PSCustomObject]@{ Git = "git@github.com:sensemaking/persistence.git"; Directory = "~\persistence"; Script = $null; VsSolution = "~\persistence\Persistence.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Messaging = [PSCustomObject]@{ Git = "git@github.com:sensemaking/messaging.git"; Directory = "~\messaging"; Script = $null; VsSolution = "~\messaging\Messaging.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Web = [PSCustomObject]@{ Git = "git@github.com:sensemaking/web.git"; Directory = "~\web"; Script = $null; VsSolution = $null; CodeSolution = "~\web\js\core"; HasJs = $true; };
-        [Project]::uPredict = [PSCustomObject]@{ Git = "git@github.com:sensemaking/uPredict.git"; Directory = "~\uPredict"; Script = $null; VsSolution = "~\uPredict\Api\Api.sln"; CodeSolution = "~\uPredict\Web"; HasJs = $false; };
+        [Project]::uPredict = [PSCustomObject]@{ Git = "git@github.com:sensemaking/uPredict.git"; Directory = "~\uPredict"; Script = $null; VsSolution = "~\uPredict\Api\Api.sln"; CodeSolution = "~\uPredict\web"; HasJs = $false; };
         [Project]::MobKata = [PSCustomObject]@{ Git = "git@github.com:sensemaking/MobKata.git"; Directory = "~\MobKata"; Script = $null; VsSolution = "~\MobKata\MobKata.sln"; CodeSolution = $null; HasJs = $false; };
     }
 }
