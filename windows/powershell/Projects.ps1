@@ -6,12 +6,11 @@ public enum Project
     Automation = 1,
     Common = 2,
     Persistence = 4,
-    Messaging = 8,
-    Web = 16,
-    uPredict = 32,
-    Core = 64,
-    MobKata = 128,
-    All = Automation + Common + Core + Persistence + Messaging + Web + uPredict + MobKata
+    Web = 8,
+    uPredict = 16,
+    Core = 32,
+    MobKata = 64,
+    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata
 }
 "@
 
@@ -21,7 +20,6 @@ function global:Get-Projects {
         [Project]::Common = [PSCustomObject]@{ Git = "git@github.com:sensemaking/common.git"; Directory = "~\common"; Script = $null; VsSolution = "~\common\Common.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Core = [PSCustomObject]@{ Git = "git@github.com:sensemaking/core.git"; Directory = "~\core"; Script = $null; VsSolution = "~\core\Core.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Persistence = [PSCustomObject]@{ Git = "git@github.com:sensemaking/persistence.git"; Directory = "~\persistence"; Script = $null; VsSolution = "~\persistence\Persistence.sln"; CodeSolution = $null; HasJs = $false; };
-        [Project]::Messaging = [PSCustomObject]@{ Git = "git@github.com:sensemaking/messaging.git"; Directory = "~\messaging"; Script = $null; VsSolution = "~\messaging\Messaging.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Web = [PSCustomObject]@{ Git = "git@github.com:sensemaking/web.git"; Directory = "~\web"; Script = $null; VsSolution = "~\web\.net\Web.sln"; CodeSolution = "~\web\js\core"; HasJs = $true; };
         [Project]::uPredict = [PSCustomObject]@{ Git = "git@github.com:sensemaking/uPredict.git"; Directory = "~\uPredict"; Script = $null; VsSolution = "~\uPredict\Api\Api.sln"; CodeSolution = "~\uPredict\web"; HasJs = $false; };
         [Project]::MobKata = [PSCustomObject]@{ Git = "git@github.com:sensemaking/MobKata.git"; Directory = "~\MobKata"; Script = $null; VsSolution = "~\MobKata\MobKata.sln"; CodeSolution = $null; HasJs = $false; };
