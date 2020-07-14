@@ -60,7 +60,7 @@ function Build ([Project] $project = [Project]::All){
             dotnet build $solutionPath --configuration Release -nologo --verbosity q -warnAsError
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate
-            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --nologo --verbosity m --no-build
+            dotnet test (Get-ChildItem *Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --nologo --verbosity m
             BreakOnFailure $dir '**************** Build Failed ****************'
         }         
 
