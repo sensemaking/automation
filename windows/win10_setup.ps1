@@ -23,7 +23,8 @@ Set-Location $smRoot
             [void][Environment]::SetEnvironmentVariable($Matches['key'], $Matches['value'])
         }
     }
-ssh-add "$sshdirectory\sm_rsa"
+& "$env:programFiles\Git\usr\bin\ssh-add" "$sshdirectory\sm_rsa"
+
 git clone git@github.com:sensemaking/automation.git
 Stop-Process -Name 'ssh-agent' -ErrorAction SilentlyContinue
 
