@@ -14,12 +14,10 @@ Get-AppxPackage *office* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *oneconnect* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *people* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *phone* | Remove-AppxPackage -erroraction 'silentlycontinue'
-Get-AppxPackage *photo* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *skype* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *solit* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *soundrec* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *sticky* | Remove-AppxPackage -erroraction 'silentlycontinue'
-Get-AppxPackage *store* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *tunein* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *twitter* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *windowsmaps* | Remove-AppxPackage -erroraction 'silentlycontinue'
@@ -29,15 +27,6 @@ Get-AppxPackage *zune* | Remove-AppxPackage -erroraction 'silentlycontinue'
 taskkill /f /im OneDrive.exe
 Remove-Item $env:userprofile\OneDrive -r -for
 C:\Windows\SysWOW64\OneDriveSetup.exe /uninstall
-
-Remove-Item $env:userprofile\Contacts -r -for -erroraction 'silentlycontinue'
-Remove-Item $env:userprofile\Favorites -r -for -erroraction 'silentlycontinue'
-Remove-Item $env:userprofile\Links -r -for -erroraction 'silentlycontinue'
-Remove-Item $env:userprofile\Music -r -for -erroraction 'silentlycontinue'
-Remove-Item $env:userprofile\Pictures -r -for -erroraction 'silentlycontinue'
-Remove-Item $env:userprofile\Searches -r -for -erroraction 'silentlycontinue'
-Remove-Item "$env:userprofile\Saved Games" -r -for -erroraction 'silentlycontinue'
-Remove-Item $env:userprofile\Videos -r -for -erroraction 'silentlycontinue'
 
 choco uninstall NetFx4-AdvSrvs -s windowsfeatures -yr
 choco uninstall Printing-Foundation-Features -s windowsfeatures -yr
