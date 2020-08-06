@@ -10,7 +10,8 @@ public enum Project
     uPredict = 16,
     Core = 32,
     MobKata = 64,
-    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata
+    PopulationHealth = 128,
+    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationHealth
 }
 "@
 
@@ -23,6 +24,7 @@ function global:Get-Projects {
         [Project]::Web = [PSCustomObject]@{ Git = "git@github.com:sensemaking/web.git"; Directory = "~\web"; Script = $null; VsSolution = "~\web\.net\Web.sln"; CodeSolution = "~\web\js\core"; HasJs = $true; };
         [Project]::uPredict = [PSCustomObject]@{ Git = "git@github.com:sensemaking/uPredict.git"; Directory = "~\uPredict"; Script = $null; VsSolution = "~\uPredict\Api\Api.sln"; CodeSolution = "~\uPredict\web"; HasJs = $false; };
         [Project]::MobKata = [PSCustomObject]@{ Git = "git@github.com:sensemaking/MobKata.git"; Directory = "~\MobKata"; Script = $null; VsSolution = "~\MobKata\MobKata.sln"; CodeSolution = $null; HasJs = $false; };
+        [Project]::PopulationHealth = [PSCustomObject]@{ Git = "git@github.com:sensemaking/population-health.git"; Directory = "~\population-health"; Script = $null; VsSolution = "~\population-health\population-health.sln"; CodeSolution = $null; HasJs = $false; };
     }
 }
 
