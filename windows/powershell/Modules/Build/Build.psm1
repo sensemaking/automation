@@ -26,6 +26,20 @@ function Prime ([Project] $project){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
 }
 
+function Run([Project] $project) {
+
+    function Run-Host($targetProject){
+        if (Test-Path "$($_.Value.Directory)\Host"){
+            dotnet run --project (Resolve-Path "$($_.Value.Directory)\Host\Host.csproj")
+        }
+        else {
+            Write-Host "Solution does not contain a host to run."
+        }
+    }
+
+    (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Run-Host $_ }
+}
+
 function Open ([Project] $project = [Project]::None, [Switch] $noBuild){
     function Open-Project($targetProject){
        
