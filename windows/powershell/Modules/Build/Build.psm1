@@ -30,6 +30,9 @@ function Run([Project] $project) {
 
     function Run-Host($targetProject){
         if (Test-Path "$($_.Value.Directory)\Host"){
+
+            if (!$noBuild) { Build $targetProject.Key }
+            Write-Host `nRunning $_.Key host
             dotnet run --project (Resolve-Path "$($_.Value.Directory)\Host\Host.csproj")
         }
         else {
