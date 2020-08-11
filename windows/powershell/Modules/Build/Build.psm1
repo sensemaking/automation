@@ -14,6 +14,7 @@ function GoTo ([Project] $project){
 function Prime ([Project] $project){
     function Prime-Project($targetProject){
             if(Test-Path "$($_.Value.Directory)\primer.ps1") {
+                pull $targetProject.Key
                 Write-Host "`nRunning $($targetProject.Key) Primer`n" -ForegroundColor Green
                 & "$($_.Value.Directory)\primer.ps1"
                 Write-Host "`n$($targetProject.Key) Primed & Ready To Go`n" -ForegroundColor Green
