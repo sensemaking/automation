@@ -11,8 +11,8 @@ public enum Project
     Core = 32,
     MobKata = 64,
     PopulationHealth = 128,
-    FdbProvisioning = 256,
-    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationHealth + FdbProvisioning
+    Provisioning = 256,
+    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationHealth + Provisioning
 }
 "@
 
@@ -26,7 +26,7 @@ function global:Get-Projects {
         [Project]::uPredict = [PSCustomObject]@{ Git = "git@github.com:sensemaking/uPredict.git"; Directory = "~\uPredict"; Script = $null; VsSolution = "~\uPredict\Api\Api.sln"; CodeSolution = "~\uPredict\web"; HasJs = $false; };
         [Project]::MobKata = [PSCustomObject]@{ Git = "git@github.com:sensemaking/MobKata.git"; Directory = "~\MobKata"; Script = $null; VsSolution = "~\MobKata\MobKata.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::PopulationHealth = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-population-health.git"; Directory = "~\fdb-population-health"; Script = $null; VsSolution = "~\fdb-population-health\PopulationHealth.sln"; CodeSolution = $null; HasJs = $false; };
-        [Project]::FdbProvisioning = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-provisioning.git"; Directory = "~\fdb-rx-provisioning"; Script = $null; VsSolution = $null; CodeSolution = "~\fdb-rx-provisioning"; HasJs = $false; };
+        [Project]::Provisioning = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-provisioning.git"; Directory = "~\fdb-rx-provisioning"; Script = $null; VsSolution = $null; CodeSolution = "~\fdb-rx-provisioning"; HasJs = $false; };
     }
 }
 
