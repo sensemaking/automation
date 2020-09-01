@@ -12,6 +12,7 @@ public enum Project
     MobKata = 64,
     PopulationHealth = 128,
     Provisioning = 256,
+    AdfPH = 512,
     All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationHealth + Provisioning
 }
 "@
@@ -27,6 +28,7 @@ function global:Get-Projects {
         [Project]::MobKata = [PSCustomObject]@{ Git = "git@github.com:sensemaking/MobKata.git"; Directory = "~\MobKata"; Script = $null; VsSolution = "~\MobKata\MobKata.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::PopulationHealth = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-reporting.git"; Directory = "~\population-health-reporting"; Script = $null; VsSolution = "~\population-health-reporting\PopulationHealth.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Provisioning = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-provisioning.git"; Directory = "~\fdb-rx-provisioning"; Script = $null; VsSolution = $null; CodeSolution = "~\fdb-rx-provisioning"; HasJs = $false; };
+        [Project]::AdfPH = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-datafactory.git"; Directory = "~\population-health-datafactory"; Script = $null; VsSolution = $null; CodeSolution = "~\population-health-datafactory"; HasJs = $false; };
     }
 }
 
