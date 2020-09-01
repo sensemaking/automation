@@ -10,10 +10,10 @@ public enum Project
     uPredict = 16,
     Core = 32,
     MobKata = 64,
-    PopulationHealth = 128,
+    PopulationAnalytics = 128,
     Provisioning = 256,
     AdfPH = 512,
-    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationHealth + Provisioning
+    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationAnalytics + Provisioning
 }
 "@
 
@@ -26,7 +26,7 @@ function global:Get-Projects {
         [Project]::Web = [PSCustomObject]@{ Git = "git@github.com:sensemaking/web.git"; Directory = "~\web"; Script = $null; VsSolution = "~\web\.net\Web.sln"; CodeSolution = "~\web\js\core"; HasJs = $true; };
         [Project]::uPredict = [PSCustomObject]@{ Git = "git@github.com:sensemaking/uPredict.git"; Directory = "~\uPredict"; Script = $null; VsSolution = "~\uPredict\Api\Api.sln"; CodeSolution = "~\uPredict\web"; HasJs = $false; };
         [Project]::MobKata = [PSCustomObject]@{ Git = "git@github.com:sensemaking/MobKata.git"; Directory = "~\MobKata"; Script = $null; VsSolution = "~\MobKata\MobKata.sln"; CodeSolution = $null; HasJs = $false; };
-        [Project]::PopulationHealth = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-reporting.git"; Directory = "~\population-health-reporting"; Script = $null; VsSolution = "~\population-health-reporting\PopulationHealth.sln"; CodeSolution = $null; HasJs = $false; };
+        [Project]::PopulationAnalytics = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-reporting.git"; Directory = "~\population-health-reporting"; Script = $null; VsSolution = "~\population-health-reporting\PopulationAnalytics.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Provisioning = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-provisioning.git"; Directory = "~\fdb-rx-provisioning"; Script = $null; VsSolution = $null; CodeSolution = "~\fdb-rx-provisioning"; HasJs = $false; };
         [Project]::AdfPH = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-datafactory.git"; Directory = "~\population-health-datafactory"; Script = $null; VsSolution = $null; CodeSolution = "~\population-health-datafactory"; HasJs = $false; };
     }
