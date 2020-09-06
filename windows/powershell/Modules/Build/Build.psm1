@@ -27,7 +27,7 @@ function Prime ([Project] $project){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
 }
 
-function Run([Project] $project) {
+function Run([Project] $project, [Switch] $noBuild) {
 
     function Run-Host($targetProject){
         if (Test-Path "$($_.Value.Directory)\Host"){
