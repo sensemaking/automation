@@ -13,6 +13,8 @@ function GoTo ([Project] $project){
 
 function Prime ([Project] $project){
     function Prime-Project($targetProject){
+            if(-not(Test-Path "$($_.Value.Directory)\primer.ps1")) { Clone $project }
+            
             if(Test-Path "$($_.Value.Directory)\primer.ps1") {
                 pull $targetProject.Key
                 Write-Host "`nRunning $($targetProject.Key) Primer`n" -ForegroundColor Green
