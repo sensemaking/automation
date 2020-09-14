@@ -49,5 +49,6 @@ function Remove-Certificate($name) {
     Get-ChildItem Cert:\LocalMachine\my | ? {$_.Subject -eq "CN=$name"} | Remove-Item
 }
 
-Export-ModuleMember -function Add-Site
 Export-ModuleMember -function Add-LocalDb
+Export-ModuleMember -function Add-Site
+Export-ModuleMember -function Add-Host

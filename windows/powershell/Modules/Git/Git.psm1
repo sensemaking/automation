@@ -69,7 +69,7 @@ function Clone([Project] $project = [Project]::None) {
     function Git-Clone($targetProject) {
         Write-Host `nCloning $targetProject.Key -Fore Green
         Set-Location ~
-        git clone $targetProject.Value.Git         
+        git clone $targetProject.Value.Git 
     }
 
     $dir = Get-Location
