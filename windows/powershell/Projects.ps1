@@ -13,7 +13,8 @@ public enum Project
     PopulationAnalytics = 128,
     Provisioning = 256,
     AdfPH = 512,
-    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationAnalytics + Provisioning
+    ContentAuthoring = 1024,
+    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationAnalytics + Provisioning + ContentAuthoring
 }
 "@
 
@@ -29,6 +30,7 @@ function global:Get-Projects {
         [Project]::PopulationAnalytics = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-reporting.git"; Directory = "~\population-health-reporting"; Script = $null; VsSolution = "~\population-health-reporting\PopulationAnalytics.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Provisioning = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-provisioning.git"; Directory = "~\fdb-rx-provisioning"; Script = $null; VsSolution = $null; CodeSolution = "~\fdb-rx-provisioning"; HasJs = $false; };
         [Project]::AdfPH = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-datafactory.git"; Directory = "~\population-health-datafactory"; Script = $null; VsSolution = $null; CodeSolution = "~\population-health-datafactory"; HasJs = $false; };
+        [Project]::ContentAuthoring = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; Directory = "~\fdb-arx-content-authoring"; Script = $null; VsSolution = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; CodeSolution = "~\fdb-arx-content-authoring\Host\Ui\Web\src"; HasJs = $true; };
     }
 }
 
