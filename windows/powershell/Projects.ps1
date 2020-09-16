@@ -4,7 +4,6 @@ public enum Project
 {
     None = 0,
     Automation = 1,
-    Common = 2,
     Persistence = 4,
     Web = 8,
     uPredict = 16,
@@ -14,14 +13,15 @@ public enum Project
     Provisioning = 256,
     AdfPH = 512,
     ContentAuthoring = 1024,
-    All = Automation + Common + Core + Persistence + Web + uPredict + MobKata + PopulationAnalytics + Provisioning + ContentAuthoring
+    RxCommon = 2048,
+    RxMessaging = 4096,
+    All = Automation + Core + Persistence + Web + uPredict + MobKata + PopulationAnalytics + Provisioning + ContentAuthoring, RxCommon, RxMessaging
 }
 "@
 
 function global:Get-Projects {
     return @{ 
         [Project]::Automation = [PSCustomObject]@{ Git = "git@github.com:sensemaking/automation.git"; Directory = "~\automation"; Script = $null; VsSolution = $null; CodeSolution = "~\automation"; HasJs = $false; };
-        [Project]::Common = [PSCustomObject]@{ Git = "git@github.com:sensemaking/common.git"; Directory = "~\common"; Script = $null; VsSolution = "~\common\Common.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Core = [PSCustomObject]@{ Git = "git@github.com:sensemaking/core.git"; Directory = "~\core"; Script = $null; VsSolution = "~\core\Core.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Persistence = [PSCustomObject]@{ Git = "git@github.com:sensemaking/persistence.git"; Directory = "~\persistence"; Script = $null; VsSolution = "~\persistence\Persistence.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Web = [PSCustomObject]@{ Git = "git@github.com:sensemaking/web.git"; Directory = "~\web"; Script = $null; VsSolution = "~\web\.net\Web.sln"; CodeSolution = "~\web\js\core"; HasJs = $true; };
@@ -31,6 +31,8 @@ function global:Get-Projects {
         [Project]::Provisioning = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-provisioning.git"; Directory = "~\fdb-rx-provisioning"; Script = $null; VsSolution = $null; CodeSolution = "~\fdb-rx-provisioning"; HasJs = $false; };
         [Project]::AdfPH = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-datafactory.git"; Directory = "~\population-health-datafactory"; Script = $null; VsSolution = $null; CodeSolution = "~\population-health-datafactory"; HasJs = $false; };
         [Project]::ContentAuthoring = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; Directory = "~\fdb-arx-content-authoring"; Script = $null; VsSolution = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; CodeSolution = "~\fdb-arx-content-authoring\Host\Ui\Web\src"; HasJs = $true; };
+        [Project]::RxCommon = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-common.git"; Directory = "~\fdb-rx-common"; Script = $null; VsSolution = "~\fdb-rx-common"; CodeSolution = $null; HasJs = $false; };
+        [Project]::RxMessaging = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-messaging.git"; Directory = "~\fdb-rx-messaging"; Script = $null; VsSolution = "~\fdb-rx-messaging\Messaging.sln"; CodeSolution = $null; HasJs = $false; };
     }
 }
 
