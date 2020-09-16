@@ -15,7 +15,7 @@ public enum Project
     ContentAuthoring = 1024,
     RxCommon = 2048,
     RxMessaging = 4096,
-    All = Automation + Core + Persistence + Web + uPredict + MobKata + PopulationAnalytics + Provisioning + ContentAuthoring, RxCommon, RxMessaging
+    All = Automation + Core + Persistence + Web + uPredict + MobKata + PopulationAnalytics + Provisioning + ContentAuthoring + RxCommon + RxMessaging
 }
 "@
 
