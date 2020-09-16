@@ -13,17 +13,15 @@ function GoTo ([Project] $project){
 
 function Prime ([Project] $project){
     function Prime-Project($targetProject){
-            if(-not(Test-Path "$($_.Value.Directory)\primer.ps1")) { Clone $project }
+            if(-not(Test-Path "$($_.Value.Directory)")) { Clone $project }
+            else{ pull $targetProject.Key }
             
             if(Test-Path "$($_.Value.Directory)\primer.ps1") {
-                pull $targetProject.Key
                 Write-Host "`nRunning $($targetProject.Key) Primer`n" -ForegroundColor Green
                 & "$($_.Value.Directory)\primer.ps1"
                 Write-Host "`n$($targetProject.Key) Primed & Ready To Go`n" -ForegroundColor Green
             }
-            else{
-                Write-Host "`n$($targetProject.Key) does not have a primer`n" -ForegroundColor Red
-            }
+            else{ Write-Host "`n$($targetProject.Key) does not have a primer`n" -ForegroundColor Red }
     }
 
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
