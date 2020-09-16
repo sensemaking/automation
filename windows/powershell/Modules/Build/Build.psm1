@@ -77,7 +77,7 @@ function Build ([Project] $project = [Project]::All){
         if ($_.Value.VsSolution -ne $null) { 
             Write-Host `nBuilding .NET $targetProject.Key -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)
-            dotnet restore $solutionPath
+            dotnet restore $solutionPath --verbosity q
             dotnet build $solutionPath --configuration Release -nologo --verbosity q -warnAsError --no-incremental --no-restore
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
