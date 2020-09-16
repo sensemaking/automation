@@ -7,7 +7,7 @@ function Ssh-SignIn{
         }
     }
 
-    & "$env:programFiles\Git\usr\bin\ssh-add.exe" $env:USERPROFILE\.ssh\id_rsa
+    & "$env:programFiles\Git\usr\bin\ssh-add.exe" $env:USERPROFILE\.ssh\sm_rsa
 }
 
 function Status([Project] $project = [Project]::All){
