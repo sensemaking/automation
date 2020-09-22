@@ -7,11 +7,10 @@ public enum Project
     Core = 2,
     Persistence = 4,
     Web = 8,
-    PopulationAnalytics = 128,
-    AdfPH = 512,
-    ContentAuthoring = 1024,
-    RxAuthoring = 2048,
-    All = Automation + Core + Persistence + Web + PopulationAnalytics  + AdfPH + ContentAuthoring + RxAuthoring
+    PopulationAnalytics = 16,
+    ContentAuthoring = 32,
+    RxAuthoring = 64,
+    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + RxAuthoring
 }
 "@
 
@@ -22,7 +21,6 @@ function global:Get-Projects {
         [Project]::Persistence = [PSCustomObject]@{ Git = "git@github.com:sensemaking/persistence.git"; Directory = "~\persistence"; Script = $null; VsSolution = "~\persistence\Persistence.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::Web = [PSCustomObject]@{ Git = "git@github.com:sensemaking/web.git"; Directory = "~\web"; Script = $null; VsSolution = "~\web\.net\Web.sln"; CodeSolution = "~\web\js\core"; HasJs = $true; };        
         [Project]::PopulationAnalytics = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-reporting.git"; Directory = "~\population-health-reporting"; Script = $null; VsSolution = "~\population-health-reporting\PopulationAnalytics.sln"; CodeSolution = $null; HasJs = $false; };
-        [Project]::AdfPH = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-health-datafactory.git"; Directory = "~\population-health-datafactory"; Script = $null; VsSolution = $null; CodeSolution = "~\population-health-datafactory"; HasJs = $false; };
         [Project]::ContentAuthoring = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; Directory = "~\fdb-arx-content-authoring"; Script = $null; VsSolution = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; CodeSolution = "~\fdb-arx-content-authoring\Host\Ui\Web\src"; HasJs = $true; };
         [Project]::RxAuthoring = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; Directory = "~\fdb-rx-authoring"; Script = $null; VsSolution = "~\fdb-rx-authoring\Authoring.sln"; CodeSolution = $null; HasJs = $false; };
     }
