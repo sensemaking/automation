@@ -11,9 +11,9 @@ write-host "`nSetting up ssh" -fore yellow
 $env:path += ";$env:programFiles\Git\bin;$env:programFiles\Git\cmd;$env:programFiles\Git\usr\bin;"
 $sshDirectory = "$env:userprofile\.ssh"
 mkdir $sshdirectory -force
-ssh-keygen -f "$sshdirectory\sm_rsa"
+ssh-keygen -f "$sshdirectory\id_rsa"
 
-write-host "`n$sshdirectory\sm_rsa.pub has been generated" -fore green
+write-host "`n$sshdirectory\id_rsa.pub has been generated" -fore green
 write-host "`nAdd the key to your github account" -fore red 
 read-host "`n`nThen press any key"
 
@@ -23,7 +23,7 @@ Set-Location $smRoot
             [void][Environment]::SetEnvironmentVariable($Matches['key'], $Matches['value'])
         }
     }
-& "$env:programFiles\Git\usr\bin\ssh-add" "$sshdirectory\sm_rsa"
+& "$env:programFiles\Git\usr\bin\ssh-add" "$sshdirectory\id_rsa"
 
 git clone git@github.com:sensemaking/automation.git
 Stop-Process -Name 'ssh-agent' -ErrorAction SilentlyContinue
