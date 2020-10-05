@@ -7,7 +7,7 @@
    { "key": "shift+escape", "command": "workbench.action.toggleSidebarVisibility"},
    { "key": "alt+c", "command": "workbench.action.closeActiveEditor"},
    { "key": "alt+a alt+b", "command": "workbench.action.closeOtherEditors" },
-   { "key": "alt+c alt+a", "command": "workbench.files.action.collapseExplorerFolders" },
+   { "key": "alt+f alt+c", "command": "workbench.files.action.collapseExplorerFolders" },
    { "key": "ctrl+k ctrl+d", "command": "editor.action.formatDocument" },
    { "key": "ctrl+b", "command": "editor.action.goToDeclaration" },
    { "key": "alt+f8", "command": "references-view.find" },
