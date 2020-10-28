@@ -29,6 +29,7 @@
     },
     "javascript.updateImportsOnFileMove.enabled": "never",
     "vim.handleKeys": {
+        "<C-x>": false,
         "<C-c>": false,
         "<C-v>": false
     },
