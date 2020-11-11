@@ -16,7 +16,8 @@ public enum Project
     PlatformCommon = 1024,
     Rules = 2048,
     Swaps = 4096,
-    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + RxAuthoring + Common + Messaging + Authoring + PlatformCommon + Rules + Swaps
+    PlatformHandlers = 8192,
+    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + RxAuthoring + Common + Messaging + Authoring + PlatformCommon + Rules + Swaps + PlatformHandlers
 }
 "@
 
@@ -35,6 +36,7 @@ function global:Get-Projects {
         [Project]::PlatformCommon = [PSCustomObject]@{Directory = "~\fdb-rx-platform-common";  IncludesNetFrameworkProjects = $true; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-platform-common\Platform.Common.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" };
         [Project]::Rules = [PSCustomObject]@{Directory = "~\fdb-rx-rules"; HasJs = $false;  IncludesNetFrameworkProjects = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-rules\Rules.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-rules.git" };
         [Project]::Swaps = [PSCustomObject]@{Directory = "~\fdb-rx-swaps"; HasJs = $false;  IncludesNetFrameworkProjects = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-swaps\Swaps.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-swaps.git" };
+        [Project]::PlatformHandlers = [PSCustomObject]@{Directory = "~\fdb-rx-platform-handlers";  IncludesNetFrameworkProjects = $true; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-platform-handlers\Platform.Handlers.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-platform-handlers.git" };
     }
 }
 
