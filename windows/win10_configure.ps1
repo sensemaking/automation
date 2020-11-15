@@ -19,9 +19,9 @@ git config --global user.name $email
 git config --global user.email $email
 
 & "~\automation\windows\$email\win10_configure.ps1"
-
 & "~\automation\windows\$email\VSCode\extensions.ps1"
+
 Copy-Item "~\automation\windows\$email\VSCode\*.json" "$env:userprofile\AppData\Roaming\Code\User"
+Copy-Item "~\automation\windows\$email\Shell\ConEmu.xml" "$env:userprofile\AppData\Roaming"
 
 Restart-Computer
-
