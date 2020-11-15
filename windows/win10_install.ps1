@@ -12,6 +12,8 @@ choco install azure-cli -yr
 choco install nodejs -yr
 choco install yarn -yr
 choco install postman -yr
+choco install slack -yr
+choco install microsoft-teams -yr
     
 Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
