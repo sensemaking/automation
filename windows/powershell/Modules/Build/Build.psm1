@@ -80,7 +80,7 @@ function Build ([Project] $project = [Project]::All){
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
             dotnet test (Get-ChildItem *Fdb*Specs*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --no-build --nologo --verbosity m
-            dotnet test (Get-ChildItem *Fdb*Testing*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --no-build --nologo --verbosity m
+            #dotnet test (Get-ChildItem *Fdb*Testing*.dll -Recurse | Where-Object { $_.FullName -notlike '*obj*' -and $_.FullName -notlike '*Builders*'}) --no-build --nologo --verbosity m
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
 
