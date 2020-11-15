@@ -47,5 +47,6 @@ function global:Update-Projects {
    pull Automation
  
    Copy-Item "$automationDir\windows\powershell\Projects.ps1" -Destination "$profileDir\Projects.ps1" -fo
+   Write-Host "`nUpdated projects. Reloading shell`n" -Fore Green
    powershell.exe -nologo
 }
