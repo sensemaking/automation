@@ -80,7 +80,7 @@ function Build ([Project] $project = [Project]::All){
             dotnet build $solutionPath --configuration Release -nologo --verbosity q -warnAsError --no-incremental --no-restore
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
-            Write-Host `nRunning Tests $targetProject.Key`n -Fore Green
+            Write-Host `nRunning Tests`n -Fore Green
             dotnet test --no-build --no-restore --nologo --verbosity m 
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
@@ -105,7 +105,7 @@ function Migrate ([Project] $project = [Project]::All){
             $dir = Get-Location
             Set-Location $_.Value.Directory
             Get-ChildItem .\ -Recurse | where { $_.Fullname -Like "*bin\Run.exe" } | % {      
-                Write-Host `nRunning Migrations $targetProject.Key - $_.FullName`n -Fore Green
+                Write-Host `nRunning Migrations - $_.FullName`n -Fore Green
                 & (Resolve-Path $_.FullName)
                 BreakOnFailure $dir 'Migrations Failed'
             }
