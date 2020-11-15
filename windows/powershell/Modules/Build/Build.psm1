@@ -80,7 +80,7 @@ function Build ([Project] $project = [Project]::All){
             dotnet build $solutionPath --configuration Release -nologo --verbosity q -warnAsError --no-incremental --no-restore
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
-            dotnet test --no-restore --nologo --verbosity m 
+            dotnet test --no-build --no-restore --nologo --verbosity m 
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
 
