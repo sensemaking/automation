@@ -74,12 +74,13 @@ function Build ([Project] $project = [Project]::All){
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
         if ($_.Value.VsSolution -ne $null) { 
-            Write-Host `nBuilding .NET $targetProject.Key -Fore Green
+            Write-Host `nBuilding $targetProject.Key -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)
             dotnet restore $solutionPath --verbosity q
             dotnet build $solutionPath --configuration Release -nologo --verbosity q -warnAsError --no-incremental --no-restore
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
+            Write-Host `nRunning Tests $targetProject.Key`n -Fore Green
             dotnet test --no-build --no-restore --nologo --verbosity m 
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
