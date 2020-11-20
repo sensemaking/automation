@@ -1,4 +1,5 @@
 
+choco install chrome -yr
 choco install conemu -yr
 choco install 7zip -yr
 choco install visualstudio2019community -yr
@@ -14,6 +15,7 @@ choco install yarn -yr
 choco install postman -yr
 choco install slack -yr
 choco install microsoft-teams -yr
+choco install teamviewer -yr
     
 Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
