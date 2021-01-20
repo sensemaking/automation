@@ -11,12 +11,12 @@ public enum Project
     ContentAuthoring = 32,
     RxAuthoring = 64,
     Common = 128,
+    FdbWeb = 4096,
     Messaging = 256,
     PlatformCommon = 512,
     Rules = 1024,
     Swaps = 2048,
-    PlatformHandlers = 4096,
-    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + RxAuthoring + Common + Messaging + PlatformCommon + Rules + Swaps + PlatformHandlers
+    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + RxAuthoring + Common + FdbWeb + Messaging + PlatformCommon + Rules + Swaps
 }
 "@
 
@@ -29,12 +29,12 @@ function global:Get-Projects {
         [Project]::PopulationAnalytics = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/population-analytics.git"; Directory = "~\population-analytics"; Script = $null; VsSolution = "~\population-analytics\PopulationAnalytics.sln"; CodeSolution = $null; HasJs = $false; };
         [Project]::ContentAuthoring = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; Directory = "~\fdb-arx-content-authoring"; Script = $null; VsSolution = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; CodeSolution = "~\fdb-arx-content-authoring\Host\Ui\Web\src"; HasJs = $true; };
         [Project]::Common = [PSCustomObject]@{Directory = "~\fdb-rx-common"; HasJs = $false; IncludesNetFrameworkProjects = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-common\Common.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-common.git" };
+        [Project]::FdbWeb = [PSCustomObject]@{ Git = "git@github.com:HearstHealthInternational/fdb-rx-web.git"; Directory = "~\fdb-rx-web"; Script = $null; VsSolution = "~\fdb-rx-web\.net\Web.sln"; CodeSolution = "~\fdb-rx-web\js\core"; HasJs = $true; };        
         [Project]::Messaging = [PSCustomObject]@{Directory = "~\fdb-rx-messaging"; IncludesNetFrameworkProjects = $false; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-messaging\Messaging.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-messaging.git" };
         [Project]::RxAuthoring = [PSCustomObject]@{Directory = "~\fdb-rx-authoring"; IncludesNetFrameworkProjects = $true; HasJs = $false; VsSolution = "~\fdb-rx-authoring\Authoring.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-authoring.git" };
         [Project]::PlatformCommon = [PSCustomObject]@{Directory = "~\fdb-rx-platform-common";  IncludesNetFrameworkProjects = $true; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-platform-common\Platform.Common.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" };
         [Project]::Rules = [PSCustomObject]@{Directory = "~\fdb-rx-rules"; HasJs = $false;  IncludesNetFrameworkProjects = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-rules\Rules.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-rules.git" };
         [Project]::Swaps = [PSCustomObject]@{Directory = "~\fdb-rx-swaps"; HasJs = $false;  IncludesNetFrameworkProjects = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-swaps\Swaps.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-swaps.git" };
-        [Project]::PlatformHandlers = [PSCustomObject]@{Directory = "~\fdb-rx-platform-handlers";  IncludesNetFrameworkProjects = $true; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-platform-handlers\Platform.Handlers.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-platform-handlers.git" };
     }
 }
 
