@@ -15,6 +15,8 @@ choco install postman -yr
 choco install slack -yr
 choco install microsoft-teams -yr
 choco install teamviewer -yr
-    
+
+yarn global add npm-check-updates
+
 Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
