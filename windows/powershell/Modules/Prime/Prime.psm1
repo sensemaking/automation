@@ -23,6 +23,7 @@ function Add-ReactApp($path){
     rm $path\client\public\* -r -for
     rm $path\client\src\* -r -for
     rm $path\client\README.md -for
+    rm $path\client\.gitignore -for
     $dir = Get-Location
     Set-Location $path\client
     yarn remove web-vitals
