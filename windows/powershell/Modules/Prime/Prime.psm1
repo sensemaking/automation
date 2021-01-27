@@ -17,6 +17,17 @@ function Add-LocalDb($dbName, $location){
     SqlLocalDB.exe stop $dbName
 }
 
+function Add-ReactApp($path){
+    mkdir $path\client
+    npx create-react-app $path\client --template typescript
+    rm $path\client\public\* -r -for
+    rm $path\client\src\* -r -for    
+    $dir = Get-Location
+    Set-Location $path\client
+    yarn remove web-vitals
+    Set-Location $dir
+}
+ 
 function Add-Site($name, $port, $path, $hostName){
     Remove-Website $name -ErrorAction SilentlyContinue
     Remove-WebAppPool $name -ErrorAction SilentlyContinue
@@ -50,5 +61,6 @@ function Remove-Certificate($name) {
 }
 
 Export-ModuleMember -function Add-LocalDb
+Export-ModuleMember -function Add-ReactApp
 Export-ModuleMember -function Add-Site
 Export-ModuleMember -function Add-Host
