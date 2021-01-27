@@ -88,9 +88,10 @@ function Build ([Project] $project = [Project]::All){
         if ($_.Value.HasJs) {
             Write-Host `nBuilding JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution         
-            yarn run test
+            yarn build 
+            yarn test
             BreakOnFailure $dir '**************** Javascript Build Failed ****************'
-        }
+        } 
 
         Set-Location $dir
     }
@@ -122,7 +123,7 @@ function Watch([Project] $project = [Project]::All) {
             Write-Host `nWatching JavaScript $targetProject.Key `n -Fore Green     
             $dir = Get-Location
             Set-Location $_.Value.CodeSolution    
-            yarn start
+            yarn watch
             Set-Location $dir
         }
     }
