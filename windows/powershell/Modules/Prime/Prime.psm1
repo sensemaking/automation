@@ -22,8 +22,7 @@ function Add-ReactApp($path){
     npx create-react-app $path\client --template typescript
     rm $path\client\public\* -r -for
     rm $path\client\src\* -r -for
-    rm $path\client\README.md -for    
-    rm $path\client\.gitignore -for    
+    rm $path\client\README.md -for
     $dir = Get-Location
     Set-Location $path\client
     yarn remove web-vitals
