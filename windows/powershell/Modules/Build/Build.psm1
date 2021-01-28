@@ -27,23 +27,6 @@ function Prime ([Project] $project){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
 }
 
-function Run([Project] $project, [Switch] $noBuild) {
-
-    function Run-Host($targetProject){
-        if (Test-Path "$($_.Value.Directory)\Host"){
-
-            if (!$noBuild) { Build $targetProject.Key }
-            Write-Host Running $_.Key host -ForegroundColor Yellow
-            dotnet run --project (Resolve-Path "$($_.Value.Directory)\Host\Host.csproj")
-        }
-        else {
-            Write-Host "Solution does not contain a host to run."
-        }
-    }
-
-    (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Run-Host $_ }
-}
-
 function Open ([Project] $project = [Project]::None, [Switch] $noBuild){
     function Open-Project($targetProject){
        
@@ -116,6 +99,20 @@ function Migrate ([Project] $project = [Project]::All){
     }
 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Migrate-Project $_ }
+}
+
+function Run-Client([Project] $project = [Project]::All) {
+    function Run-Ui($targetProject){
+        if ($_.Value.CodeSolution -ne $null) {
+            Write-Host `nRunning $targetProject.Key client `n -Fore Green     
+            $dir = Get-Location
+            Set-Location $_.Value.CodeSolution    
+            yarn start
+            Set-Location $dir
+        }
+    }
+
+    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Watch-Project $_ }
 }
 
 function Watch([Project] $project = [Project]::All) {
