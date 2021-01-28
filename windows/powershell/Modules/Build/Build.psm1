@@ -102,7 +102,7 @@ function Migrate ([Project] $project = [Project]::All){
 }
 
 function Run-Client([Project] $project = [Project]::All) {
-    function Run-Ui($targetProject){
+    function Run($targetProject){
         if ($_.Value.CodeSolution -ne $null) {
             Write-Host `nRunning $targetProject.Key client `n -Fore Green     
             $dir = Get-Location
@@ -112,7 +112,7 @@ function Run-Client([Project] $project = [Project]::All) {
         }
     }
 
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Watch-Project $_ }
+    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Run $_ }
 }
 
 function Watch([Project] $project = [Project]::All) {
