@@ -27,7 +27,6 @@ function Add-ReactApp($path){
     $dir = Get-Location
     Set-Location $path\client
     yarn remove web-vitals
-    
     Set-Location $dir
 }
  
