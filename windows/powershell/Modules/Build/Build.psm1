@@ -88,6 +88,7 @@ function Build ([Project] $project = [Project]::All){
         if ($_.Value.HasJs) {
             Write-Host `nBuilding JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution         
+            yarn
             yarn build 
             yarn test
             BreakOnFailure $dir '**************** Javascript Build Failed ****************'
