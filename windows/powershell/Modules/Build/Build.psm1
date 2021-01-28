@@ -107,7 +107,7 @@ function Run-Client([Project] $project = [Project]::All) {
             Write-Host `nRunning $targetProject.Key client `n -Fore Green     
             $dir = Get-Location
             Set-Location $_.Value.CodeSolution    
-            yarn start
+            Start-Job yarn start
             Set-Location $dir
         }
     }
