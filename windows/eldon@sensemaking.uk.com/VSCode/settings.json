@@ -7,6 +7,9 @@
     "explorer.openEditors.visible": 0,
     "editor.minimap.enabled": false,
     "editor.codeLens": false,
+    "breadcrumbs.enabled": false,
+    "css.lint.unknownAtRules": "ignore",
+    "css.lint.validProperties": [ "composes" ],
     "search.exclude": {
         "**/.cache": true,
         "**/node_modules": true,
@@ -27,14 +30,5 @@
         "**/build": true,
         "**/dist": true
     },
-    "javascript.updateImportsOnFileMove.enabled": "never",
-    "typescript.updateImportsOnFileMove.enabled": "never",
-    "vim.handleKeys": {
-        "<C-x>": false,
-        "<C-a>": false,
-        "<C-c>": false,
-        "<C-v>": false
-    },
-    "breadcrumbs.enabled": false,
-    "css.lint.unknownAtRules": "ignore"
+    "vim.handleKeys": { "<C-a>": false, "<C-x>": false, "<C-c>": false, "<C-v>": false }
 }

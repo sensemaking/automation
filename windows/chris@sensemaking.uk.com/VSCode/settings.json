@@ -8,6 +8,11 @@
     "editor.minimap.enabled": false,
     "editor.codeLens": false,
     "breadcrumbs.enabled": false,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "typescript.updateImportsOnFileMove.enabled": "never",
+    "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "css.lint.unknownAtRules": "ignore",
+    "css.lint.validProperties": [ "composes" ],
     "search.exclude": {
         "**/.cache": true,
         "**/node_modules": true,
@@ -27,11 +32,5 @@
         "**/node_modules": true,
         "**/build": true,
         "**/dist": true
-    },
-    "javascript.updateImportsOnFileMove.enabled": "never",
-    "typescript.updateImportsOnFileMove.enabled": "never",
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "css.lint.unknownAtRules": "ignore"
+    }
 }
