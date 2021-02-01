@@ -47,7 +47,6 @@ function Open ([Project] $project = [Project]::None, [Switch] $noBuild){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Open-Project $_ }
 }
 
-
 function Build ([Project] $project = [Project]::All){
     function Build-Project($targetProject){
         $dir = Get-Location

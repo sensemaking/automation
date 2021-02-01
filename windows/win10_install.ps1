@@ -17,6 +17,7 @@ choco install microsoft-teams -yr
 choco install teamviewer -yr
 
 yarn global add npm-check-updates
+yarn global add serve
 
 Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
 Restart-Computer
