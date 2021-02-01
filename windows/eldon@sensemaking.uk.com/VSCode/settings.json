@@ -28,10 +28,13 @@
         "**/dist": true
     },
     "javascript.updateImportsOnFileMove.enabled": "never",
+    "typescript.updateImportsOnFileMove.enabled": "never",
     "vim.handleKeys": {
         "<C-x>": false,
+        "<C-a>": false,
         "<C-c>": false,
         "<C-v>": false
     },
-    "breadcrumbs.enabled": false
+    "breadcrumbs.enabled": false,
+    "css.lint.unknownAtRules": "ignore"
 }
