@@ -34,7 +34,7 @@ function Pull ([Project] $project = [Project]::All){
     Set-Location $dir
 }
 
-function Push ([Project] $project = [Project]::None, $message = "_", [Switch] $noBuild){
+function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild){
     function Git-Push($targetProject){
         Write-Host `nCommitting $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory        
@@ -43,6 +43,10 @@ function Push ([Project] $project = [Project]::None, $message = "_", [Switch] $n
         git push 
     }
   
+    if ($null -eq $message) {
+        Write-Host `nPlease provide the Jira story number -Fore Red
+    } 
+
     $dir = Get-Location 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { 
         if (!$noBuild) { Build $_.Key }
