@@ -44,7 +44,7 @@ function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild
     }
   
     if ($null -eq $message) {
-        Write-Host `nPlease provide the Jira story number -Fore Red
+        Write-Host Please provide the Jira story number`n -Fore Red
         return
     } 
 
