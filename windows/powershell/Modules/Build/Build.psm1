@@ -27,12 +27,12 @@ function Prime ([Project] $project){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
 }
 
-function Open ([Project] $project = [Project]::None, [Switch] $noBuild){
+function Open ([Project] $project = [Project]::None, [Switch] $noBuild, [Switch] $frontEndOnly){
     function Open-Project($targetProject){
        
         if (!$noBuild) { Build $targetProject.Key }
 
-        if ($_.Value.VsSolution -ne $null) { 
+        if ($null -ne $_.Value.VsSolution -and -not $frontEndOnly) { 
             & $_.Value.VsSolution 
         } 
 
