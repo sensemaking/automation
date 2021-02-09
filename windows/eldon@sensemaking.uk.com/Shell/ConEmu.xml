@@ -41,7 +41,7 @@
 			<value name="FontSize" type="ulong" data="14"/>
 			<value name="StatusFontHeight" type="long" data="12"/>
 			<value name="TabFontHeight" type="long" data="13"/>
-			<key name="HotKeys" modified="2021-02-09 21:36:35" build="201101">
+			<key name="HotKeys" modified="2021-02-09 21:39:51" build="201101">
 				<value name="MinimizeRestore" type="dword" data="000011c0"/>
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="000000a2"/>
@@ -92,7 +92,7 @@
 				<value name="Multi.Detach" type="dword" data="00000000"/>
 				<value name="Multi.Unfasten" type="dword" data="00000000"/>
 				<value name="Multi.Close" type="dword" data="00001243"/>
-				<value name="CloseTabKey" type="dword" data="80808043"/>
+				<value name="CloseTabKey" type="dword" data="00001243"/>
 				<value name="CloseGroupKey" type="dword" data="00115b2e"/>
 				<value name="CloseGroupPrcKey" type="dword" data="00000000"/>
 				<value name="CloseAllConKey" type="dword" data="00000000"/>
