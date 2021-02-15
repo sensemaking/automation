@@ -1,4 +1,5 @@
 [
+   { "key": "alt+enter", "command": "editor.action.quickFix" },
    { "key": "ctrl+t", "command": "explorer.newFile" },
    { "key": "ctrl+shift+s", "command": "workbench.action.files.saveAll"},
    { "key": "ctrl+n", "command": "workbench.action.quickOpen"},
