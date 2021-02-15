@@ -29,7 +29,9 @@ function Prime ([Project] $project){
 
 function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly){
     function Open-Project($targetProject){
-       
+        $dir = Get-Location
+        Set-Location $_.Value.Directory     
+        
         git pull
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
@@ -41,8 +43,9 @@ function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly){
             $dir = Get-Location
             Set-Location $_.Value.CodeSolution  
             code . 
-            Set-Location $dir
         }
+
+        Set-Location $dir
     }
 
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Open-Project $_ }
