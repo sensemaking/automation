@@ -27,10 +27,11 @@ function Prime ([Project] $project){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
 }
 
-function Open ([Project] $project = [Project]::None, [Switch] $noBuild, [Switch] $frontEndOnly){
+function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly){
     function Open-Project($targetProject){
        
-        if (!$noBuild) { Build $targetProject.Key }
+        git pull
+        BreakOnFailure $dir '**************** Pull Failed ****************'
 
         if ($null -ne $_.Value.VsSolution -and -not $frontEndOnly) { 
             & $_.Value.VsSolution 
