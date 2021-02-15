@@ -16,7 +16,8 @@ public enum Project
     PlatformCommon = 512,
     Rules = 1024,
     Swaps = 2048,
-    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + Pharaoh + Common + FdbWeb + Messaging + PlatformCommon + Rules + Swaps
+    uPredict = 4096,
+    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + Pharaoh + Common + FdbWeb + Messaging + PlatformCommon + Rules + Swaps + uPredict
 }
 "@
 
