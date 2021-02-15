@@ -10,13 +10,13 @@ public enum Project
     PopulationAnalytics = 16,
     ContentAuthoring = 32,
     Pharaoh = 64,
-    Common = 128,
-    FdbWeb = 4096,
+    Common = 128,    
     Messaging = 256,
     PlatformCommon = 512,
     Rules = 1024,
     Swaps = 2048,
-    uPredict = 4096,
+    FdbWeb = 4096,
+    uPredict = 8192,
     All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + Pharaoh + Common + FdbWeb + Messaging + PlatformCommon + Rules + Swaps + uPredict
 }
 "@
