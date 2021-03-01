@@ -108,7 +108,6 @@ function Run-Client([Project] $project = [Project]::All) {
     function Run($targetProject){
         if ($_.Value.CodeSolution -ne $null) {
             Write-Host `nRunning $targetProject.Key client `n -Fore Green     
-            $dir = Get-Location
             Set-Location $_.Value.CodeSolution    
             yarn start            
         }
@@ -122,7 +121,7 @@ function Run-Server([Project] $project = [Project]::All) {
         if ($_.Value.VsSolution -ne $null) {
             Write-Host `nRunning $targetProject.Key server `n -Fore Green
             $dir = Get-Location
-            Set-Location $_.Value.Directory/Server/Host
+            Set-Location $_.Value.Directory\Server\Host
             dotnet watch run --urls http://localhost:5001
         }
     }
