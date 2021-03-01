@@ -120,8 +120,7 @@ function Run-Server([Project] $project = [Project]::All) {
     function Run($targetProject) {
         if ($_.Value.VsSolution -ne $null) {
             Write-Host `nRunning $targetProject.Key server `n -Fore Green
-            $dir = Get-Location
-            Set-Location $_.Value.Directory\Server\Host
+            Set-Location "$_.Value.Directory\Server\Host"
             dotnet watch run --urls http://localhost:5001
         }
     }
@@ -133,7 +132,6 @@ function Watch([Project] $project = [Project]::All) {
     function Watch-Project($targetProject){
         if ($_.Value.CodeSolution -ne $null) {
             Write-Host `nWatching JavaScript $targetProject.Key `n -Fore Green     
-            $dir = Get-Location
             Set-Location $_.Value.CodeSolution    
             yarn watch
             Set-Location $dir
