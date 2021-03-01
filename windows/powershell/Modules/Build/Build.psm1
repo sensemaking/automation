@@ -103,15 +103,27 @@ function Migrate ([Project] $project = [Project]::All){
 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Migrate-Project $_ }
 }
-
+    
 function Run-Client([Project] $project = [Project]::All) {
     function Run($targetProject){
         if ($_.Value.CodeSolution -ne $null) {
             Write-Host `nRunning $targetProject.Key client `n -Fore Green     
             $dir = Get-Location
             Set-Location $_.Value.CodeSolution    
-            yarn start
-            Set-Location $dir
+            yarn start            
+        }
+    }
+
+    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Run $_ }
+}
+
+function Run-Server([Project] $project = [Project]::All) {
+    function Run($targetProject) {
+        if ($_.Value.VsSolution -ne $null) {
+            Write-Host `nRunning $targetProject.Key server `n -Fore Green
+            $dir = Get-Location
+            Set-Location $_.Value.Directory/Server/Host
+            dotnet watch run --urls http://localhost:5001
         }
     }
 
