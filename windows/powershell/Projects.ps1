@@ -36,7 +36,7 @@ function global:Get-Projects {
         [Project]::PlatformCommon = [PSCustomObject]@{Directory = "~\fdb-rx-platform-common"; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-platform-common\Platform.Common.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" };
         [Project]::Rules = [PSCustomObject]@{Directory = "~\fdb-rx-rules"; HasJs = $false;  CodeSolution = $null; VsSolution = "~\fdb-rx-rules\Rules.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-rules.git" };
         [Project]::Swaps = [PSCustomObject]@{Directory = "~\fdb-rx-swaps"; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-swaps\Swaps.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-swaps.git" };
-        [Project]::uPredict = [PSCustomObject]@{Directory = "~\upredict"; HasJs = $true; CodeSolution = "~\upredict\client"; VsSolution = "~\upredict\server\upredict.sln"; Script = $null; Git = "git@github.com:uPredict/uPredict.git" };
+        [Project]::uPredict = [PSCustomObject]@{Directory = "~\uPredict"; HasJs = $true; CodeSolution = "~\uPredict\client"; VsSolution = "~\uPredict\server\upredict.sln"; Script = $null; Git = "git@github.com:uPredict/uPredict.git" };
     }
 }
 
