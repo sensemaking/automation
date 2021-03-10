@@ -11,7 +11,7 @@
    { "key": "alt+f alt+c", "command": "workbench.files.action.collapseExplorerFolders" },
    { "key": "ctrl+k ctrl+d", "command": "editor.action.formatDocument" },
    { "key": "ctrl+b", "command": "editor.action.goToDeclaration" },
-   { "key": "alt+f8", "command": "references-view.find" },
+   { "key": "alt+f7", "command": "references-view.find" },
    { "key": "ctrl+m ctrl+m", "command": "editor.fold" },
    { "key": "ctrl+m ctrl+u", "command": "editor.unfold" },
    { "key": "ctrl+m ctrl+o", "command": "editor.foldAll" }
