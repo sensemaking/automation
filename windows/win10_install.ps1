@@ -9,6 +9,7 @@ choco install sql-server-2017-cumulative-update -yr
 choco install sqlserver-cmdlineutils -yr
 choco install azure-data-studio -yr
 choco install azure-cli -yr
+choco install servicebusexplorer -yr
 choco install nodejs -yr
 choco install yarn -yr
 choco install postman -yr
