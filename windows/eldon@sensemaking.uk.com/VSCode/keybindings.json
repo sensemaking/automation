@@ -3,6 +3,7 @@
    { "key": "ctrl+t", "command": "explorer.newFile" },
    { "key": "ctrl+shift+s", "command": "workbench.action.files.saveAll"},
    { "key": "ctrl+n", "command": "workbench.action.quickOpen"},
+   { "key": "ctrl+shift+n", "command": "workbench.action.showCommands" },
    { "key": "alt+shift+n", "command": "workbench.action.showAllSymbols" },
    { "key": "alt+shift+l", "command": "workbench.view.explorer"},
    { "key": "shift+escape", "command": "workbench.action.toggleSidebarVisibility"},
