@@ -32,5 +32,7 @@
         "**/node_modules": true,
         "**/build": true,
         "**/dist": true
-    }
+    },
+    "vim.handleKeys": { "<C-a>": false, "<C-x>": false, "<C-c>": false, "<C-v>": false },
+    "macros": { "toggleVim": ["toggleVim", "extension.vim_escape"] }
 }

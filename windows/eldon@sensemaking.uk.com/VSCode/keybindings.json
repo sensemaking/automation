@@ -15,5 +15,5 @@
    { "key": "ctrl+m ctrl+m", "command": "editor.fold" },
    { "key": "ctrl+m ctrl+u", "command": "editor.unfold" },
    { "key": "ctrl+m ctrl+o", "command": "editor.foldAll" },
-   { "key": "ctrl+shift+f12", "command": "toggleVim" }   
+   { "key": "ctrl+shift+f12", "command": "macros.toggleVim" }   
 ]
