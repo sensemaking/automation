@@ -51,7 +51,7 @@ function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Open-Project $_ }
 }
 
-function Build ([Project] $project = [Project]::All){
+function Build ([Project] $project = [Project]::All, [Switch] $frontEndOnly, [Switch] $backEndOnly){
     function Build-Project($targetProject){
         $dir = Get-Location
         Set-Location $_.Value.Directory         
@@ -59,7 +59,7 @@ function Build ([Project] $project = [Project]::All){
         git pull
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
-        if ($_.Value.VsSolution -ne $null) { 
+        if ($_.Value.VsSolution -ne $null -and -not $frontEndOnly) { 
             Write-Host `nBuilding $targetProject.Key -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)
             dotnet restore $solutionPath --verbosity q
@@ -71,7 +71,7 @@ function Build ([Project] $project = [Project]::All){
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
 
-        if ($_.Value.HasJs) {
+        if ($_.Value.HasJs -and -not $backEndOnly) {
             Write-Host `nBuilding JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution         
             yarn
