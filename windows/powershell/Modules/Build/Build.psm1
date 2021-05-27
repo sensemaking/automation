@@ -75,7 +75,6 @@ function Build ([Project] $project = [Project]::All){
             Write-Host `nBuilding JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution         
             yarn
-            yarn build 
             yarn test
             BreakOnFailure $dir '**************** Javascript Build Failed ****************'
         } 
