@@ -1,15 +1,18 @@
 {
     "extensions.ignoreRecommendations": false,
     "telemetry.enableTelemetry": false,
-    "window.zoomLevel": 0,
     "workbench.tips.enabled": false,
     "workbench.settings.editor": "json",
     "explorer.openEditors.visible": 0,
     "editor.minimap.enabled": false,
     "editor.codeLens": false,
     "breadcrumbs.enabled": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
     "css.lint.unknownAtRules": "ignore",
     "css.lint.validProperties": [ "composes" ],
+    "vim.handleKeys": { "<C-a>": false, "<C-x>": false, "<C-c>": false, "<C-v>": false },
+    "macros": { "toggleVim": [ "toggleVim", "extension.vim_escape" ] },
     "search.exclude": {
         "**/.cache": true,
         "**/node_modules": true,
@@ -29,7 +32,5 @@
         "**/node_modules": true,
         "**/build": true,
         "**/dist": true
-    },
-    "vim.handleKeys": { "<C-a>": false, "<C-x>": false, "<C-c>": false, "<C-v>": false },
-    "macros": { "toggleVim": ["toggleVim", "extension.vim_escape"] }
+    }
 }
