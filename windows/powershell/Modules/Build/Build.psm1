@@ -27,7 +27,7 @@ function Prime ([Project] $project){
     (Get-Projects).GetEnumerator() | Where{ $project.HasFlag($_.Key) } | % { Prime-Project $_ }
 }
 
-function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly){
+function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly, [Switch] $backEndOnly){
     function Open-Project($targetProject){
         $dir = Get-Location
         Set-Location $_.Value.Directory     
@@ -39,7 +39,7 @@ function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly){
             & $_.Value.VsSolution 
         } 
 
-        if ($_.Value.CodeSolution -ne $null) { 
+        if ($_.Value.CodeSolution -ne $null -and -not $backEndOnly) { 
             $dir = Get-Location
             Set-Location $_.Value.CodeSolution  
             code . 
