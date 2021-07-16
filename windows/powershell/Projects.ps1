@@ -17,8 +17,8 @@ public enum Project
     Swaps = 2048,
     FdbWeb = 4096,
     uPredict = 8192,
-    uPredict = 16384,
-    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + Pharaoh + Common + FdbWeb + Messaging + PlatformCommon + Rules + Swaps + uPredict
+    Opportunities = 16384,
+    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + Pharaoh + Common + FdbWeb + Messaging + PlatformCommon + Rules + Swaps + uPredict + Opportunities
 }
 "@
 
