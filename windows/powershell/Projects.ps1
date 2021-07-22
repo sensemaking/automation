@@ -18,7 +18,8 @@ public enum Project
     FdbWeb = 4096,
     uPredict = 8192,
     Opportunities = 16384,
-    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + Pharaoh + Common + FdbWeb + Messaging + PlatformCommon + Rules + Swaps + uPredict + Opportunities
+    FdbPersistence = 32768,
+    All = Automation + Core + Persistence + Web + PopulationAnalytics + ContentAuthoring + Pharaoh + Common + FdbWeb + Messaging + PlatformCommon + Rules + Swaps + uPredict + Opportunities + FdbPersistence
 }
 "@
 
@@ -39,6 +40,7 @@ function global:Get-Projects {
         [Project]::Swaps = [PSCustomObject]@{Directory = "~\fdb-rx-swaps"; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-swaps\Swaps.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-swaps.git" };
         [Project]::uPredict = [PSCustomObject]@{Directory = "~\uPredict"; HasJs = $true; CodeSolution = "~\uPredict\client"; VsSolution = "~\uPredict\server\upredict.sln"; Script = $null; Git = "git@github.com:uPredict/uPredict.git" };
         [Project]::Opportunities = [PSCustomObject]@{Directory = "~\fdb-arx-opportunities"; HasJs = $true;  IncludesNetFrameworkProjects = $true; CodeSolution = "~\fdb-arx-opportunities\Host\Ui\Web\src"; VsSolution = "~\fdb-arx-opportunities\Opportunities.sln"; Script = "~\fdb-arx-opportunities\Scripting\Opportunities.ps1"; Git = "git@github.com:HearstHealthInternational/fdb-arx-opportunities.git" };
+        [Project]::FdbPersistence = [PSCustomObject]@{Directory = "~\fdb-rx-persistence"; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-persistence\Persistence.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git" };
     }
 }
 
