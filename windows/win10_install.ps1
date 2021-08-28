@@ -1,5 +1,5 @@
 
-choco install microsoft-windows-terminal -yr
+choco install conemu -yr
 choco install 7zip -yr
 choco install visualstudio2019community -yr
 choco install visualstudiocode -yr
