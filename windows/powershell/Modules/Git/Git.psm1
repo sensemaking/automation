@@ -41,11 +41,10 @@ function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild
         git add .
         git commit . -m $message --no-status
         git push 
-    }
-  
+    }  
+
     if ($null -eq $message) {
-        Write-Host Please provide the Jira story number`n -Fore Red
-        return
+        $message = "_"
     } 
 
     $dir = Get-Location 
