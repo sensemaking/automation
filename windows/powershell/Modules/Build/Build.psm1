@@ -110,7 +110,7 @@ function Run-Client([Project] $project = [Project]::All) {
         if ($_.Value.CodeSolution -ne $null) {
             Write-Host `nRunning $targetProject.Key client `n -Fore Green     
             Set-Location $_.Value.CodeSolution    
-            yarn start            
+            yarn --openssl-legacy-provider start            
         }
     }
 
