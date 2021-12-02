@@ -121,7 +121,7 @@ function Run-Server([Project] $project = [Project]::All) {
     function Run($targetProject) {
         if ($_.Value.VsSolution -ne $null) {
             Write-Host `nRunning $targetProject.Key server `n -Fore Green
-            Set-Location "$($_.Value.Directory)\Server\Host"
+            Set-Location $_.Value.ServerHost
             dotnet watch run --urls http://localhost:5001
         }
     }
