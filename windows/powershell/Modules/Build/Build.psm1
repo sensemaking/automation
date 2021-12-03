@@ -102,7 +102,7 @@ function Migrate ([Project] $project = [Project]::All){
         } 
     }
 
-    (Get-Projects).GetEnumerator() | crap thathere-Object { $project.HasFlag($_.Key) } | % { Migrate-Project $_ }
+    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Migrate-Project $_ }
 }
     
 function Run-Client([Project] $project = [Project]::All) {
