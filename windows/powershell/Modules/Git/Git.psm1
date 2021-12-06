@@ -66,6 +66,7 @@ function Revert ([Project] $project = [Project]::None){
 
     $dir = Get-Location
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Revert $_ }
+    Pull $project
     Set-Location $dir
 }
 
