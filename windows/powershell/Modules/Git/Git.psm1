@@ -47,6 +47,7 @@ function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild
         $message = "_"
     } 
 
+    Clear-Host
     $dir = Get-Location 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { 
         if (!$noBuild) { Build $_.Key -frontEndOnly:$frontEndOnly -backEndOnly:$backEndOnly }
@@ -64,6 +65,7 @@ function Revert ([Project] $project = [Project]::None){
         git clean -qf
     }
 
+    Clear-Host
     $dir = Get-Location
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Revert $_ }
     Pull $project
@@ -77,6 +79,7 @@ function Clone([Project] $project = [Project]::None) {
         git clone $targetProject.Value.Git 
     }
 
+    Clear-Host
     $dir = Get-Location
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Clone $_ }
     Set-Location $dir

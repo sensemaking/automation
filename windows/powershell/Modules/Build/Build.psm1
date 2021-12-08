@@ -114,6 +114,7 @@ function Run-Client([Project] $project = [Project]::All) {
         }
     }
 
+    Clear-Host
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Run $_ }
 }
 
@@ -126,6 +127,7 @@ function Run-Server([Project] $project = [Project]::All) {
         }
     }
 
+    Clear-Host
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Run $_ }
 }
 
@@ -139,6 +141,7 @@ function Watch([Project] $project = [Project]::All) {
         }
     }
 
+    Clear-Host
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Watch-Project $_ }
 }
 
