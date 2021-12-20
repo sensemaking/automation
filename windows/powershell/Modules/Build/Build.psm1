@@ -31,6 +31,7 @@ function Prime ([Project] $project){
 
 function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly, [Switch] $backEndOnly){
     function Open-Project($targetProject){
+        cls
         $dir = Get-Location
         Set-Location $_.Value.Directory     
         
