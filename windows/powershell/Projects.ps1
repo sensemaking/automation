@@ -2,37 +2,102 @@ Add-Type -TypeDefinition @"
 [System.Flags]
 public enum Project
 {
-    None = 0,
-    Automation = 1,
-    Core = 2,
-    Persistence = 4,
-    Web = 8,
-    uPredict = 16,
-    Pharaoh = 32,
-    Messaging = 256,
-    FdbPersistence = 32768,
-    Primitives = 65536,
-    All = Automation + Core + Persistence + Web + uPredict +Pharaoh + Messaging + FdbPersistence + Primitives
+    None=0,
+    Automation=1,
+    Core=2,
+    Persistence=4,
+    Web=8,
+    uPredict=16,
+    Pharaoh=32,
+    Messaging=256,
+    FdbPersistence=32768,
+    Primitives=65536,
+    All=Automation + Core + Persistence + Web + uPredict +Pharaoh + Messaging + FdbPersistence + Primitives
 }
 "@
 
 function global:Get-Projects {
     return @{ 
-        [Project]::Automation = [PSCustomObject]@{ Git = "git@github.com:sensemaking/automation.git"; Directory = "~\automation"; Script = $null; VsSolution = $null; CodeSolution = "~\automation"; HasJs = $false; };
-        [Project]::Core = [PSCustomObject]@{ Git = "git@github.com:sensemaking/core.git"; Directory = "~\core"; Script = $null; VsSolution = "~\core\Core.sln"; CodeSolution = $null; HasJs = $false; };
-        [Project]::Persistence = [PSCustomObject]@{ Git = "git@github.com:sensemaking/persistence.git"; Directory = "~\persistence"; Script = $null; VsSolution = "~\persistence\Persistence.sln"; CodeSolution = $null; HasJs = $false; };
-        [Project]::Web = [PSCustomObject]@{ Git = "git@github.com:sensemaking/web.git"; Directory = "~\web"; Script = $null; VsSolution = "~\web\.net\Web.sln"; CodeSolution = "~\web\js\core"; HasJs = $true; };        
-        [Project]::uPredict = [PSCustomObject]@{ Git = "git@github.com:uPredict/uPredict.git"; Directory = "~\uPredict"; VsSolution = "~\uPredict\server\upredict.sln"; CodeSolution = "~\uPredict\client"; HasJs = $true; Script = $null; };
-        [Project]::Pharaoh = [PSCustomObject]@{Directory = "~\fdb-rx-authoring"; HasJs = $true; CodeSolution = "~\fdb-rx-authoring\Pharaoh\UI\client"; VsSolution = "~\fdb-rx-authoring\Authoring.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; ServerHost="~\fdb-rx-authoring\Pharaoh\UI\server\host" };
-        [Project]::FdbPersistence = [PSCustomObject]@{Directory = "~\fdb-rx-persistence"; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-persistence\Persistence.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git" };
-        [Project]::Messaging = [PSCustomObject]@{Directory = "~\fdb-rx-messaging"; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-messaging\Messaging.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-messaging.git" };
-        [Project]::Primitives = [PSCustomObject]@{Directory = "~\fdb-rx-primitives"; HasJs = $false; CodeSolution = $null; VsSolution = "~\fdb-rx-primitives\Primitives.sln"; Script = $null; Git = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git" };
+        [Project]::Automation=[PSCustomObject]@{ 
+            Git="git@github.com:sensemaking/automation.git"; 
+            Directory="~\automation"; 
+            VsSolution=$null; 
+            CodeSolution="~\automation"; 
+            HasJs=$false; 
+            Script=$null; 
+        };
+        [Project]::Core=[PSCustomObject]@{ 
+            Git="git@github.com:sensemaking/core.git"; 
+            Directory="~\core"; 
+            VsSolution="~\core\Core.sln"; 
+            CodeSolution=$null; 
+            HasJs=$false;
+            Script=$null; 
+        };
+        [Project]::Persistence=[PSCustomObject]@{ 
+            Git="git@github.com:sensemaking/persistence.git"; 
+            Directory="~\persistence"; 
+            VsSolution="~\persistence\Persistence.sln"; 
+            CodeSolution=$null; 
+            HasJs=$false; 
+            Script=$null; 
+        };
+        [Project]::Web=[PSCustomObject]@{ 
+            Git="git@github.com:sensemaking/web.git"; 
+            Directory="~\web";
+            VsSolution="~\web\.net\Web.sln"; 
+            CodeSolution="~\web\js\core"; 
+            HasJs=$true;  
+            Script=$null; 
+        };        
+        [Project]::uPredict=[PSCustomObject]@{ 
+            Git="git@github.com:uPredict/uPredict.git"; 
+            Directory="~\uPredict"; 
+            VsSolution="~\uPredict\server\upredict.sln"; 
+            CodeSolution="~\uPredict\client"; 
+            ServerHost="~\uPredict\server\host"; 
+            HasJs=$true; 
+            Script=$null;
+        };
+        [Project]::Pharaoh=[PSCustomObject]@{
+            Git="git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
+            Directory="~\fdb-rx-authoring"; 
+            CodeSolution="~\fdb-rx-authoring\Pharaoh\UI\client"; 
+            ServerHost="~\fdb-rx-authoring\Pharaoh\UI\server\host";
+            VsSolution="~\fdb-rx-authoring\Authoring.sln"; 
+            HasJs=$true; 
+            Script=$null;
+        };
+        [Project]::FdbPersistence=[PSCustomObject]@{
+            Git="git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
+            Directory="~\fdb-rx-persistence"; 
+            HasJs=$false; 
+            CodeSolution=$null; 
+            VsSolution="~\fdb-rx-persistence\Persistence.sln"; 
+            Script=$null; 
+        };
+        [Project]::Messaging=[PSCustomObject]@{
+            Git="git@github.com:HearstHealthInternational/fdb-rx-messaging.git";
+            Directory="~\fdb-rx-messaging"; 
+            VsSolution="~\fdb-rx-messaging\Messaging.sln"; 
+            CodeSolution=$null; 
+            HasJs=$false; 
+            Script=$null;
+        };
+        [Project]::Primitives=[PSCustomObject]@{
+            Git="git@github.com:HearstHealthInternational/fdb-rx-primitives.git";
+            Directory="~\fdb-rx-primitives";
+            VsSolution="~\fdb-rx-primitives\Primitives.sln";
+            CodeSolution=$null;  
+            HasJs=$false;
+            Script=$null;
+        };
     }
 }
 
 function global:Update-Projects { 
    $automationDir =((get-projects).GetEnumerator() | where { $_.Name -eq "Automation" }).Value.Directory 
-   $profileDir = Split-Path $PROFILE
+   $profileDir=Split-Path $PROFILE
    
    if(!(Test-Path $automationDir)){ clone Automation }
 
