@@ -10,6 +10,8 @@ import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 
 (get-projects).GetEnumerator() | Where-Object { [bool]$_.Value.Script } | % { import-module $_.Value.Script -DisableNameChecking }
 
+Ssh-SignIn 
+
 function Edit-Profile { code (Split-Path $PROFILE) }
 
 function Edit-Hosts { code c:\windows\system32\drivers\etc\hosts }
@@ -27,6 +29,7 @@ function Update-Automation {
   Copy-Item "$automationDir\windows\powershell\AddEnvironmentPaths.ps1" -Destination "$profileDir\AddEnvironmentPaths.ps1" -fo
   Copy-Item "$automationDir\windows\powershell\Microsoft.PowerShell_profile.ps1" -Destination "$profileDir\Microsoft.PowerShell_profile.ps1" -fo
   
+  Write-Host wibble
   Write-Host "`nUpdated automation scripts. Reloading shell`n" -Fore Green
   powershell.exe -nologo
 }
