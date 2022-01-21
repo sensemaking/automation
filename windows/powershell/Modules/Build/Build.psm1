@@ -122,7 +122,7 @@ function Run-Client([Project] $project = [Project]::All) {
 function Run-Server([Project] $project = [Project]::All) {
     function Run($targetProject) {
         if ($_.Value.ServerHost -ne $null) {
-            if(!Get-Process CosmosDB.Emulator) { CosmosDB.Emulator.exe }
+            if(!(Get-Process CosmosDB.Emulator)) { CosmosDB.Emulator.exe }
             Write-Host `nRunning $targetProject.Key server `n -Fore Green
             Set-Location $_.Value.ServerHost
             dotnet watch run --urls https://localhost:5001
