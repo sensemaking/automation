@@ -21,10 +21,12 @@ function Update-Automation {
 
   pull Automation
 
-  Remove-Item "$(Split-Path $PROFILE)\Modules\*" -r -for
-  Copy-Item "$automationDir\windows\powershell\modules" (Split-Path $PROFILE) -r -fo
+  $profileDir = Split-Path $PROFILE
+  Remove-Item "$profileDir\Modules\*" -r -for
+  Copy-Item "$automationDir\windows\powershell\modules" $profileDir -r -fo
   Copy-Item "$automationDir\windows\powershell\AddEnvironmentPaths.ps1" -Destination "$profileDir\AddEnvironmentPaths.ps1" -fo
-
+  Copy-Item "$automationDir\windows\powershell\Microsoft.PowerShell_profile.ps1" -Destination "$profileDir\Microsoft.PowerShell_profile.ps1" -fo
+  
   Write-Host "`nUpdated automation scripts. Reloading shell`n" -Fore Green
   powershell.exe -nologo
 }
