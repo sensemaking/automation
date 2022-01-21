@@ -27,7 +27,6 @@ function Update-Automation {
   Remove-Item "$profileDir\Modules\*" -r -for
   Copy-Item "$automationDir\windows\powershell\modules" $profileDir -r -fo
   Copy-Item "$automationDir\windows\powershell\AddEnvironmentPaths.ps1" -Destination "$profileDir\AddEnvironmentPaths.ps1" -fo
-  Copy-Item "$automationDir\windows\powershell\Microsoft.PowerShell_profile.ps1" -Destination "$profileDir\Microsoft.PowerShell_profile.ps1" -fo
   
   Write-Host wibble
   Write-Host "`nUpdated automation scripts. Reloading shell`n" -Fore Green
