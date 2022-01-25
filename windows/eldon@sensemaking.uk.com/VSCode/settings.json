@@ -1,6 +1,6 @@
 {
     "extensions.ignoreRecommendations": false,
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "workbench.tips.enabled": false,
     "workbench.settings.editor": "json",
     "explorer.openEditors.visible": 0,
