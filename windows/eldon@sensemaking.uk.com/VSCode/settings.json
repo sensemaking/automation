@@ -11,9 +11,11 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "css.lint.unknownAtRules": "ignore",
     "css.lint.validProperties": [ "composes" ],
-    "vim.handleKeys": { "<C-a>": false, "<C-x>": false, "<C-c>": false, "<C-v>": false },
+    "vim.handleKeys": { "<C-a>": false, "<C-x>": false, "<C-c>": false, "<C-v>": false, "<C-f>": false, "<C-h>": false },
     "macros": { "toggleVim": [ "toggleVim", "extension.vim_escape" ] },
     "search.exclude": {
+        "**/images": true,
+        "**/fonts": true,
         "**/.cache": true,
         "**/node_modules": true,
         "**/.vscode": true,
@@ -32,5 +34,8 @@
         "**/node_modules": true,
         "**/build": true,
         "**/dist": true
-    }
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "window.zoomLevel": 1,
+    "explorer.confirmDragAndDrop": false
 }
