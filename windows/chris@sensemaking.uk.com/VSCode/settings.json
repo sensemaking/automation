@@ -21,7 +21,8 @@
         "**/node_modules": true,
         "**/.vscode": true,
         "**/build": true,
-        "**/dist": true
+        "**/dist": true,
+        "**/yarn.lock": true
     },
     "files.watcherExclude": {
         "**/.cache": true,
