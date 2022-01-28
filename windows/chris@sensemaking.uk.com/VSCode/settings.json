@@ -1,6 +1,6 @@
 {
     "extensions.ignoreRecommendations": false,
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "window.zoomLevel": 0,
     "workbench.tips.enabled": false,
     "workbench.settings.editor": "json",
