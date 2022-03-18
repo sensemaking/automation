@@ -60,8 +60,8 @@ function Revert ([Project] $project = [Project]::None){
     function Git-Revert($targetProject){
         Write-Host `nReverting $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
-
-        git reset --hard origin/master 
+ 
+        git reset --hard origin/main 
         git clean -qf
     }
 
