@@ -11,6 +11,7 @@
     "editor.minimap.enabled": false,
     "editor.codeLens": false,
     "editor.tabSize": 2,
+    "editor.formatOnSave": true,
     "javascript.format.semicolons": "remove",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "javascript.preferences.quoteStyle": "single",
