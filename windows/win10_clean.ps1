@@ -42,6 +42,6 @@ choco uninstall MicrosoftWindowsPowerShellV2Root -s windowsfeatures -yr
 choco uninstall MicrosoftWindowsPowerShellV2 -s windowsfeatures -yr
 choco uninstall Internet-Explorer-Optional-amd64 -s windowsfeatures -yr
 
-Write-Host "Consider running https://github.com/Sycnex/Windows10Debloater"
+Write-Host "https://github.com/ChrisTitusTech/win10script"
 Read-Host "Computer will restart then please run .\automation\windows\win10_install.ps1"
 Restart-Computer
