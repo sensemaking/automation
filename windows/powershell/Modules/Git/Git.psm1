@@ -62,6 +62,7 @@ function Revert ([Project] $project = [Project]::None){
         Set-Location $targetProject.Value.Directory
  
         git reset --hard origin/main 
+        git reset --hard origin/master
         git clean -qf
     }
 
