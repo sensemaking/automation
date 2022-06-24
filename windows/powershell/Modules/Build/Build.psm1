@@ -64,9 +64,8 @@ function Build ([Project] $project = [Project]::All, [Switch] $frontEndOnly, [Sw
 
         if ($_.Value.VsSolution -ne $null -and -not $frontEndOnly) { 
             Write-Host `nBuilding $targetProject.Key -Fore Green
-            $solutionPath = Resolve-Path ($_.Value.VsSolution)
-            dotnet restore $solutionPath --verbosity q
-            dotnet build $solutionPath --configuration Release -nologo --verbosity q -warnAsError --no-incremental --no-restore
+            $solutionPath = Resolve-Path ($_.Value.VsSolution)            
+            dotnet build $solutionPath --configuration Release -nologo --verbosity q --no-incremental 
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
             Write-Host `nRunning Tests`n -Fore Green
