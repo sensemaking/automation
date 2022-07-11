@@ -59,7 +59,7 @@ function global:Get-Projects {
             HasJs=$true; 
             Script=$null;
         };
-        [Project]::Pharaoh=[PSCustomObject]@{
+        [Project]::Authoring=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
             Directory="~\fdb-rx-authoring"; 
             CodeSolution="~\fdb-rx-authoring\Pharaoh\UI\client"; 
