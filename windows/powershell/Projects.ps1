@@ -8,11 +8,11 @@ public enum Project
     Persistence=4,
     Web=8,
     uPredict=16,
-    Pharaoh=32,
+    Authoring=32,
     Messaging=256,
     FdbPersistence=32768,
     Primitives=65536,
-    All=Automation + Core + Persistence + Web + uPredict +Pharaoh + Messaging + FdbPersistence + Primitives
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Messaging + FdbPersistence + Primitives
 }
 "@
 
