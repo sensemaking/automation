@@ -20,10 +20,10 @@ read-host "`n`nThen press any key"
 
 Set-Location $smRoot
 & "$env:programFiles\Git\usr\bin\ssh-agent.exe" | % {
-        if ($_ -match '(?<key>[^=]+)=(?<value>[^;]+);') {
-            [void][Environment]::SetEnvironmentVariable($Matches['key'], $Matches['value'])
-        }
+    if ($_ -match '(?<key>[^=]+)=(?<value>[^;]+);') {
+        [void][Environment]::SetEnvironmentVariable($Matches['key'], $Matches['value'])
     }
+}
 & "$env:programFiles\Git\usr\bin\ssh-add" "$sshdirectory\id_rsa"
 
 git clone git@github.com:sensemaking/automation.git
@@ -31,7 +31,7 @@ Stop-Process -Name 'ssh-agent' -ErrorAction SilentlyContinue
 
 Copy-Item "$smroot\automation\windows\powershell\*" (split-path $PROFILE) -r
 
-$content = {(Get-Content "$smRoot\automation\windows\powershell\Microsoft.PowerShell_profile.ps1")}.Invoke()
+$content = { (Get-Content "$smRoot\automation\windows\powershell\Microsoft.PowerShell_profile.ps1") }.Invoke()
 $content.Insert(0, "`$smHome = `"$smRoot`"") 
 $content | Set-Content $PROFILE
 
@@ -39,4 +39,4 @@ write-host "`nSetup Complete. Please edit Project.ps1 found at (Split-Path $PROF
 
 refreshEnv
 & $PROFILE
-write-host "Please run .\automation\windows\win10_clean.ps1"
+write-host "Please run .\automation\windows\clean.ps1"

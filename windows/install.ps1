@@ -4,7 +4,7 @@ choco install 7zip -yr
 choco install slack -yr
 choco install teamviewer -yr
 choco install dotnetcore-sdk -yr
-choco install visualstudio2019community -yr
+choco install visualstudio2022community -yr
 choco install visualstudiocode -yr
 choco install sqllocaldb -yr
 choco install sql-server-2017-cumulative-update -yr
@@ -19,5 +19,5 @@ choco install yarn -yr
 yarn global add npm-check-updates
 yarn global add serve
 
-Read-Host "Computer will restart then please run .\automation\windows\win10_configure.ps1"
+Read-Host "Computer will restart then please run .\automation\windows\configure.ps1"
 Restart-Computer
