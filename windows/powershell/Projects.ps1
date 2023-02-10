@@ -55,7 +55,7 @@ function global:Get-Projects {
             Directory="~\uPredict"; 
             VsSolution="~\uPredict\server\upredict.sln"; 
             CodeSolution="~\uPredict\client"; 
-            ServerHost="~\uPredict\server\host"; 
+            ServerHost="~\uPredict\server\web\host"; 
             HasJs=$true; 
             Script=$null;
         };
