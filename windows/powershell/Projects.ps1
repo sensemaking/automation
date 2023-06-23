@@ -9,6 +9,7 @@ public enum Project
     Web=8,
     uPredict=16,
     Authoring=32,
+    RxCommon=64,
     Messaging=256,
     FdbPersistence=32768,
     Primitives=65536,
