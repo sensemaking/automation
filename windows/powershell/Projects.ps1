@@ -21,7 +21,6 @@ function global:Get-Projects {
         [Project]::Automation=[PSCustomObject]@{ 
             Git="git@github.com:sensemaking/automation.git"; 
             Directory="~\automation"; 
-            VsSolution=$null; 
             CodeSolution="~\automation"; 
         };
         [Project]::Core=[PSCustomObject]@{ 
