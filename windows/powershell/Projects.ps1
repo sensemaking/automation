@@ -23,32 +23,22 @@ function global:Get-Projects {
             Directory="~\automation"; 
             VsSolution=$null; 
             CodeSolution="~\automation"; 
-            HasJs=$false; 
-            Script=$null; 
         };
         [Project]::Core=[PSCustomObject]@{ 
             Git="git@github.com:sensemaking/core.git"; 
             Directory="~\core"; 
             VsSolution="~\core\Core.sln"; 
-            CodeSolution=$null; 
-            HasJs=$false;
-            Script=$null; 
         };
         [Project]::Persistence=[PSCustomObject]@{ 
             Git="git@github.com:sensemaking/persistence.git"; 
             Directory="~\persistence"; 
             VsSolution="~\persistence\Persistence.sln"; 
-            CodeSolution=$null; 
-            HasJs=$false; 
-            Script=$null; 
         };
         [Project]::Web=[PSCustomObject]@{ 
             Git="git@github.com:sensemaking/web.git"; 
             Directory="~\web";
             VsSolution="~\web\.net\Web.sln"; 
             CodeSolution="~\web\js\core"; 
-            HasJs=$true;  
-            Script=$null; 
         };        
         [Project]::uPredict=[PSCustomObject]@{ 
             Git="git@github.com:uPredict/uPredict.git"; 
@@ -56,41 +46,33 @@ function global:Get-Projects {
             VsSolution="~\uPredict\server\upredict.sln"; 
             CodeSolution="~\uPredict\client"; 
             ServerHost="~\uPredict\server\web\host"; 
-            HasJs=$true; 
-            Script=$null;
         };
         [Project]::Authoring=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
             Directory="~\fdb-rx-authoring"; 
+            VsSolution="~\fdb-rx-authoring\Authoring.sln"; 
             CodeSolution="~\fdb-rx-authoring\Pharaoh\UI\client"; 
             ServerHost="~\fdb-rx-authoring\Pharaoh\UI\server\host";
-            VsSolution="~\fdb-rx-authoring\Authoring.sln"; 
-            HasJs=$true; 
-            Script=$null;
+        };
+        [Project]::RxCommon=[PSCustomObject]@{
+            Git="git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
+            Directory="~\fdb-rx-authoring-common"; 
+            VsSolution="\fdb-rx-authoring-common\Common.sln"; 
         };
         [Project]::FdbPersistence=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
             Directory="~\fdb-rx-persistence"; 
-            HasJs=$false; 
-            CodeSolution=$null; 
             VsSolution="~\fdb-rx-persistence\Persistence.sln"; 
-            Script=$null; 
         };
         [Project]::Messaging=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-messaging.git";
             Directory="~\fdb-rx-messaging"; 
             VsSolution="~\fdb-rx-messaging\Messaging.sln"; 
-            CodeSolution=$null; 
-            HasJs=$false; 
-            Script=$null;
         };
         [Project]::Primitives=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-primitives.git";
             Directory="~\fdb-rx-primitives";
             VsSolution="~\fdb-rx-primitives\Primitives.sln";
-            CodeSolution=$null;  
-            HasJs=$false;
-            Script=$null;
         };
     }
 }

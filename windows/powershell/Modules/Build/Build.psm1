@@ -73,7 +73,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $frontEndOnly, [Sw
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
 
-        if ($_.Value.HasJs -and -not $backEndOnly) {
+        if ($null -ne $_.Value.CodeSolution -and -not $backEndOnly) {
             Write-Host `nBuilding JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution         
             yarn
