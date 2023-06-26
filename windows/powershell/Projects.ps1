@@ -55,9 +55,9 @@ function global:Get-Projects {
             ServerHost="~\fdb-rx-authoring\Pharaoh\UI\server\host";
         };
         [Project]::Publication=[PSCustomObject]@{
-            Git="git@github.com:HearstHealthInternational/fdb-rx-authoring-common.git"; 
-            Directory="~\fdb-rx-authoring-common"; 
-            VsSolution="~\fdb-rx-authoring-common\Publication.sln"; 
+            Git="git@github.com:HearstHealthInternational/fdb-rx-authoring-publication.git"; 
+            Directory="~\fdb-rx-authoring-publication"; 
+            VsSolution="~\fdb-rx-authoring-publication\Publication.sln"; 
         };
         [Project]::FdbPersistence=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
