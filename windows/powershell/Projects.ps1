@@ -9,7 +9,7 @@ public enum Project
     Web=8,
     uPredict=16,
     Authoring=32,
-    RxCommon=64,
+    Publication=64,
     Messaging=256,
     FdbPersistence=32768,
     Primitives=65536,
@@ -54,10 +54,10 @@ function global:Get-Projects {
             CodeSolution="~\fdb-rx-authoring\Pharaoh\UI\client"; 
             ServerHost="~\fdb-rx-authoring\Pharaoh\UI\server\host";
         };
-        [Project]::RxCommon=[PSCustomObject]@{
+        [Project]::Publication=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-authoring-common.git"; 
             Directory="~\fdb-rx-authoring-common"; 
-            VsSolution="~\fdb-rx-authoring-common\Common.sln"; 
+            VsSolution="~\fdb-rx-authoring-common\Publication.sln"; 
         };
         [Project]::FdbPersistence=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
