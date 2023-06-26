@@ -57,7 +57,7 @@ function global:Get-Projects {
         [Project]::RxCommon=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-authoring-common.git"; 
             Directory="~\fdb-rx-authoring-common"; 
-            VsSolution="\fdb-rx-authoring-common\Common.sln"; 
+            VsSolution="~\fdb-rx-authoring-common\Common.sln"; 
         };
         [Project]::FdbPersistence=[PSCustomObject]@{
             Git="git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
