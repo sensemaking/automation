@@ -61,14 +61,14 @@ function global:Get-Projects {
             Directory  = "~\fdb-rx-authoring-publication"; 
             VsSolution = "~\fdb-rx-authoring-publication\Publication.sln"; 
         };
-        [Project]::Platform  = [PSCustomObject]@{
-            Git = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" 
-            Directory = "~\fdb-rx-platform-common"; 
+        [Project]::Platform       = [PSCustomObject]@{
+            Git        = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" 
+            Directory  = "~\fdb-rx-platform-common"; 
             VsSolution = "~\fdb-rx-platform-common\Platform.Common.sln"; 
         };
         [Project]::Rules          = [PSCustomObject]@{
-            Git = "git@github.com:HearstHealthInternational/fdb-rx-rules.git" };
-            Directory = "~\fdb-rx-rules"; 
+            Git        = "git@github.com:HearstHealthInternational/fdb-rx-rules.git" 
+            Directory  = "~\fdb-rx-rules"; 
             VsSolution = "~\fdb-rx-rules\Rules.sln"; 
         };
         [Project]::FdbPersistence = [PSCustomObject]@{
