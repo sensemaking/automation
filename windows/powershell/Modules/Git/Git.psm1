@@ -34,7 +34,7 @@ function Pull ([Project] $project = [Project]::All){
     Set-Location $dir
 }
 
-function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild, [Switch] $frontEndOnly, [Switch] $backEndOnly){
+function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild, [Switch] $clientOnly, [Switch] $serverOnly){
     function Git-Push($targetProject){
         Write-Host `nCommitting $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory        
@@ -50,7 +50,7 @@ function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild
     Clear-Host
     $dir = Get-Location 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { 
-        if (!$noBuild) { Build $_.Key -frontEndOnly:$frontEndOnly -backEndOnly:$backEndOnly } else { Pull $_.Key }
+        if (!$noBuild) { Build $_.Key -frontEndOnly:$clientOnly -backEndOnly:$serverOnly } else { Pull $_.Key }
         Git-Push $_ 
     }
     Set-Location $dir

@@ -29,7 +29,7 @@ function Prime ([Project] $project) {
     (Get-Projects).GetEnumerator() | Where { $project.HasFlag($_.Key) } | % { Prime-Project $_ }
 }
 
-function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly, [Switch] $backEndOnly) {
+function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Switch] $serverOnly) {
     function Open-Project($targetProject) {
         $dir = Get-Location
         Set-Location $_.Value.Directory     
@@ -37,11 +37,11 @@ function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly, [Sw
         git pull
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
-        if ($null -ne $_.Value.VsSolution -and -not $frontEndOnly) { 
+        if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
             & $_.Value.VsSolution 
         } 
 
-        if ($null -ne $_.Value.CodeSolution -and -not $backEndOnly) { 
+        if ($null -ne $_.Value.CodeSolution -and -not $serverOnly) { 
             $dir = Get-Location
             Set-Location $_.Value.CodeSolution  
             code . 
@@ -54,7 +54,7 @@ function Open ([Project] $project = [Project]::None, [Switch] $frontEndOnly, [Sw
     (Get-Projects).GetEnumerator() | Where { $project.HasFlag($_.Key) } | % { Open-Project $_ }
 }
 
-function Build ([Project] $project = [Project]::All, [Switch] $frontEndOnly, [Switch] $backEndOnly) {
+function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Switch] $serverOnly) {
     function Build-Project($targetProject) {
         $dir = Get-Location
         Set-Location $_.Value.Directory         
@@ -62,7 +62,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $frontEndOnly, [Sw
         git pull
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
-        if ($null -ne $_.Value.VsSolution -and -not $frontEndOnly) { 
+        if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
             Write-Host `nBuilding $targetProject.Key -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)            
             dotnet build $solutionPath --configuration Release -nologo --verbosity q --no-incremental 
@@ -73,7 +73,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $frontEndOnly, [Sw
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
 
-        if ($null -ne $_.Value.CodeSolution -and -not $backEndOnly) {
+        if ($null -ne $_.Value.CodeSolution -and -not $serverOnly) {
             Write-Host `nBuilding JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution         
             yarn
