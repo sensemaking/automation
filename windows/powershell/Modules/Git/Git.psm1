@@ -50,7 +50,7 @@ function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild
     Clear-Host
     $dir = Get-Location 
     (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { 
-        if (!$noBuild) { Build $_.Key -frontEndOnly:$clientOnly -backEndOnly:$serverOnly } else { Pull $_.Key }
+        if (!$noBuild) { Build $_.Key -clientOnly:$clientOnly -serverOnly:$serverOnly } else { Pull $_.Key }
         Git-Push $_ 
     }
     Set-Location $dir
