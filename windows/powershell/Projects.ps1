@@ -15,7 +15,8 @@ public enum Project
     Messaging=512,
     FdbPersistence=32768,
     Primitives=65536,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules + Messaging + FdbPersistence + Primitives
+    CommonWebUI=131072,
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules + Messaging + FdbPersistence + Primitives + CommonWebUI
 }
 "@
 
@@ -85,6 +86,11 @@ function global:Get-Projects {
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git";
             Directory  = "~\fdb-rx-primitives";
             VsSolution = "~\fdb-rx-primitives\Primitives.sln";
+        };
+        [Project]::CommonWebUI    = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-common-web-ui.git" 
+            Directory = "~\fdb-common-web-ui"; 
+            CodeSolution = "~\fdb-common-web-ui"; 
         };
     }
 }
