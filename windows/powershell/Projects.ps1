@@ -72,10 +72,9 @@ function global:Get-Projects {
             VsSolution = "~\fdb-rx-rules\Rules.sln"; 
         };
         [Project]::Opportunities  = [PSCustomObject]@{
-            Git = "git@github.com:HearstHealthInternational/fdb-arx-opportunities.git" 
-            Directory = "~\fdb-arx-opportunities"; 
-            VsSolution = "~\fdb-arx-opportunities\Opportunities.sln"; 
-            CodeSolution = "~\fdb-arx-opportunities\Web\Host\React"; 
+            Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp-opportunities.git" 
+            Directory = "~\fdb-arx-tpp-opportunities"; 
+            VsSolution = "~\fdb-arx-tpp-opportunities\OpportunitiesTPP.sln"; 
         };
         [Project]::FdbPersistence = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
