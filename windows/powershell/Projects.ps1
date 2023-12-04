@@ -15,7 +15,7 @@ public enum Project
     Opportunities=512,
     FdbPersistence=32768,
     Primitives=65536,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules + Messaging + FdbPersistence + Primitives + CommonWebUI
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules + Opportunities + FdbPersistence + Primitives
 }
 "@
 
