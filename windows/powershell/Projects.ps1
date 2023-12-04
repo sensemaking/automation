@@ -92,6 +92,14 @@ function global:Get-Projects {
             Directory = "~\fdb-common-web-ui"; 
             CodeSolution = "~\fdb-common-web-ui"; 
         };
+        [Project]::Opportunities  = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-arx-opportunities.git" 
+            Directory = "~\fdb-arx-opportunities"; 
+            VsSolution = "~\fdb-arx-opportunities\Opportunities.sln"; 
+            CodeSolution = "~\fdb-arx-opportunities\Web\Host\React"; 
+            Script = "~\fdb-arx-opportunities\Scripting\Opportunities.ps1"; 
+        };
+
     }
 }
 
