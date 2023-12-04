@@ -76,7 +76,6 @@ function global:Get-Projects {
             Directory = "~\fdb-arx-opportunities"; 
             VsSolution = "~\fdb-arx-opportunities\Opportunities.sln"; 
             CodeSolution = "~\fdb-arx-opportunities\Web\Host\React"; 
-            Script = "~\fdb-arx-opportunities\Scripting\Opportunities.ps1"; 
         };
         [Project]::FdbPersistence = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
