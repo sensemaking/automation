@@ -12,10 +12,9 @@ public enum Project
     Publication=64,
     Platform=128,
     Rules=256,
-    Messaging=512,
+    Opportunities=512,
     FdbPersistence=32768,
     Primitives=65536,
-    CommonWebUI=131072,
     All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules + Messaging + FdbPersistence + Primitives + CommonWebUI
 }
 "@
@@ -72,26 +71,6 @@ function global:Get-Projects {
             Directory  = "~\fdb-rx-rules"; 
             VsSolution = "~\fdb-rx-rules\Rules.sln"; 
         };
-        [Project]::FdbPersistence = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
-            Directory  = "~\fdb-rx-persistence"; 
-            VsSolution = "~\fdb-rx-persistence\Persistence.sln"; 
-        };
-        [Project]::Messaging      = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-messaging.git";
-            Directory  = "~\fdb-rx-messaging"; 
-            VsSolution = "~\fdb-rx-messaging\Messaging.sln"; 
-        };
-        [Project]::Primitives     = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git";
-            Directory  = "~\fdb-rx-primitives";
-            VsSolution = "~\fdb-rx-primitives\Primitives.sln";
-        };
-        [Project]::CommonWebUI    = [PSCustomObject]@{
-            Git = "git@github.com:HearstHealthInternational/fdb-common-web-ui.git" 
-            Directory = "~\fdb-common-web-ui"; 
-            CodeSolution = "~\fdb-common-web-ui"; 
-        };
         [Project]::Opportunities  = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-opportunities.git" 
             Directory = "~\fdb-arx-opportunities"; 
@@ -99,7 +78,16 @@ function global:Get-Projects {
             CodeSolution = "~\fdb-arx-opportunities\Web\Host\React"; 
             Script = "~\fdb-arx-opportunities\Scripting\Opportunities.ps1"; 
         };
-
+        [Project]::FdbPersistence = [PSCustomObject]@{
+            Git        = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
+            Directory  = "~\fdb-rx-persistence"; 
+            VsSolution = "~\fdb-rx-persistence\Persistence.sln"; 
+        };
+        [Project]::Primitives     = [PSCustomObject]@{
+            Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git";
+            Directory  = "~\fdb-rx-primitives";
+            VsSolution = "~\fdb-rx-primitives\Primitives.sln";
+        };
     }
 }
 
