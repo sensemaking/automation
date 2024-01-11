@@ -15,88 +15,76 @@ public enum Project
     Tpp=512,
     TppOpportunities=1024,
     Pid=2048,
-    FdbPersistence=4096,
-    Primitives=8192,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + Tpp + TppOpportunities + Pid + FdbPersistence + Primitives
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + Tpp + TppOpportunities + Pid
 }
 "@
 
 function global:Get-Projects {
     return @{ 
-        [Project]::Automation     = [PSCustomObject]@{ 
+        [Project]::Automation       = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/automation.git"; 
             Directory    = "~\automation"; 
             CodeSolution = "~\automation"; 
         };
-        [Project]::Core           = [PSCustomObject]@{ 
+        [Project]::Core             = [PSCustomObject]@{ 
             Git        = "git@github.com:sensemaking/core.git"; 
             Directory  = "~\core"; 
             VsSolution = "~\core\Core.sln"; 
         };
-        [Project]::Persistence    = [PSCustomObject]@{ 
+        [Project]::Persistence      = [PSCustomObject]@{ 
             Git        = "git@github.com:sensemaking/persistence.git"; 
             Directory  = "~\persistence"; 
             VsSolution = "~\persistence\Persistence.sln"; 
         };
-        [Project]::Web            = [PSCustomObject]@{ 
+        [Project]::Web              = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/web.git"; 
             Directory    = "~\web";
             VsSolution   = "~\web\.net\Web.sln"; 
             CodeSolution = "~\web\js\core"; 
         };        
-        [Project]::uPredict       = [PSCustomObject]@{ 
+        [Project]::uPredict         = [PSCustomObject]@{ 
             Git          = "git@github.com:uPredict/uPredict.git"; 
             Directory    = "~\uPredict"; 
             VsSolution   = "~\uPredict\server\upredict.sln"; 
             CodeSolution = "~\uPredict\client"; 
             ServerHost   = "~\uPredict\server\web\host"; 
         };
-        [Project]::Authoring      = [PSCustomObject]@{
+        [Project]::Authoring        = [PSCustomObject]@{
             Git          = "git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
             Directory    = "~\fdb-rx-authoring"; 
             VsSolution   = "~\fdb-rx-authoring\Authoring.sln"; 
             CodeSolution = "~\fdb-rx-authoring\Pharaoh\UI\client"; 
             ServerHost   = "~\fdb-rx-authoring\Pharaoh\UI\server\host";
         };
-        [Project]::Publication    = [PSCustomObject]@{
+        [Project]::Publication      = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-authoring-publication.git"; 
             Directory  = "~\fdb-rx-authoring-publication"; 
             VsSolution = "~\fdb-rx-authoring-publication\Publication.sln"; 
         };
-        [Project]::Platform       = [PSCustomObject]@{
+        [Project]::Platform         = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" 
             Directory  = "~\fdb-rx-platform-common"; 
             VsSolution = "~\fdb-rx-platform-common\Platform.Common.sln"; 
         };
-        [Project]::Rules          = [PSCustomObject]@{
+        [Project]::Rules            = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-rules.git" 
             Directory  = "~\fdb-rx-rules"; 
             VsSolution = "~\fdb-rx-rules\Rules.sln"; 
         };
-        [Project]::Tpp = [PSCustomObject]@{
+        [Project]::Tpp              = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
             Directory = "~\fdb-arx-tpp"; 
             VsSolution = "~\fdb-arx-tpp\Tpp.sln"; 
         };
-        [Project]::TppOpportunities  = [PSCustomObject]@{
+        [Project]::TppOpportunities = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp-opportunities.git" 
             Directory = "~\fdb-arx-tpp-opportunities"; 
             VsSolution = "~\fdb-arx-tpp-opportunities\Tpp.Opportunities.sln"; 
         };
-        [Project]::Pid  = [PSCustomObject]@{
+        [Project]::Pid              = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-pid.git" 
             Directory = "~\fdb-arx-pid"; 
             VsSolution = "~\fdb-arx-pid\Pid.sln"; 
-        };
-        [Project]::FdbPersistence = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git";
-            Directory  = "~\fdb-rx-persistence"; 
-            VsSolution = "~\fdb-rx-persistence\Persistence.sln"; 
-        };
-        [Project]::Primitives     = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git";
-            Directory  = "~\fdb-rx-primitives";
-            VsSolution = "~\fdb-rx-primitives\Primitives.sln";
         };
     }
 }
