@@ -12,11 +12,12 @@ public enum Project
     Publication=64,
     Platform=128,
     Rules=256,
-    TPPOpportunities=512,
-    Pid=1024,
-    FdbPersistence=2048,
-    Primitives=4096,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules + TPPOpportunities + Pid + FdbPersistence + Primitives
+    Tpp=512,
+    TppOpportunities=1024,
+    Pid=2048,
+    FdbPersistence=4096,
+    Primitives=8192,
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + Tpp + TppOpportunities + Pid + FdbPersistence + Primitives
 }
 "@
 
@@ -72,7 +73,12 @@ function global:Get-Projects {
             Directory  = "~\fdb-rx-rules"; 
             VsSolution = "~\fdb-rx-rules\Rules.sln"; 
         };
-        [Project]::TPPOpportunities  = [PSCustomObject]@{
+        [Project]::Tpp = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
+            Directory = "~\fdb-arx-tpp"; 
+            VsSolution = "~\fdb-arx-tpp\Tpp.sln"; 
+        };
+        [Project]::TppOpportunities  = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp-opportunities.git" 
             Directory = "~\fdb-arx-tpp-opportunities"; 
             VsSolution = "~\fdb-arx-tpp-opportunities\Tpp.Opportunities.sln"; 
