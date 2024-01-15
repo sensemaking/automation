@@ -3,8 +3,8 @@ choco install conemu -yr
 choco install 7zip -yr
 choco install slack -yr
 choco install teamviewer -yr
-choco install dotnetcore-sdk -yr
-choco install visualstudio2022community -yr
+choco install dotnet-sdk -yr
+choco install jetbrains-rider
 choco install visualstudiocode -yr
 choco install sqllocaldb -yr
 choco install sql-server-2017-cumulative-update -yr
