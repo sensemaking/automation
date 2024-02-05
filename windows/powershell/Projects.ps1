@@ -14,8 +14,9 @@ public enum Project
     Rules=256,
     TppIngest=512,
     TppOpportunities=1024,
-    Pid=2048,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + TppIngest + TppOpportunities + Pid
+    TppDaemon=2048,
+    Pid=4096,
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + TppIngest + TppOpportunities + TppDaemon + Pid
 }
 "@
 
@@ -75,6 +76,11 @@ function global:Get-Projects {
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
             Directory = "~\fdb-arx-tpp\ingest"; 
             VsSolution = "~\fdb-arx-tpp\ingest\Tpp.sln"; 
+        };
+        [Project]::TppDaemon        = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
+            Directory = "~\fdb-arx-tpp\daemon"; 
+            VsSolution = "~\fdb-arx-tpp\daemon\Tpp.sln"; 
         };
         [Project]::TppOpportunities = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp-opportunities.git" 
