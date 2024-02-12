@@ -84,8 +84,8 @@ function global:Get-Projects {
         };
         [Project]::TppOpportunities = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp-opportunities.git" 
-            Directory = "~\fdb-arx-tpp-opportunities"; 
-            VsSolution = "~\fdb-arx-tpp-opportunities\Tpp.Opportunities.sln"; 
+            Directory = "~\fdb-arx-tpp\opportunities"; 
+            VsSolution = "~\fdb-arx-tpp\opportunities\Tpp.Opportunities.sln"; 
         };
         [Project]::Pid              = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-pid.git" 
