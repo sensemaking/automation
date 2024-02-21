@@ -16,7 +16,8 @@ public enum Project
     TppOpportunities=1024,
     TppDaemon=2048,
     Pid=4096,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + TppIngest + TppOpportunities + TppDaemon + Pid
+    Opportunities=8192,
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + TppIngest + TppOpportunities + TppDaemon + Pid + Opportunities
 }
 "@
 
