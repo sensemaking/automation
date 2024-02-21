@@ -98,7 +98,7 @@ function global:Get-Projects {
             CodeSolution = "~\fdb-arx-opportunities\Web\Host\React"; 
             VsSolution = "~\fdb-arx-opportunities\Opportunities.sln"; 
             Git = "git@github.com:HearstHealthInternational/fdb-arx-opportunities.git"; 
-            ServerHost   = "~\fdb-arx-opportunities\Web\web";
+            ServerHost   = "~\fdb-arx-opportunities\Web\Host";
         };
     }
 }
