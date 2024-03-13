@@ -76,7 +76,7 @@ function global:Get-Projects {
         [Project]::TppFileIngest        = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
             Directory = "~\fdb-arx-tpp\Ingest\FileIngest"; 
-            VsSolution = "~\fdb-arx-tpp\Ingest\FileIngest\Tpp.FileIngest.sln"; 
+            VsSolution = "~\fdb-arx-tpp\Ingest\FileIngest\Tpp.Files.Ingest.sln"; 
         };
         [Project]::TppDaemon        = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
