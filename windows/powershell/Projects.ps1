@@ -13,11 +13,12 @@ public enum Project
     Platform=128,
     Rules=256,
     TppFileIngest=512,
+    TppPatientLoader = 16384,
     TppOpportunities=1024,
     TppDaemon=2048,
     Pid=4096,
     Opportunities=8192,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + TppFileIngest + TppOpportunities + TppDaemon + Pid + Opportunities
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + TppFileIngest + TppPatientLoader + TppOpportunities + TppDaemon + Pid + Opportunities
 }
 "@
 
@@ -77,6 +78,11 @@ function global:Get-Projects {
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
             Directory = "~\fdb-arx-tpp\Ingest\FileIngest"; 
             VsSolution = "~\fdb-arx-tpp\Ingest\FileIngest\Tpp.Files.Ingest.sln"; 
+        };
+        [Project]::TppPatientLoader     = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git"; 
+            Directory = "~\fdb-arx-tpp\Ingest\PatientLoader"; 
+            VsSolution = "~\fdb-arx-tpp\Ingest\PatientLoader\Tpp.PatientLoader.sln"; 
         };
         [Project]::TppDaemon        = [PSCustomObject]@{
             Git = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
