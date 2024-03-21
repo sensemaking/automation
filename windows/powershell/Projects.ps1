@@ -113,7 +113,7 @@ function global:Get-Projects {
             CodeSolution = "~\fdb-arx-content-authoring\React"; 
             VsSolution = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; 
             ServerHost = "~\fdb-arx-content-authoring\Host"; 
-
+        };
     }
 }
 
