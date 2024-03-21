@@ -13,12 +13,13 @@ public enum Project
     Platform=128,
     Rules=256,
     TppFileIngest=512,
-    TppPatientLoader = 16384,
     TppOpportunities=1024,
     TppDaemon=2048,
     Pid=4096,
     Opportunities=8192,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + TppFileIngest + TppPatientLoader + TppOpportunities + TppDaemon + Pid + Opportunities
+    TppPatientLoader = 16384,
+    ContentAuthoring = 32768
+    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + Rules  + TppFileIngest + TppPatientLoader + TppOpportunities + TppDaemon + Pid + Opportunities + ContentAuthoring
 }
 "@
 
