@@ -100,12 +100,19 @@ function global:Get-Projects {
             VsSolution = "~\fdb-arx-pid\Pid.sln"; 
         };
         [Project]::Opportunities    = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-arx-opportunities.git"; 
             Directory = "~\fdb-arx-opportunities"; 
             CodeSolution = "~\fdb-arx-opportunities\Web\Host\React"; 
             VsSolution = "~\fdb-arx-opportunities\Opportunities.sln"; 
-            Git = "git@github.com:HearstHealthInternational/fdb-arx-opportunities.git"; 
             ServerHost   = "~\fdb-arx-opportunities\Web\Host";
         };
+        [Project]::ContentAuthoring  = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; 
+            Directory = "~\fdb-arx-content-authoring"; 
+            CodeSolution = "~\fdb-arx-content-authoring\React"; 
+            VsSolution = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; 
+            ServerHost = "~\fdb-arx-content-authoring\Host"; 
+
     }
 }
 
