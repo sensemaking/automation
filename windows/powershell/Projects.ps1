@@ -15,17 +15,17 @@ public enum Project
     Pid=4096,
     Opportunities=8192,
     TppPatientLoader = 16384,
-    All=Automation + Core + Persistence + Web + uPredict + Authoring + Publication + Platform + TppFileIngest + TppPatientLoader + TppOpportunities + TppDaemon + Pid + Opportunities + ContentAuthoring
+    All=Automation + Primitives + uPredict + Authoring + Platform + TppFileIngest + TppPatientLoader + TppOpportunities + TppDaemon + Pid + Opportunities + ContentAuthoring
 }
 "@
 
 function global:Get-Projects {
     return @{ 
-        # [Project]::Automation       = [PSCustomObject]@{ 
-        #     Git          = "git@github.com:sensemaking/automation.git"; 
-        #     Directory    = "~\automation"; 
-        #     CodeSolution = "~\automation"; 
-        # };
+         [Project]::Automation       = [PSCustomObject]@{ 
+             Git          = "git@github.com:sensemaking/automation.git"; 
+             Directory    = "~\automation"; 
+             CodeSolution = "~\automation"; 
+         };
         # [Project]::Core             = [PSCustomObject]@{ 
         #     Git        = "git@github.com:sensemaking/core.git"; 
         #     Directory  = "~\core"; 
