@@ -21,7 +21,7 @@ public enum Project
 }
 "@
 
-function global:Get-Projects([Project] $project = [Project]::All) {
+function global:Get-Project([Project] $project = [Project]::All) {
     $projects = @{ 
          [Project]::Automation       = [PSCustomObject]@{ 
              Git          = "git@github.com:sensemaking/automation.git"; 
@@ -113,7 +113,7 @@ function global:Get-Projects([Project] $project = [Project]::All) {
 }
 
 function global:Update-Projects { 
-    $automationDir = ((get-projects).GetEnumerator() | where { $_.Name -eq "Automation" }).Value.Directory 
+    $automationDir = (Get-Project Automation).Value.Directory 
     $profileDir = Split-Path $PROFILE
    
     if (!(Test-Path $automationDir)) { clone Automation }

@@ -15,7 +15,7 @@ function Edit-Profile { code (Split-Path $PROFILE) }
 function Edit-Hosts { code c:\windows\system32\drivers\etc\hosts }
 
 function Update-Automation { 
-  $automationDir = ((get-projects).GetEnumerator() | Where-Object { $_.Name -eq "Automation" }).Value.Directory 
+  $automationDir = (Get-Project Automation).Value.Directory 
   
   if (!(Test-Path $automationDir)) { clone Automation }
 

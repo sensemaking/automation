@@ -18,7 +18,7 @@ function Status([Project] $project = [Project]::All){
     } 
 
     $dir = Get-Location
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Show-Status $_ }
+    Get-Project $project | % { Show-Status $_ }
     Set-Location $dir
 }
 
@@ -30,7 +30,7 @@ function Pull ([Project] $project = [Project]::All){
     }
 
     $dir = Get-Location
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Pull $_ }
+    Get-Project $project | % { Git-Pull $_ }
     Set-Location $dir
 }
 
@@ -49,7 +49,7 @@ function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild
 
     Clear-Host
     $dir = Get-Location 
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { 
+    Get-Project $project | % { 
         if (!$noBuild) { Build $_.Key -clientOnly:$clientOnly -serverOnly:$serverOnly } else { Pull $_.Key }
         Git-Push $_ 
     }
@@ -68,7 +68,7 @@ function Revert ([Project] $project = [Project]::None){
 
     Clear-Host
     $dir = Get-Location
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Revert $_ }
+    Get-Project $project | % { Git-Revert $_ }
     Pull $project
     Set-Location $dir
 }
@@ -82,6 +82,6 @@ function Clone([Project] $project = [Project]::None) {
 
     Clear-Host
     $dir = Get-Location
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Git-Clone $_ }
+    Get-Project $project | % { Git-Clone $_ }
     Set-Location $dir
 }

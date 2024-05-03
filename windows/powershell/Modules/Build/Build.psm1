@@ -8,7 +8,7 @@ function GoTo ([Project] $project) {
         Write-Host "`nCan't go to 'All' projects`n" -Fore Red
         return
     }
-    Set-Location (Get-Projects).Get_Item($project).Directory
+    Set-Location (Get-Project $project).Value.Directory
 }
 
 function Prime ([Project] $project) {
@@ -26,7 +26,7 @@ function Prime ([Project] $project) {
         Build $targetProject.Key
     }
 
-    (Get-Projects).GetEnumerator() | Where { $project.HasFlag($_.Key) } | % { Prime-Project $_ }
+    Get-Project $project | % { Prime-Project $_ }
 }
 
 function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Switch] $serverOnly) {
@@ -51,7 +51,7 @@ function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Swit
     }
 
     Clear-Host
-    (Get-Projects).GetEnumerator() | Where { $project.HasFlag($_.Key) } | % { Open-Project $_ }
+    Get-Project $project | % { Open-Project $_ }
 }
 
 function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Switch] $serverOnly) {
@@ -84,7 +84,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
         Set-Location $dir
     }
 
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Build-Project $_ }
+    Get-Project $project | % { Build-Project $_ }
     Write-Host `n**************** Build was successful ****************`n -Fore Green
 }
 
@@ -102,7 +102,7 @@ function Migrate ([Project] $project = [Project]::All) {
         } 
     }
 
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Migrate-Project $_ }
+    Get-Project $project | % { Migrate-Project $_ }
 }
     
 function Run-Client([Project] $project = [Project]::All) {
@@ -115,7 +115,7 @@ function Run-Client([Project] $project = [Project]::All) {
     }
 
     Clear-Host
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Run $_ }
+    Get-Project $project | % { Run $_ }
 }
 
 function Run-Server([Project] $project = [Project]::All) {
@@ -129,7 +129,7 @@ function Run-Server([Project] $project = [Project]::All) {
     }
 
     Clear-Host
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Run $_ }
+    Get-Project $project | % { Run $_ }
 }
 
 function Watch([Project] $project = [Project]::All) {
@@ -143,7 +143,7 @@ function Watch([Project] $project = [Project]::All) {
     }
 
     Clear-Host
-    (Get-Projects).GetEnumerator() | Where-Object { $project.HasFlag($_.Key) } | % { Watch-Project $_ }
+    Get-Project $project | % { Watch-Project $_ }
 }
 
 function BreakOnFailure([string] $directory, [string] $message = 'It failed!') {
