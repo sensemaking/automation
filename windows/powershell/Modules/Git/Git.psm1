@@ -73,7 +73,7 @@ function Revert ([Project] $project = [Project]::None){
     Set-Location $dir
 }
 
-function Clone([Project] $project = [Project]::None) {
+function Clone([Project] $project = [Project]::All) {
     function Git-Clone($targetProject) {
         Write-Host `nCloning $targetProject.Key -Fore Green
         Set-Location ~

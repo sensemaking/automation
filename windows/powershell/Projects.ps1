@@ -9,21 +9,18 @@ public enum Project
     Web,
     uPredict,
     Primitives,
+    FdbPersistence,
+    Messaging,
     Authoring,
     Platform,
+    Rules,
     ContentAuthoring,
-    TppFileIngest,
-    TppOpportunities,
-    TppDaemon,
-    Pid,
-    Opportunities,
-    TppPatientLoader
 }
 "@
 
-function global:Get-Project([Project] $project = [Project]::All) {
+function global:Get-Project ([Project] $project = [Project]::All) {
     $projects = @{ 
-         [Project]::Automation       = [PSCustomObject]@{ 
+         [Project]::Automation      = [PSCustomObject]@{ 
              Git          = "git@github.com:sensemaking/automation.git"; 
              Directory    = "~\automation"; 
              CodeSolution = "~\automation"; 
@@ -56,6 +53,16 @@ function global:Get-Project([Project] $project = [Project]::All) {
             Directory  = "~\fdb-rx-primitives"; 
             VsSolution = "~\fdb-rx-primitives\Primitives.sln"; 
         };
+        [Project]::FdbPersistence   = [PSCustomObject]@{
+            Directory = "~\fdb-rx-persistence"; 
+            VsSolution = "~\fdb-rx-persistence\Persistence.sln"; 
+            Git = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git"; 
+        };
+        [Project]::Messaging        = [PSCustomObject]@{
+            Directory = "~\fdb-rx-messaging"; 
+            VsSolution = "~\fdb-rx-messaging\Messaging.sln"; 
+            Git = "git@github.com:HearstHealthInternational/fdb-rx-messaging.git"; 
+        };
         [Project]::Authoring        = [PSCustomObject]@{
             Git          = "git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
             Directory    = "~\fdb-rx-authoring"; 
@@ -68,38 +75,12 @@ function global:Get-Project([Project] $project = [Project]::All) {
             Directory  = "~\fdb-rx-platform-common"; 
             VsSolution = "~\fdb-rx-platform-common\Platform.Common.sln"; 
         };
-        [Project]::TppFileIngest    = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
-            Directory  = "~\fdb-arx-tpp\Ingest\FileIngest"; 
-            VsSolution = "~\fdb-arx-tpp\Ingest\FileIngest\Tpp.Files.Ingest.sln"; 
-        };
-        [Project]::TppPatientLoader = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git"; 
-            Directory  = "~\fdb-arx-tpp\Ingest\PatientLoader"; 
-            VsSolution = "~\fdb-arx-tpp\Ingest\PatientLoader\Tpp.PatientLoader.sln"; 
-        };
-        [Project]::TppDaemon        = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-arx-tpp.git" 
-            Directory  = "~\fdb-arx-tpp\daemon"; 
-            VsSolution = "~\fdb-arx-tpp\daemon\TppDaemon.sln"; 
-        };
-        [Project]::TppOpportunities = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-arx-tpp-opportunities.git" 
-            Directory  = "~\fdb-arx-tpp\opportunities"; 
-            VsSolution = "~\fdb-arx-tpp\opportunities\Tpp.Opportunities.sln"; 
-        };
-        [Project]::Pid              = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-arx-pid.git" 
-            Directory  = "~\fdb-arx-pid"; 
-            VsSolution = "~\fdb-arx-pid\Pid.sln"; 
-        };
-        [Project]::Opportunities    = [PSCustomObject]@{
-            Git          = "git@github.com:HearstHealthInternational/fdb-arx-opportunities.git"; 
-            Directory    = "~\fdb-arx-opportunities"; 
-            VsSolution   = "~\fdb-arx-opportunities\Opportunities.sln"; 
-            CodeSolution = "~\fdb-arx-opportunities\Web\Host\React"; 
-            ServerHost   = "~\fdb-arx-opportunities\Web\Host";
-        };
+        [Project]::Rules            = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-rx-rules.git"; 
+            Directory = "~\fdb-rx-rules"; 
+            VsSolution = "~\fdb-rx-rules\Rules.sln"; 
+         };
+    
         [Project]::ContentAuthoring = [PSCustomObject]@{
             Git          = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; 
             Directory    = "~\fdb-arx-content-authoring"; 
