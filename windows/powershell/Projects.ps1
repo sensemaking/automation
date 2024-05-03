@@ -1,12 +1,14 @@
 Add-Type -TypeDefinition @"
-[System.Flags]
 public enum Project
 {
-    All
+    All,
     None,
     Automation,
-    Primitives,
+    Core,
+    Persistence,
+    Web,
     uPredict,
+    Primitives,
     Authoring,
     Platform,
     ContentAuthoring,
@@ -42,17 +44,17 @@ function global:Get-Projects([Project] $project = [Project]::All) {
             VsSolution   = "~\web\.net\Web.sln"; 
             CodeSolution = "~\web\js\core"; 
         };        
-        [Project]::Primitives       = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git"; 
-            Directory  = "~\fdb-rx-primitives"; 
-            VsSolution = "~\fdb-rx-primitives\Primitives.sln"; 
-        };
         [Project]::uPredict         = [PSCustomObject]@{ 
             Git          = "git@github.com:uPredict/uPredict.git"; 
             Directory    = "~\uPredict"; 
             VsSolution   = "~\uPredict\server\upredict.sln"; 
             CodeSolution = "~\uPredict\client"; 
             ServerHost   = "~\uPredict\server\web\host"; 
+        };
+        [Project]::Primitives       = [PSCustomObject]@{
+            Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git"; 
+            Directory  = "~\fdb-rx-primitives"; 
+            VsSolution = "~\fdb-rx-primitives\Primitives.sln"; 
         };
         [Project]::Authoring        = [PSCustomObject]@{
             Git          = "git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
