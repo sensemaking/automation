@@ -2,46 +2,46 @@ Add-Type -TypeDefinition @"
 [System.Flags]
 public enum Project
 {
-    None=0,
-    Automation=1,
-    Primitives=2,
-    uPredict=16,
-    Authoring=32,
-    Platform=128,
-    ContentAuthoring=256,
-    TppFileIngest=512,
-    TppOpportunities=1024,
-    TppDaemon=2048,
-    Pid=4096,
-    Opportunities=8192,
-    TppPatientLoader = 16384,
-    All=Automation + Primitives + uPredict + Authoring + Platform + TppFileIngest + TppPatientLoader + TppOpportunities + TppDaemon + Pid + Opportunities + ContentAuthoring
+    All
+    None,
+    Automation,
+    Primitives,
+    uPredict,
+    Authoring,
+    Platform,
+    ContentAuthoring,
+    TppFileIngest,
+    TppOpportunities,
+    TppDaemon,
+    Pid,
+    Opportunities,
+    TppPatientLoader
 }
 "@
 
 function global:Get-Projects {
-    return @{ 
+    $projects = @{ 
          [Project]::Automation       = [PSCustomObject]@{ 
              Git          = "git@github.com:sensemaking/automation.git"; 
              Directory    = "~\automation"; 
              CodeSolution = "~\automation"; 
          };
-        # [Project]::Core             = [PSCustomObject]@{ 
-        #     Git        = "git@github.com:sensemaking/core.git"; 
-        #     Directory  = "~\core"; 
-        #     VsSolution = "~\core\Core.sln"; 
-        # };
-        # [Project]::Persistence      = [PSCustomObject]@{ 
-        #     Git        = "git@github.com:sensemaking/persistence.git"; 
-        #     Directory  = "~\persistence"; 
-        #     VsSolution = "~\persistence\Persistence.sln"; 
-        # };
-        # [Project]::Web              = [PSCustomObject]@{ 
-        #     Git          = "git@github.com:sensemaking/web.git"; 
-        #     Directory    = "~\web";
-        #     VsSolution   = "~\web\.net\Web.sln"; 
-        #     CodeSolution = "~\web\js\core"; 
-        # };        
+        [Project]::Core             = [PSCustomObject]@{ 
+            Git        = "git@github.com:sensemaking/core.git"; 
+            Directory  = "~\core"; 
+            VsSolution = "~\core\Core.sln"; 
+        };
+        [Project]::Persistence      = [PSCustomObject]@{ 
+            Git        = "git@github.com:sensemaking/persistence.git"; 
+            Directory  = "~\persistence"; 
+            VsSolution = "~\persistence\Persistence.sln"; 
+        };
+        [Project]::Web              = [PSCustomObject]@{ 
+            Git          = "git@github.com:sensemaking/web.git"; 
+            Directory    = "~\web";
+            VsSolution   = "~\web\.net\Web.sln"; 
+            CodeSolution = "~\web\js\core"; 
+        };        
         [Project]::Primitives       = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git"; 
             Directory  = "~\fdb-rx-primitives"; 
@@ -106,6 +106,8 @@ function global:Get-Projects {
             ServerHost   = "~\fdb-arx-content-authoring\Host"; 
         };
     }
+
+    return $projects.GetEnumerator() | Where-Object { $project -eq $_.Key -or $project -eq [Project]::All } 
 }
 
 function global:Update-Projects { 
