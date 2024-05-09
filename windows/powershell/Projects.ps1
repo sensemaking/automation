@@ -11,12 +11,14 @@ public enum Project
     Primitives,
     FdbPersistence,
     Messaging,
+    PharaohRules,
     Authoring,
     Platform,
     Rules,
     ContentAuthoring,
 }
 "@
+
 
 function global:Get-Project ([Project] $project = [Project]::All) {
     $projects = @{ 
@@ -69,6 +71,13 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             VsSolution   = "~\fdb-rx-authoring\Authoring.sln"; 
             CodeSolution = "~\fdb-rx-authoring\Pharaoh\UI\client"; 
             ServerHost   = "~\fdb-rx-authoring\Pharaoh\UI\server\host";
+        };
+        [Project]::PharaohRules        = [PSCustomObject]@{
+            Git          = "git@github.com:HearstHealthInternational/fdb-rx-pharaoh.git"; 
+            Directory    = "~\fdb-rx-pharaoh\rules"; 
+            VsSolution   = "~\fdb-rx-pharaoh\rules\Rules.sln"; 
+            CodeSolution = "~\fdb-rx-pharaoh\rules\client"; 
+            ServerHost   = "~\fdb-rx-pharaoh\rules\server\host";
         };
         [Project]::Platform         = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" 
