@@ -19,7 +19,6 @@ public enum Project
 }
 "@
 
-
 function global:Get-Project ([Project] $project = [Project]::All) {
     $projects = @{ 
          [Project]::Automation      = [PSCustomObject]@{ 
@@ -56,14 +55,14 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             VsSolution = "~\fdb-rx-primitives\Primitives.sln"; 
         };
         [Project]::FdbPersistence   = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git"; 
             Directory = "~\fdb-rx-persistence"; 
             VsSolution = "~\fdb-rx-persistence\Persistence.sln"; 
-            Git = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git"; 
         };
         [Project]::Messaging        = [PSCustomObject]@{
+            Git = "git@github.com:HearstHealthInternational/fdb-rx-messaging.git"; 
             Directory = "~\fdb-rx-messaging"; 
             VsSolution = "~\fdb-rx-messaging\Messaging.sln"; 
-            Git = "git@github.com:HearstHealthInternational/fdb-rx-messaging.git"; 
         };
         [Project]::Authoring        = [PSCustomObject]@{
             Git          = "git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
