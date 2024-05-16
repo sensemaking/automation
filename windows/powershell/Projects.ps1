@@ -88,13 +88,17 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             Directory = "~\fdb-rx-rules"; 
             VsSolution = "~\fdb-rx-rules\Rules.sln"; 
          };
-    
         [Project]::ContentAuthoring = [PSCustomObject]@{
             Git          = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; 
             Directory    = "~\fdb-arx-content-authoring"; 
             VsSolution   = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; 
             CodeSolution = "~\fdb-arx-content-authoring\React"; 
             ServerHost   = "~\fdb-arx-content-authoring\Host"; 
+        };
+        [Project]::OrxMessageProxy = [PSCustomObject]@{
+            Git          = "git@github.com:HearstHealthInternational/fdb-orx-portal-handlers.git"; 
+            Directory    = "~\fdb-orx-portal-handlers"; 
+            VsSolution   = "~\fdb-orx-portal-handlers\PortalHandlers.sln"; 
         };
     }
 
