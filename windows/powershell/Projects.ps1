@@ -16,6 +16,7 @@ public enum Project
     Platform,
     Rules,
     ContentAuthoring,
+    OrxMessageProxy
 }
 "@
 
