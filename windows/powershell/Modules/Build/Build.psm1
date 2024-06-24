@@ -143,7 +143,7 @@ function Lint([Project] $project = [Project]::All) {
     }
 
     Clear-Host
-    Get-Project $project | % { Run $_ }
+    Get-Project $project | % { Lint $_ }
 }
 
 
