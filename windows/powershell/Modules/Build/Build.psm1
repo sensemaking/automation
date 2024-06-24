@@ -132,6 +132,21 @@ function Run-Server([Project] $project = [Project]::All) {
     Get-Project $project | % { Run $_ }
 }
 
+function Lint([Project] $project = [Project]::All) {
+    function Lint($targetProject) {
+        if ($null -ne $_.Value.CodeSolution) {
+            Write-Host `nLinting JavaScript $targetProject.Key `n -Fore Green     
+            Set-Location $_.Value.CodeSolution    
+            yarn lint
+            Set-Location $dir
+        }
+    }
+
+    Clear-Host
+    Get-Project $project | % { Run $_ }
+}
+
+
 function Watch([Project] $project = [Project]::All) {
     function Watch-Project($targetProject) {
         if ($null -ne $_.Value.CodeSolution) {
