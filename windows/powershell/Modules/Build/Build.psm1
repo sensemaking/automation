@@ -138,7 +138,6 @@ function Lint([Project] $project = [Project]::All) {
             Write-Host `nLinting JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution    
             yarn lint
-            Set-Location $dir
         }
     }
 
@@ -153,7 +152,6 @@ function Watch([Project] $project = [Project]::All) {
             Write-Host `nWatching JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution    
             yarn watch
-            Set-Location $dir
         }
     }
 
