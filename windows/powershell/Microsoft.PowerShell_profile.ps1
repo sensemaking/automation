@@ -8,8 +8,6 @@ import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 & $PSScriptRoot\AddEnvironmentPaths.ps1
 & $PSScriptRoot\Projects.ps1
 
-Ssh-SignIn 
-
 function Edit-Profile { code (Split-Path $PROFILE) }
 
 function Edit-Hosts { code c:\windows\system32\drivers\etc\hosts }
