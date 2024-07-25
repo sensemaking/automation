@@ -14,6 +14,8 @@ function Edit-Profile { code (Split-Path $PROFILE) }
 
 function Edit-Hosts { code c:\windows\system32\drivers\etc\hosts }
 
+function Edit-Nuget { code $env:USERPROFILE\AppData\Roaming\NuGet\NuGet.Config }
+
 function Update-Automation { 
   $automationDir = (Get-Project Automation).Value.Directory 
   
