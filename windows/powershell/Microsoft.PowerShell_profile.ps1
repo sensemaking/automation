@@ -26,22 +26,9 @@ function Update-Automation {
   $profileDir = Split-Path $PROFILE
   Remove-Item "$profileDir\Modules\*" -r -for
   Copy-Item "$automationDir\windows\powershell\modules" $profileDir -r -fo
+  Copy-Item "$automationDir\windows\powershell\Microsoft.PowerShell_profile.ps1" -Destination "$profileDir\Microsoft.PowerShell_profile.ps1" -fo
   Copy-Item "$automationDir\windows\powershell\AddEnvironmentPaths.ps1" -Destination "$profileDir\AddEnvironmentPaths.ps1" -fo
   
   Write-Host "`nUpdated automation scripts. Reloading shell`n" -Fore Green
   powershell.exe -nologo
-}
-
-function prompt {
-  $origLastExitCode = $LASTEXITCODE
-
-  $maxPathLength = 40
-  $curPath = $ExecutionContext.SessionState.Path.CurrentLocation.Path
-  if ($curPath.Length -gt $maxPathLength) {
-    $curPath = '...' + $curPath.SubString($curPath.Length - $maxPathLength + 3)
-  }
-
-  Write-Host $curPath -ForegroundColor Green
-  $LASTEXITCODE = $origLastExitCode
-  "$('>' * ($nestedPromptLevel + 1)) "
 }
