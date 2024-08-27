@@ -5,6 +5,7 @@ write-host "`nInstalling chocolatey" -fore yellow
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
+choco install winget-cli
 choco install git -yr
 
 write-host "`nSetting up ssh" -fore yellow
