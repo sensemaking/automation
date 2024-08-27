@@ -39,6 +39,7 @@ choco uninstall MicrosoftWindowsPowerShellV2Root -s windowsfeatures -yr
 choco uninstall MicrosoftWindowsPowerShellV2 -s windowsfeatures -yr
 choco uninstall Internet-Explorer-Optional-amd64 -s windowsfeatures -yr
 
-Write-Host "https://github.com/Raphire/Win11Debloat"
+
+Write-Host "https://github.com/Raphire/Win11Debloat and https://github.com/ChrisTitusTech/win10script are of interest"
 Read-Host "Computer will restart then please run .\automation\windows\install.ps1"
 Restart-Computer
