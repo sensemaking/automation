@@ -3,11 +3,11 @@ choco install 7zip -yr
 choco install slack -yr
 choco install teamviewer -yr
 choco install dotnet-sdk -yr
-choco install jetbrains-rider
+choco install jetbrains-rider -yr
 choco install visualstudiocode -yr
 choco install sqllocaldb -yr
 choco install sqlserver-cmdlineutils -yr
-choco install azure-cosmosdb-emulator
+choco install azure-cosmosdb-emulator -yr
 choco install azure-data-studio -yr
 choco install azure-cli -yr
 choco install servicebusexplorer -yr
