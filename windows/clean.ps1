@@ -1,4 +1,6 @@
 
+winget uninstall onedrive
+
 Get-AppxPackage *3d* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *alarms* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *bing* | Remove-AppxPackage -erroraction 'silentlycontinue'
@@ -24,8 +26,6 @@ Get-AppxPackage *twitter* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *windowsmaps* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *xbox* | Remove-AppxPackage -erroraction 'silentlycontinue'
 Get-AppxPackage *zune* | Remove-AppxPackage -erroraction 'silentlycontinue'
-
-winget uninstall onedrive
 
 choco uninstall NetFx4-AdvSrvs -s windowsfeatures -yr
 choco uninstall Printing-Foundation-Features -s windowsfeatures -yr
