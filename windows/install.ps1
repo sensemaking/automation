@@ -6,7 +6,6 @@ choco install dotnet-sdk -yr
 choco install jetbrains-rider -yr
 choco install visualstudiocode -yr
 choco install sqllocaldb -yr
-choco install sqlserver-cmdlineutils -yr
 choco install azure-cosmosdb-emulator -yr
 choco install azure-data-studio -yr
 choco install azure-cli -yr
