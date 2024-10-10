@@ -92,7 +92,7 @@ function global:Get-Project ([Project] $project = [Project]::All) {
         [Project]::ArxMessageProxy = [PSCustomObject]@{
             Git          = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; 
             Directory    = "~\fdb-arx-content-authoring"; 
-            VsSolution   = "~\fdb-arx-content-authoring\ArxMessageProxy.sln"; 
+            VsSolution   = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; 
             CodeSolution = "~\fdb-arx-content-authoring\React"; 
             ServerHost   = "~\fdb-arx-content-authoring\Host"; 
         };
