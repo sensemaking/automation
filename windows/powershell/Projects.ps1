@@ -77,7 +77,7 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             Directory    = "~\fdb-rx-pharaoh\rules"; 
             VsSolution   = "~\fdb-rx-pharaoh\rules\server\Rules.sln"; 
             CodeSolution = "~\fdb-rx-pharaoh\rules\client"; 
-            ServerHost   = "~\fdb-rx-pharaoh\rules\server\host";
+            ServerHost   = "~\fdb-rx-pharaoh\rules\server\web\host";
         };
         [Project]::Platform        = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" 
