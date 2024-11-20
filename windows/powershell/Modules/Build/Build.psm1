@@ -34,7 +34,7 @@ function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Swit
         $dir = Get-Location
         Set-Location $_.Value.Directory     
         
-        git pull
+        Pull $project
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
         if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
@@ -59,7 +59,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
         $dir = Get-Location
         Set-Location $_.Value.Directory         
 
-        git pull
+        Pull $project
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
         if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
