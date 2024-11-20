@@ -34,8 +34,10 @@ function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Swit
         $dir = Get-Location
         Set-Location $_.Value.Directory     
         
-        Pull $project
+        git pull
         BreakOnFailure $dir '**************** Pull Failed ****************'
+
+        Update-NuGet $project
 
         if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
             & $_.Value.VsSolution 
@@ -59,7 +61,8 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
         $dir = Get-Location
         Set-Location $_.Value.Directory         
 
-        Pull $project
+        git pull
+        Update-NuGet $project
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
         if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
@@ -144,6 +147,20 @@ function Lint([Project] $project = [Project]::All) {
     Get-Project $project | % { Lint $_ }
 }
 
+
+function Update-NuGet ([Project] $project = [Project]::All) {
+    function Update($targetProject) {
+        if ($null -ne $targetProject.Value.VsSolution) { 
+            Write-Host `nUpdating Nuget Packages $targetProject.Key -Fore Green
+            Set-Location (Split-Path -Path $targetProject.Value.VsSolution)
+            dotnet outdated --include Fdb --upgrade
+        }
+    }
+
+    $dir = Get-Location
+    Get-Project $project | % { Update $_ }
+    Set-Location $dir
+}
 
 function Watch([Project] $project = [Project]::All) {
     function Watch-Project($targetProject) {
