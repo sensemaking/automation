@@ -27,10 +27,6 @@ function Pull ([Project] $project = [Project]::All) {
         Write-Host `nPulling $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
         git pull
-        if ($null -ne $targetProject.Value.VsSolution) { 
-            Set-Location (Split-Path -Path $targetProject.Value.VsSolution)
-            dotnet outdated --include Fdb --upgrade
-        }
     }
 
     $dir = Get-Location
