@@ -27,6 +27,7 @@ function Pull ([Project] $project = [Project]::All) {
         Write-Host `nPulling $targetProject.Key -Fore Green
         Set-Location $targetProject.Value.Directory
         git pull
+        Set-Location $targetProject.Value.VsSolution
         dotnet outdated --include Fdb --upgrade
     }
 
