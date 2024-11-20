@@ -28,7 +28,7 @@ function Pull ([Project] $project = [Project]::All) {
         Set-Location $targetProject.Value.Directory
         git pull
         if ($null -ne $targetProject.Value.VsSolution) { 
-            Set-Location $targetProject.Value.VsSolution
+            Set-Location (Split-Path -Path $targetProject.Value.VsSolution)
             dotnet outdated --include Fdb --upgrade
         }
     }
