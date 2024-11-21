@@ -37,9 +37,8 @@ function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Swit
         git pull
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
-        Update-NuGet $project
-
         if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
+            Update-NuGet $project
             & $_.Value.VsSolution 
         } 
 
@@ -62,10 +61,10 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
         Set-Location $_.Value.Directory         
 
         git pull
-        Update-NuGet $project
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
         if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
+            Update-NuGet $project
             Write-Host `nBuilding $targetProject.Key -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)            
             dotnet build $solutionPath --configuration Release -nologo --verbosity q --no-incremental 
