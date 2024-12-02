@@ -15,6 +15,7 @@ choco install nodejs -yr
 choco install yarn -yr
 
 yarn global add npm-check-updates
+yarn global add azurite
 
 Read-Host "Computer will restart then please run .\automation\windows\configure.ps1"
 Restart-Computer
