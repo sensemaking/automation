@@ -146,7 +146,6 @@ function Lint([Project] $project = [Project]::All) {
     Get-Project $project | % { Lint $_ }
 }
 
-
 function Update-NuGet ([Project] $project = [Project]::All) {
     function Update($targetProject) {
         if ($null -ne $targetProject.Value.VsSolution) { 
