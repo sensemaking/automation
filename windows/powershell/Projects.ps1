@@ -7,7 +7,6 @@ public enum Project
     Core,
     Persistence,
     Web,
-    uPredict,
     Primitives,
     FdbPersistence,
     Messaging,
@@ -43,13 +42,6 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             VsSolution   = "~\web\.net\Web.sln"; 
             CodeSolution = "~\web\js\core"; 
         };        
-        [Project]::uPredict        = [PSCustomObject]@{ 
-            Git          = "git@github.com:uPredict/uPredict.git"; 
-            Directory    = "~\uPredict"; 
-            VsSolution   = "~\uPredict\server\upredict.sln"; 
-            CodeSolution = "~\uPredict\client"; 
-            ServerHost   = "~\uPredict\server\web\host"; 
-        };
         [Project]::Primitives      = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git"; 
             Directory  = "~\fdb-rx-primitives"; 
