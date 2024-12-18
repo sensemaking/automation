@@ -91,7 +91,7 @@ function global:Get-Project ([Project] $project = [Project]::All) {
         [Project]::OrxMessageProxy = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-orx-message-proxy.git"; 
             Directory  = "~\fdb-orx-message-proxy"; 
-            VsSolution = "~\fdb-orx-message-proxy\PortalHandlers.sln"; 
+            VsSolution = "~\fdb-orx-message-proxy\ORxMessageProxy.sln"; 
         };
     }
 
