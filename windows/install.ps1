@@ -3,6 +3,7 @@ choco install 7zip -yr
 choco install slack -yr
 choco install teamviewer -yr
 choco install dotnet-sdk -yr
+# Needs a refresh
 dotnet tool install --global dotnet-outdated-tool        
 choco install jetbrains-rider -yr
 choco install visualstudiocode -yr
@@ -14,6 +15,7 @@ choco install servicebusexplorer -yr
 choco install nodejs -yr
 choco install yarn -yr
 
+# Needs a refresh
 yarn global add npm-check-updates
 yarn global add azurite
 
