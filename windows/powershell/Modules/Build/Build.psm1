@@ -29,23 +29,30 @@ function Prime ([Project] $project) {
     Get-Project $project | % { Prime-Project $_ }
 }
 
-function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Switch] $serverOnly) {
+function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Switch] $serverOnly, [Switch] $nvim) {
     function Open-Project($targetProject) {
         $dir = Get-Location
-        Set-Location $_.Value.Directory     
-        
+        Set-Location $_.Value.Directory  
         git pull
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
         if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
             Update-NuGet $project
-            & $_.Value.VsSolution 
+            if (-not $nvim) { & $_.Value.VsSolution }
+            else { 
+                #wt -d SplitPath($_.Value.VsSolution) nvim
+            }
         } 
 
         if ($null -ne $_.Value.CodeSolution -and -not $serverOnly) { 
-            $dir = Get-Location
-            Set-Location $_.Value.CodeSolution  
-            code . 
+            if (-not $nvim) {
+                $dir = Get-Location
+                Set-Location $_.Value.CodeSolution  
+                code . 
+            }
+            else {
+                #wt -d SplitPath($_.Value.VsSolution) nvim
+            }
         }
 
         Set-Location $dir

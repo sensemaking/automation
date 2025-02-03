@@ -1,6 +1,5 @@
 set-variable -name HOME -value $smHome -force
 (get-psprovider FileSystem).Home = $smHome
-set-location ~
 
 remove-item alias:curl
 
@@ -9,8 +8,6 @@ import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 & $PSScriptRoot\Projects.ps1
 
 function Edit-Profile { code (Split-Path $PROFILE) }
-
-function Edit-Hosts { code c:\windows\system32\drivers\etc\hosts }
 
 function Edit-Nuget { code $env:USERPROFILE\AppData\Roaming\NuGet\NuGet.Config }
 
