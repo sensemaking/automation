@@ -1,7 +1,6 @@
 set-variable -name HOME -value $smHome -force
 (get-psprovider FileSystem).Home = $smHome
-
-remove-item alias:curl
+set-location ~
 
 import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 & $PSScriptRoot\AddEnvironmentPaths.ps1
