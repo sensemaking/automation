@@ -78,7 +78,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
             Write-Host `nRunning Tests`n -Fore Green
-            dotnet test $solutionPath -m:1 --filter FullyQualifiedName!~Smokes --no-build --no-restore --nologo --verbosity m
+            dotnet test $solutionPath -m:1 --no-build --no-restore --nologo --verbosity m
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
 
@@ -102,7 +102,7 @@ function Migrate ([Project] $project = [Project]::All) {
         if ($null -ne $_.Value.VsSolution) { 
             $dir = Get-Location
             Set-Location $_.Value.Directory
-            Get-ChildItem .\ -Recurse | where { $_.Fullname -Like "*bin\Run.exe" } | % {      
+            Get-ChildItem .\ -Recurse | where { $_.Fullname -Like "*Sql**\*bin\Run.exe" } | % {      
                 Write-Host `nRunning Migrations - $_.FullName`n -Fore Green
                 & (Resolve-Path $_.FullName)
                 BreakOnFailure $dir 'Migrations Failed'
@@ -167,7 +167,7 @@ function Update-NuGet ([Project] $project = [Project]::All) {
     Set-Location $dir
 }
 
-function Watch([Project] $project = [Project]::All) {
+function Watch-Client([Project] $project = [Project]::All) {
     function Watch-Project($targetProject) {
         if ($null -ne $_.Value.CodeSolution) {
             Write-Host `nWatching JavaScript $targetProject.Key `n -Fore Green     
