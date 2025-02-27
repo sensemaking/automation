@@ -71,6 +71,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
         if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
+            Write-Host `nRestoring Nuget Packages $targetProject.Key -Fore Green
             dotnet restore
             Update-NuGet $project
             Write-Host `nBuilding $targetProject.Key -Fore Green
