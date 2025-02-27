@@ -70,9 +70,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
         git pull
         BreakOnFailure $dir '**************** Pull Failed ****************'
 
-        if ($null -ne $_.Value.VsSolution -and -not $clientOnly) { 
-            Write-Host `nRestoring Nuget Packages $targetProject.Key -Fore Green
-            dotnet restore
+        if ($null -ne $_.Value.VsSolution -and -not $clientOnly) {             
             Update-NuGet $project
             Write-Host `nBuilding $targetProject.Key -Fore Green
             $solutionPath = Resolve-Path ($_.Value.VsSolution)            
@@ -158,6 +156,8 @@ function Lint([Project] $project = [Project]::All) {
 function Update-NuGet ([Project] $project = [Project]::All) {
     function Update($targetProject) {
         if ($null -ne $targetProject.Value.VsSolution) { 
+            Write-Host `nRestoring Nuget Packages $targetProject.Key -Fore Green
+            dotnet restore
             Write-Host `nUpdating Nuget Packages $targetProject.Key -Fore Green
             Set-Location (Split-Path -Path $targetProject.Value.VsSolution)
             dotnet outdated --include Fdb --upgrade
