@@ -40,7 +40,7 @@ function Open ([Project] $project = [Project]::None, [Switch] $clientOnly, [Swit
             Update-NuGet $project
             if (-not $nvim) { & $_.Value.VsSolution }
             else { 
-                #wt -d SplitPath($_.Value.VsSolution) nvim
+                wt -d SplitPath($_.Value.VsSolution) nvim
             }
         } 
 

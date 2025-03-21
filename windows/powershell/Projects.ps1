@@ -11,6 +11,7 @@ public enum Project
     FdbPersistence,
     Messaging,
     PharaohRules,
+    MultilexSynchronisation,
     Authoring,
     Platform,
     Rules,
@@ -70,6 +71,11 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             VsSolution   = "~\fdb-rx-pharaoh\rules\server\Rules.sln"; 
             CodeSolution = "~\fdb-rx-pharaoh\rules\client"; 
             ServerHost   = "~\fdb-rx-pharaoh\rules\server\web\host";
+        };
+        [Project]::MultilexSynchronisation    = [PSCustomObject]@{
+            Git          = "git@github.com:HearstHealthInternational/fdb-rx-pharaoh.git"; 
+            Directory    = "~\fdb-rx-pharaoh\synchronisation\multilex"; 
+            VsSolution   = "~\fdb-rx-pharaoh\synchronisation\multilex\Multilex.sln"; 
         };
         [Project]::Platform        = [PSCustomObject]@{
             Git        = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" 
