@@ -102,7 +102,7 @@ function Migrate ([Project] $project = [Project]::All) {
         if ($null -ne $_.Value.VsSolution) { 
             $dir = Get-Location
             Set-Location $_.Value.Directory
-            Get-ChildItem .\ -Recurse | where { $_.Fullname -Like "*Sql**\*bin\Run.exe" } | % {      
+            Get-ChildItem .\ -Recurse | where { $_.Fullname -Like "*bin\Run.exe" } | % {      
                 Write-Host `nRunning Migrations - $_.FullName`n -Fore Green
                 & (Resolve-Path $_.FullName)
                 BreakOnFailure $dir 'Migrations Failed'
