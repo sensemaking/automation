@@ -18,6 +18,7 @@ choco install yarn -yr
 # Needs a refresh
 yarn global add npm-check-updates
 yarn global add azurite
+npm install -g vite
 
 Read-Host "Computer will restart then please run .\automation\windows\configure.ps1"
 Restart-Computer
