@@ -16,7 +16,8 @@ public enum Project
     Platform,
     Rules,
     ArxMessageProxy,
-    OrxMessageProxy
+    OrxMessageProxy,
+    Trnk
 }
 "@
 
@@ -98,6 +99,11 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             Git        = "git@github.com:HearstHealthInternational/fdb-orx-message-proxy.git"; 
             Directory  = "~\fdb-orx-message-proxy"; 
             VsSolution = "~\fdb-orx-message-proxy\ORxMessageProxy.sln"; 
+        };
+        [Project]::Trnk = [PSCustomObject]@{
+            Git        = "git@github.com:sensemaking/trnk.git"; 
+            Directory  = "~\trnk";          
+            CodeSolution = "~\trnk";    
         };
     }
 
