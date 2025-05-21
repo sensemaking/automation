@@ -13,12 +13,11 @@ choco install azure-data-studio -yr
 choco install azure-cli -yr
 choco install servicebusexplorer -yr
 choco install nodejs -yr
-choco install yarn -yr
+choco install pnpm -yr
 
 # Needs a refresh
-yarn global add npm-check-updates
-yarn global add azurite
-npm install -g vite
+pnpm add -g npm-check-updates
+pnpm add -g vite
 
 Read-Host "Computer will restart then please run .\automation\windows\configure.ps1"
 Restart-Computer

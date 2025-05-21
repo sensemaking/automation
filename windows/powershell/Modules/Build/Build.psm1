@@ -85,8 +85,8 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
         if ($null -ne $_.Value.CodeSolution -and -not $serverOnly) {
             Write-Host `nBuilding JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution         
-            yarn
-            yarn test
+            pnpm i
+            pnpm run test
             BreakOnFailure $dir '**************** Javascript Build Failed ****************'
         } 
 
@@ -119,7 +119,7 @@ function Run-Client([Project] $project = [Project]::All) {
         if ($null -ne $_.Value.CodeSolution) {
             Write-Host `nRunning $targetProject.Key client `n -Fore Green     
             Set-Location $_.Value.CodeSolution    
-            yarn start            
+            pnpm run start            
         }
     }
 
@@ -145,7 +145,7 @@ function Lint([Project] $project = [Project]::All) {
         if ($null -ne $_.Value.CodeSolution) {
             Write-Host `nLinting JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution    
-            yarn lint
+            pnpm run lint
         }
     }
 
@@ -174,7 +174,7 @@ function Watch-Client([Project] $project = [Project]::All) {
         if ($null -ne $_.Value.CodeSolution) {
             Write-Host `nWatching JavaScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution    
-            yarn watch
+            pnpm run watch
         }
     }
 
