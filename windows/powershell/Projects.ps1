@@ -7,16 +7,6 @@ public enum Project
     Core,
     Persistence,
     Web,
-    Primitives,
-    FdbPersistence,
-    Messaging,
-    PharaohRules,
-    MultilexSynchronisation,
-    Authoring,
-    Platform,
-    Rules,
-    ArxMessageProxy,
-    OrxMessageProxy,
     Trnk
 }
 "@
@@ -44,62 +34,6 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             VsSolution   = "~\web\.net\Web.sln"; 
             CodeSolution = "~\web\js\core"; 
         };        
-        [Project]::Primitives      = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-primitives.git"; 
-            Directory  = "~\fdb-rx-primitives"; 
-            VsSolution = "~\fdb-rx-primitives\Primitives.sln"; 
-        };
-        [Project]::FdbPersistence  = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-persistence.git"; 
-            Directory  = "~\fdb-rx-persistence"; 
-            VsSolution = "~\fdb-rx-persistence\Persistence.sln"; 
-        };
-        [Project]::Messaging       = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-messaging.git"; 
-            Directory  = "~\fdb-rx-messaging"; 
-            VsSolution = "~\fdb-rx-messaging\Messaging.sln"; 
-        };
-        [Project]::Authoring       = [PSCustomObject]@{
-            Git          = "git@github.com:HearstHealthInternational/fdb-rx-authoring.git"; 
-            Directory    = "~\fdb-rx-authoring"; 
-            VsSolution   = "~\fdb-rx-authoring\Authoring.sln"; 
-            CodeSolution = "~\fdb-rx-authoring\Pharaoh\UI\client"; 
-            ServerHost   = "~\fdb-rx-authoring\Pharaoh\UI\server\host";
-        };
-        [Project]::PharaohRules    = [PSCustomObject]@{
-            Git          = "git@github.com:HearstHealthInternational/fdb-rx-pharaoh.git"; 
-            Directory    = "~\fdb-rx-pharaoh\rules"; 
-            VsSolution   = "~\fdb-rx-pharaoh\rules\server\Rules.sln"; 
-            CodeSolution = "~\fdb-rx-pharaoh\rules\client"; 
-            ServerHost   = "~\fdb-rx-pharaoh\rules\server\web\host";
-        };
-        [Project]::MultilexSynchronisation    = [PSCustomObject]@{
-            Git          = "git@github.com:HearstHealthInternational/fdb-rx-pharaoh.git"; 
-            Directory    = "~\fdb-rx-pharaoh\synchronisation\multilex"; 
-            VsSolution   = "~\fdb-rx-pharaoh\synchronisation\multilex\Multilex.sln"; 
-        };
-        [Project]::Platform        = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-platform-common.git" 
-            Directory  = "~\fdb-rx-platform-common"; 
-            VsSolution = "~\fdb-rx-platform-common\Platform.Common.sln"; 
-        };
-        [Project]::Rules           = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-rx-rules.git"; 
-            Directory  = "~\fdb-rx-rules"; 
-            VsSolution = "~\fdb-rx-rules\Rules.sln"; 
-        };
-        [Project]::ArxMessageProxy = [PSCustomObject]@{
-            Git          = "git@github.com:HearstHealthInternational/fdb-arx-content-authoring.git"; 
-            Directory    = "~\fdb-arx-content-authoring"; 
-            VsSolution   = "~\fdb-arx-content-authoring\ContentAuthoring.sln"; 
-            CodeSolution = "~\fdb-arx-content-authoring\React"; 
-            ServerHost   = "~\fdb-arx-content-authoring\Host"; 
-        };
-        [Project]::OrxMessageProxy = [PSCustomObject]@{
-            Git        = "git@github.com:HearstHealthInternational/fdb-orx-message-proxy.git"; 
-            Directory  = "~\fdb-orx-message-proxy"; 
-            VsSolution = "~\fdb-orx-message-proxy\ORxMessageProxy.sln"; 
-        };
         [Project]::Trnk = [PSCustomObject]@{
             Git        = "git@github.com:sensemaking/trnk.git"; 
             Directory  = "~\trnk";          
