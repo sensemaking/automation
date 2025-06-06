@@ -7,7 +7,8 @@ public enum Project
     Core,
     Persistence,
     Web,
-    Trnk
+    Trnk,
+    LeadsAndAi
 }
 "@
 
@@ -38,6 +39,11 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             Git        = "git@github.com:sensemaking/trnk.git"; 
             Directory  = "~\trnk";          
             CodeSolution = "~\trnk";    
+        };
+        [Project]::LeadsAndAi = [PSCustomObject]@{
+            Git        = "git@github.com:sensemaking/leadsandai.git"; 
+            Directory  = "~\leadsandai";          
+            CodeSolution = "~\leadsandai";    
         };
     }
 
