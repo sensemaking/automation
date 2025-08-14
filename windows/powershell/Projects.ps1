@@ -7,6 +7,7 @@ public enum Project
     Core,
     Persistence,
     Web,
+    Main,
     Trnk,
     LeadsAndAi
 }
@@ -14,41 +15,47 @@ public enum Project
 
 function global:Get-Project ([Project] $project = [Project]::All) {
     $projects = @{ 
-        [Project]::Automation      = [PSCustomObject]@{ 
+        [Project]::Automation  = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/automation.git"; 
             Directory    = "~\automation"; 
             CodeSolution = "~\automation"; 
         };
-        [Project]::Core            = [PSCustomObject]@{ 
+        [Project]::Core        = [PSCustomObject]@{ 
             Git        = "git@github.com:sensemaking/core.git"; 
             Directory  = "~\core"; 
             VsSolution = "~\core\Core.sln"; 
         };
-        [Project]::Persistence     = [PSCustomObject]@{ 
+        [Project]::Persistence = [PSCustomObject]@{ 
             Git        = "git@github.com:sensemaking/persistence.git"; 
             Directory  = "~\persistence"; 
             VsSolution = "~\persistence\Persistence.sln"; 
         };
-        [Project]::Web             = [PSCustomObject]@{ 
+        [Project]::Web         = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/web.git"; 
             Directory    = "~\web";
             VsSolution   = "~\web\.net\Web.sln"; 
             CodeSolution = "~\web\js\core"; 
         };        
-        [Project]::Trnk = [PSCustomObject]@{
-            Git        = "git@github.com:sensemaking/trnk.git"; 
-            Directory  = "~\trnk";          
+        [Project]::Main        = [PSCustomObject]@{
+            Git        = "git@github.com:FreemarketFX/Main.git"; 
+            Directory  = "~\Main\src";          
+            VsSolution = "~\Main\src\FreeMarketFx.sln"; 
+        };
+        [Project]::Trnk        = [PSCustomObject]@{
+            Git          = "git@github.com:sensemaking/trnk.git"; 
+            Directory    = "~\trnk";          
             CodeSolution = "~\trnk";    
         };
-        [Project]::LeadsAndAi = [PSCustomObject]@{
-            Git        = "git@github.com:sensemaking/leadsandai.git"; 
-            Directory  = "~\leadsandai";          
+        [Project]::LeadsAndAi  = [PSCustomObject]@{
+            Git          = "git@github.com:sensemaking/leadsandai.git"; 
+            Directory    = "~\leadsandai";          
             CodeSolution = "~\leadsandai";    
         };
     }
 
     return $projects.GetEnumerator() | Where-Object { $project -eq $_.Key -or $project -eq [Project]::All } 
 }
+
 
 function global:Update-Projects { 
     $automationDir = (Get-Project Automation).Value.Directory 
