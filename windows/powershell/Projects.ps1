@@ -8,9 +8,9 @@ public enum Project
     Persistence,
     Web,
     Trnk,
-    LeadsAndAi
+    LeadsAndAi,
     FMCore,
-    FMTM,
+    FMTM
 }
 "@
 
@@ -37,7 +37,7 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             VsSolution   = "~\web\.net\Web.sln"; 
             CodeSolution = "~\web\js\core"; 
         };        
-        [Project]::Main        = [PSCustomObject]@{
+        [Project]::FMCore      = [PSCustomObject]@{
             Git        = "git@github.com:FreemarketFX/Main.git"; 
             Directory  = "~\Main\src";          
             VsSolution = "~\Main\src\FreeMarketFx.sln"; 
