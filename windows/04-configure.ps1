@@ -18,7 +18,7 @@ dotnet nuget add source https://nuget.pkg.github.com/sensemaking/index.json -n S
 git config --global user.name $email
 git config --global user.email $email
 
-& "~\automation\windows\$email\win10_configure.ps1"
+& "~\automation\windows\$email\custom.ps1"
 & "~\automation\windows\$email\VSCode\extensions.ps1"
 
 Copy-Item "~\automation\windows\$email\VSCode\*.json" "$env:userprofile\AppData\Roaming\Code\User"
