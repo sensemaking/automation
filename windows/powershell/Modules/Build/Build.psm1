@@ -78,7 +78,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
             Write-Host `nRunning Tests`n -Fore Green
-            dotnet test $solutionPath -m:1 --no-build --no-restore --nologo --verbosity q
+            dotnet test $solutionPath -m:1 --no-build --no-restore --nologo --verbosity m
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
 
