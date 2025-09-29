@@ -30,6 +30,7 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             Git        = "git@github.com:sensemaking/persistence.git"; 
             Directory  = "~\persistence"; 
             VsSolution = "~\persistence\Persistence.sln"; 
+            ElevateTests = $true; 
         };
         [Project]::Web         = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/web.git"; 
