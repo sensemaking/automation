@@ -78,7 +78,7 @@ function Build ([Project] $project = [Project]::All, [Switch] $clientOnly, [Swit
             BreakOnFailure $dir '**************** Build Failed ****************'
             Migrate $targetProject.Key
             Write-Host `nRunning Tests`n -Fore Green
-            if ($_.Value.ElevateShell -eq $true) { sudo dotnet test $solutionPath -m:1 --no-build --no-restore --nologo --verbosity m }
+            if ($_.Value.ElevateTests -eq $true) { sudo dotnet test $solutionPath -m:1 --no-build --no-restore --nologo --verbosity m }
             else { dotnet test $solutionPath -m:1 --no-build --no-restore --nologo --verbosity m }            
             BreakOnFailure $dir '**************** Tests Failed ****************'
         }         
