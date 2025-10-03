@@ -1,5 +1,6 @@
 set-variable -name HOME -value $smHome -force
 (get-psprovider FileSystem).Home = $smHome
+cd ~
 
 import-module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 & $PSScriptRoot\AddEnvironmentPaths.ps1

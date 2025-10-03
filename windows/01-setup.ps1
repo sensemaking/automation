@@ -10,12 +10,39 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 choco install brave -yr
 choco install git -yr
 
-write-host "`nSetting up ssh" -fore yellow
-$env:path += ";$env:programFiles\Git\bin;$env:programFiles\Git\cmd;$env:programFiles\Git\usr\bin;"
-$sshDirectory = "$env:userprofile\.ssh"
-mkdir $sshdirectory -force
-ssh-keygen -f "$sshdirectory\id_rsa"
+Set-Service ssh-agent -StartupType Automatic
+Start-Service ssh-agent
 
+git config --global user.name "$userName"
+git config --global user.email $userEmail
+git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
+
+Set-Service ssh-agent -StartupType Automatic
+Start-Service ssh-agent
+
+git config --global user.name "$userName"
+git config --global user.email $userEmail
+git config --global rebase.autoStash true
+
+git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
+ssh-keygen -t ed25519 -C $userEmail
+
+$sshKeyPath = Resolve-Path $env:USERPROFILE\.ssh\id_ed25519
+ssh-add $sshKeyPath
+
+Get-Content ~\.ssh\id_ed25519.pub | Set-Clipboard 
+Write-Host "`nYour public key has been copied to your clipboard you can now add it to your SSH keys on GitHub"
+Start-Process "https://github.com/settings/keys"
+
+Read-Host "`nPress any key to continue once you have added the key to GitHub"
+ssh-keygen -t ed25519 -C $userEmail
+$sshKeyPath = Resolve-Path ~\.ssh\id_ed25519
+ssh-add $sshKeyPath
+
+Get-Content ~\.ssh\id_ed25519.pub | Set-Clipboard 
+Write-Host "`nYour public key has been copied to your clipboard you can now add it to your SSH keys on GitHub"
+
+Read-Host "`nPress any key to continue once you have added the key to GitHub"
 write-host "`n$sshdirectory\id_rsa.pub has been generated" -fore green
 write-host "`nAdd the key to your github account" -fore red 
 read-host "`n`nThen press any key"

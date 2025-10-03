@@ -114,6 +114,19 @@ function Migrate ([Project] $project = [Project]::All) {
 
     Get-Project $project | % { Migrate-Project $_ }
 }
+
+function Run([Project] $project = [Project]::All) {
+    function Run($targetProject) {
+        if ($null -ne $_.Value.ServerHost) {
+            Write-Host `nRunning $targetProject.Key server `n -Fore Green
+            Set-Location $_.Value.ServerHost
+            wt -p "Windows Powershell" -d (Get-Location) --title $targetProject.Key Powershell -c dotnet watch run --urls https://localhost:5001
+        }
+    }
+
+    Clear-Host
+    Get-Project $project | % { Run $_ }
+}
     
 function Run-Client([Project] $project = [Project]::All) {
     function Run($targetProject) {
@@ -128,23 +141,10 @@ function Run-Client([Project] $project = [Project]::All) {
     Get-Project $project | % { Run $_ }
 }
 
-function Run-Server([Project] $project = [Project]::All) {
-    function Run($targetProject) {
-        if ($null -ne $_.Value.ServerHost) {
-            Write-Host `nRunning $targetProject.Key server `n -Fore Green
-            Set-Location $_.Value.ServerHost
-            dotnet watch run --urls https://localhost:5001
-        }
-    }
-
-    Clear-Host
-    Get-Project $project | % { Run $_ }
-}
-
 function Lint([Project] $project = [Project]::All) {
     function Lint($targetProject) {
         if ($null -ne $_.Value.CodeSolution) {
-            Write-Host `nLinting JavaScript $targetProject.Key `n -Fore Green     
+            Write-Host `nLinting TypeScript $targetProject.Key `n -Fore Green     
             Set-Location $_.Value.CodeSolution    
             pnpm run lint
         }
