@@ -1,18 +1,16 @@
 $smRoot = read-host `nPlease enter the path you want to be the sensemaking root
 mkdir $smRoot -force
-
 sudo config --enable normal
 
 write-host "`nInstalling chocolatey" -fore yellow
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-choco install brave -yr
-choco install git -yr
-
 Set-Service ssh-agent -StartupType Automatic
 Start-Service ssh-agent
 
+$userName = read-host `nPlease enter your git username
+$userEmail = read-host `nPlease enter your git email
 git config --global user.name "$userName"
 git config --global user.email $userEmail
 git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
