@@ -38,25 +38,10 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             VsSolution   = "~\web\.net\Web.sln"; 
             CodeSolution = "~\web\js\core"; 
         };        
-        [Project]::FMCore      = [PSCustomObject]@{
-            Git        = "git@github.com:FreemarketFX/Main.git"; 
-            Directory  = "~\Main\src";          
-            VsSolution = "~\Main\src\FreeMarketFx.sln"; 
-        };
-        [Project]::FMTM        = [PSCustomObject]@{
-            Git        = "git@github.com:FreemarketFX/TransactionMonitoringService.git"; 
-            Directory  = "~\TransactionMonitoringService\src";          
-            VsSolution = "~\TransactionMonitoringService\src\TransactionMonitoringService.sln"
-        };
-        [Project]::Trnk        = [PSCustomObject]@{
-            Git          = "git@github.com:sensemaking/trnk.git"; 
-            Directory    = "~\trnk";          
-            CodeSolution = "~\trnk";    
-        };
-        [Project]::LeadsAndAi  = [PSCustomObject]@{
-            Git          = "git@github.com:sensemaking/leadsandai.git"; 
-            Directory    = "~\leadsandai";          
-            CodeSolution = "~\leadsandai";    
+        [Project]::SenseMaking = [PSCustomObject]@{ 
+            Git          = "git@github.com:sensemaking/sensemaking.github.io.git"; 
+            Directory    = "~\sm-website";            
+            CodeSolution = "~\sm-website"; 
         };
     }
 
