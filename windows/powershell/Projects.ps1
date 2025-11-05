@@ -7,10 +7,7 @@ public enum Project
     Core,
     Persistence,
     Web,
-    Trnk,
-    LeadsAndAi,
-    FMCore,
-    FMTM
+    SenseMaking
 }
 "@
 
