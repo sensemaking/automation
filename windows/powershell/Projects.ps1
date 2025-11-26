@@ -3,6 +3,7 @@ public enum Project
 {
     All,
     None,
+    Documents,
     Automation,
     Core,
     Persistence,
@@ -13,6 +14,11 @@ public enum Project
 
 function global:Get-Project ([Project] $project = [Project]::All) {
     $projects = @{ 
+        [Project]::Documents   = [PSCustomObject]@{ 
+            Git          = "git@github.com:sensemaking/documents.git"; 
+            Directory    = "~\documents"; 
+            CodeSolution = "~\documents"; 
+        };
         [Project]::Automation  = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/automation.git"; 
             Directory    = "~\automation"; 
@@ -24,9 +30,9 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             VsSolution = "~\core\Core.sln"; 
         };
         [Project]::Persistence = [PSCustomObject]@{ 
-            Git        = "git@github.com:sensemaking/persistence.git"; 
-            Directory  = "~\persistence"; 
-            VsSolution = "~\persistence\Persistence.sln"; 
+            Git          = "git@github.com:sensemaking/persistence.git"; 
+            Directory    = "~\persistence"; 
+            VsSolution   = "~\persistence\Persistence.sln"; 
             ElevateTests = $true; 
         };
         [Project]::Web         = [PSCustomObject]@{ 
