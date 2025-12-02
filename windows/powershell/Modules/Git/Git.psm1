@@ -50,7 +50,7 @@ function Push ([Project] $project = [Project]::None, $message, [Switch] $noBuild
     Clear-Host
     $dir = Get-Location 
     Get-Project $project | % { 
-        if (!$noBuild) { Build $_.Key -clientOnly:$clientOnly -serverOnly:$serverOnly } else { Pull $_.Key }
+        if (!($noBuild -or $_.NoBuild -eq $true)) { Build $_.Key -clientOnly:$clientOnly -serverOnly:$serverOnly } else { Pull $_.Key }
         Git-Push $_ 
     }
     Set-Location $dir

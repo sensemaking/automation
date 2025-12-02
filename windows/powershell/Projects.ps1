@@ -17,11 +17,13 @@ function global:Get-Project ([Project] $project = [Project]::All) {
         [Project]::Documents   = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/documents.git"; 
             Directory    = "~\documents"; 
+            NoBuild      = $true; 
             CodeSolution = "~\documents"; 
         };
         [Project]::Automation  = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/automation.git"; 
             Directory    = "~\automation"; 
+            NoBuild      = $true; 
             CodeSolution = "~\automation"; 
         };
         [Project]::Core        = [PSCustomObject]@{ 
