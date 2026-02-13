@@ -8,7 +8,8 @@ public enum Project
     Core,
     Persistence,
     Web,
-    SenseMaking
+    SenseMaking,
+    uPredict
 }
 "@
 
