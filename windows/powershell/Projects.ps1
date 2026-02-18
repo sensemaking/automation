@@ -9,47 +9,54 @@ public enum Project
     Persistence,
     Web,
     SenseMaking,
-    uPredict
+    uPredict,
+    SensibleCopilot
 }
 "@
 
 function global:Get-Project ([Project] $project = [Project]::All) {
     $projects = @{ 
-        [Project]::Documents   = [PSCustomObject]@{ 
+        [Project]::Documents       = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/documents.git"; 
             Directory    = "~\documents"; 
             NoBuild      = $true; 
             CodeSolution = "~\documents"; 
         };
-        [Project]::Automation  = [PSCustomObject]@{ 
+        [Project]::SensibleCopilot = [PSCustomObject]@{ 
+            Git          = "git@github.com:sensemaking/sensible-copilot.git"; 
+            Directory    = "~\sensible-copilot"; 
+            NoBuild      = $true; 
+            CodeSolution = "~\sensible-copilot"; 
+        };
+        [Project]::Automation      = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/automation.git"; 
             Directory    = "~\automation"; 
             NoBuild      = $true; 
             CodeSolution = "~\automation"; 
         };
-        [Project]::Core        = [PSCustomObject]@{ 
+        [Project]::Core            = [PSCustomObject]@{ 
             Git        = "git@github.com:sensemaking/core.git"; 
             Directory  = "~\core"; 
             VsSolution = "~\core\Core.sln"; 
         };
-        [Project]::Persistence = [PSCustomObject]@{ 
+        [Project]::Persistence     = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/persistence.git"; 
             Directory    = "~\persistence"; 
             VsSolution   = "~\persistence\Persistence.sln"; 
             ElevateTests = $true; 
         };
-        [Project]::Web         = [PSCustomObject]@{ 
+        [Project]::Web             = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/web.git"; 
             Directory    = "~\web";
             VsSolution   = "~\web\.net\Web.sln"; 
             CodeSolution = "~\web\js\core"; 
         };        
-        [Project]::SenseMaking = [PSCustomObject]@{ 
+        [Project]::SenseMaking     = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/sensemaking.github.io.git"; 
             Directory    = "~\sm-website";            
             CodeSolution = "~\sm-website"; 
         };
-        [Project]::uPredict = [PSCustomObject]@{ 
+        [Project]::uPredict        = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/upredict.upredict.git"; 
             Directory    = "~\sensemaking\upredict";            
             CodeSolution = "~\sensemaking\upredict\client";
