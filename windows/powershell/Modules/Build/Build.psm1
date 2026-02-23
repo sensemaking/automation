@@ -115,7 +115,7 @@ function Migrate ([Project] $project = [Project]::All) {
     Get-Project $project | % { Migrate-Project $_ }
 }
 
-function Run([Project] $project = [Project]::All) {
+function Run-Server([Project] $project = [Project]::All) {
     function Run($targetProject) {
         if ($null -ne $_.Value.ServerHost) {
             Write-Host `nRunning $targetProject.Key server `n -Fore Green
