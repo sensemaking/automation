@@ -23,5 +23,5 @@ function Update-Automation {
   Copy-Item "$automationDir\windows\powershell\AddEnvironmentPaths.ps1" -Destination "$profileDir\AddEnvironmentPaths.ps1" -fo
   
   Write-Host "`nUpdated automation scripts. Reloading shell`n" -Fore Green
-  powershell.exe -nologo
+  pwsh.exe -nologo
 }
