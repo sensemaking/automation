@@ -57,7 +57,7 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             CodeSolution = "~\sm-website"; 
         };
         [Project]::uPredict        = [PSCustomObject]@{ 
-            Git          = "git@github.com:sensemaking/upredict.upredict.git"; 
+            Git          = "git@github.com:uPredict/uPredict.git"; 
             Directory    = "~\upredict";            
             CodeSolution = "~\upredict\client";
             VsSolution   = "~\upredict\server\upredict.sln"; 
