@@ -120,7 +120,7 @@ function Run-Server([Project] $project = [Project]::All) {
         if ($null -ne $_.Value.ServerHost) {
             Write-Host `nRunning $targetProject.Key server `n -Fore Green
             Set-Location $_.Value.ServerHost
-            wt -p "Windows Powershell" -d (Get-Location) --title $targetProject.Key Powershell -c dotnet watch run --urls https://localhost:5001
+            dotnet watch run --urls https://localhost:5001
         }
     }
 
