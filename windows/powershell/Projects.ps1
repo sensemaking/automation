@@ -62,6 +62,12 @@ function global:Get-Project ([Project] $project = [Project]::All) {
             CodeSolution = "~\upredict\client";
             VsSolution   = "~\upredict\server\upredict.sln"; 
         };
+        [Project]::GroceryManager  = [PSCustomObject]@{ 
+            Git          = "git@github.com:davewil/grocery_planner.git"; 
+            Directory    = "~\grocery_planner";            
+            CodeSolution = "~\grocery_planner";
+            NoBuild      = $true; 
+        };
     }
 
     return $projects.GetEnumerator() | Where-Object { $project -eq $_.Key -or $project -eq [Project]::All } 
