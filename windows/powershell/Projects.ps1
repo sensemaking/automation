@@ -10,7 +10,8 @@ public enum Project
     Web,
     SenseMaking,
     uPredict,
-    SensibleCopilot
+    SensibleCopilot,
+    GroceryManager
 }
 "@
 
