@@ -19,9 +19,9 @@ function global:Get-Project ([Project] $project = [Project]::All) {
     $projects = @{ 
         [Project]::Documents       = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/documents.git"; 
-            Directory    = "~\documents"; 
+            Directory    = "~\docs"; 
             NoBuild      = $true; 
-            CodeSolution = "~\documents"; 
+            CodeSolution = "~\docs"; 
         };
         [Project]::SensibleCopilot = [PSCustomObject]@{ 
             Git          = "git@github.com:sensemaking/sensible-copilot.git"; 

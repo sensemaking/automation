@@ -11,6 +11,18 @@ function GoTo ([Project] $project) {
     Set-Location (Get-Project $project).Value.Directory
 }
 
+function Ai ([Project] $project) {
+    if ($project -eq [Project]::None) {
+        Write-Host "`nNo project provided`n" -Fore Red
+        return
+    }
+    if ($project -eq [Project]::All) {
+        Write-Host "`nCan't run AI on 'All' projects`n" -Fore Red
+        return
+    }
+    wt -w 0 nt -d (Get-Project $project).Value.Directory gh copilot
+}
+
 function Prime ([Project] $project) {
     function Prime-Project($targetProject) {
         if (-not(Test-Path "$($_.Value.Directory)")) { Clone $targetProject.key }
