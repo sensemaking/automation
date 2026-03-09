@@ -88,4 +88,11 @@ prompt("\nPress Enter once you have added the key to GitHub...")
 os.chdir(sm_root)
 run(["git", "clone", "git@github.com:sensemaking/automation.git"])
 
-print("\nSetup complete.")
+print("\nInstalling defaults.")
+
+# ---------------------------------------------------------------------------
+# 7. Run 02-setup
+# ---------------------------------------------------------------------------
+
+setup_script = Path(__file__).parent / "02-setup.py"
+run([sys.executable, str(setup_script)])
