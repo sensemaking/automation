@@ -53,6 +53,8 @@ else:
 # 4. SSH agent + key generation
 # ---------------------------------------------------------------------------
 
+user_email = prompt("Please enter your git email: ")
+
 # Start ssh-agent and export its environment variables into this process.
 agent_output = subprocess.check_output(["ssh-agent", "-s"], text=True)
 for match in re.finditer(r"(\w+)=([^;]+);", agent_output):
