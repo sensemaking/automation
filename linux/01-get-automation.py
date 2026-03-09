@@ -94,5 +94,5 @@ print("\nInstalling defaults.")
 # 7. Run 02-setup
 # ---------------------------------------------------------------------------
 
-setup_script = Path(__file__).parent / "02-setup.py"
+setup_script = sm_root / "automation/linux/02-setup.py"
 run([sys.executable, str(setup_script)])
