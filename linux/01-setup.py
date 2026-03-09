@@ -47,20 +47,7 @@ if shutil.which("yay") is None:
         run(["makepkg", "-si", "--noconfirm"], cwd=tmpdir + "/yay")
     print("yay installed.")
 else:
-    print("\nyay is already installed.")
-
-
-# ---------------------------------------------------------------------------
-# 3. Git configuration
-# ---------------------------------------------------------------------------
-
-user_name = prompt("\nPlease enter your git username: ")
-user_email = prompt("Please enter your git email: ")
-
-run(["git", "config", "--global", "user.name", user_name])
-run(["git", "config", "--global", "user.email", user_email])
-run(["git", "config", "--global", "core.sshCommand", "/usr/bin/ssh"])
-
+    print("\nYay! yay is already installed.")
 
 # ---------------------------------------------------------------------------
 # 4. SSH agent + key generation
