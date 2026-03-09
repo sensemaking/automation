@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Linux setup script — equivalent to windows/01-setup.ps1.
-Installs yay, configures git, sets up SSH keys, and clones the automation repo.
+Configures git, sets up SSH keys, and clones the automation repo.
 """
 
 import os
@@ -9,7 +9,6 @@ import re
 import shutil
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 
@@ -36,21 +35,7 @@ print(f"Root directory: {sm_root}")
 
 
 # ---------------------------------------------------------------------------
-# 2. Install yay (if not present)
-# ---------------------------------------------------------------------------
-
-if shutil.which("yay") is None:
-    print("\nInstalling yay...", flush=True)
-    run(["sudo", "pacman", "-S", "--needed", "--noconfirm", "base-devel", "git"])
-    with tempfile.TemporaryDirectory() as tmpdir:
-        run(["git", "clone", "https://aur.archlinux.org/yay.git", tmpdir + "/yay"])
-        run(["makepkg", "-si", "--noconfirm"], cwd=tmpdir + "/yay")
-    print("yay installed.")
-else:
-    print("\nYay! yay is already installed.")
-
-# ---------------------------------------------------------------------------
-# 4. SSH agent + key generation
+# 2. SSH agent + key generation
 # ---------------------------------------------------------------------------
 
 user_email = prompt("Please enter your git email: ")
