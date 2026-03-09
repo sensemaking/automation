@@ -29,7 +29,8 @@ def prompt(message):
 # 1. Sensemaking root
 # ---------------------------------------------------------------------------
 
-sm_root = Path(prompt("\nPlease enter the path you want to be the sensemaking root: ")).expanduser()
+dir_name = prompt("\nPlease enter the directory name for the sensemaking root: ")
+sm_root = Path.home() / dir_name
 sm_root.mkdir(parents=True, exist_ok=True)
 print(f"Root directory: {sm_root}")
 
