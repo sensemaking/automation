@@ -34,6 +34,23 @@ sm_root = Path.home() / dir_name
 sm_root.mkdir(parents=True, exist_ok=True)
 print(f"Root directory: {sm_root}")
 
+# Export SM_ROOT for child processes and persist it to ~/.profile for future sessions.
+os.environ["SM_ROOT"] = str(sm_root)
+profile = Path.home() / ".profile"
+profile_text = profile.read_text() if profile.exists() else ""
+import re
+if re.search(r"^\s*export\s+SM_ROOT=", profile_text, re.MULTILINE):
+    updated = re.sub(r"^\s*export\s+SM_ROOT=.*$", f"export SM_ROOT={sm_root}", profile_text, flags=re.MULTILINE)
+    if updated != profile_text:
+        profile.write_text(updated)
+        print(f"Updated SM_ROOT in {profile}")
+    else:
+        print(f"SM_ROOT already set correctly in {profile} — skipping.")
+else:
+    with profile.open("a") as f:
+        f.write(f"\nexport SM_ROOT={sm_root}\n")
+    print(f"Set SM_ROOT={sm_root} in {profile}")
+
 
 # ---------------------------------------------------------------------------
 # 2. SSH agent + key generation
@@ -94,5 +111,5 @@ print("\nInstalling defaults.")
 # 7. Run 02-setup
 # ---------------------------------------------------------------------------
 
-setup_script = sm_root / "automation/linux/02-setup.py"
+setup_script = sm_root / "automation/linux/02-install.py"
 run([sys.executable, str(setup_script)])

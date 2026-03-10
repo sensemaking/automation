@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Linux setup script — installs applications to taste.
+Linux install script — installs applications to taste.
 
 Tools installed:
   - yay (AUR helper, bootstrapped from pacman)
   - Ghostty
-  - Zsh + oh-my-zsh, default shell changed to zsh
+  - Zsh + oh-my-zsh
   - Zoom
   - Slack
   - Docker (with systemd service + docker group)
@@ -106,18 +106,6 @@ else:
         text=True,
         env={**os.environ, "RUNZSH": "no", "CHSH": "no"},
     )
-
-section("Default shell → zsh")
-zsh_path = shutil.which("zsh")
-current_shell = os.environ.get("SHELL", "")
-if zsh_path and current_shell == zsh_path:
-    print(f"Default shell is already {zsh_path} — skipping.")
-elif zsh_path is None:
-    print("zsh not found on PATH — cannot change default shell.")
-else:
-    print(f"Changing default shell to {zsh_path}…")
-    run(["chsh", "-s", zsh_path])
-
 
 # ---------------------------------------------------------------------------
 # Zoom
@@ -245,9 +233,15 @@ else:
 
 
 # ---------------------------------------------------------------------------
-# Done
+# Done — run config script
 # ---------------------------------------------------------------------------
 
+import sys
+from pathlib import Path
+
 print("\n" + "═" * 60)
-print("  Setup complete.")
+print("  Install complete — running config script…")
 print("═" * 60)
+
+config_script = Path(os.environ["SM_ROOT"]) / "automation/linux/03-config.py"
+subprocess.run([sys.executable, str(config_script)], check=True)
