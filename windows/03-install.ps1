@@ -14,6 +14,8 @@ choco install servicebusexplorer -yr
 choco install nodejs -yr
 choco install pnpm -yr
 
+irm https://claude.ai/install.ps1 | iex
+
 refreshenv
 
 dotnet tool install --global dotnet-outdated-tool        
