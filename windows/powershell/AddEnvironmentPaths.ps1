@@ -6,6 +6,8 @@ $paths =
 "$env:programFiles\Microsoft VS Code",
 "$env:programFiles\Azure Data Studio",
 "$env:programFiles\Azure Cosmos DB Emulator",
+"$env:appData\Zoom\bin",
+"$env:programFiles\Zoom\bin",
 "$env:userProfile\.local\bin"
 
 $paths | % {

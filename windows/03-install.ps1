@@ -2,7 +2,7 @@
 sudo choco install 7zip -yr
 sudo choco install slack -yr
 sudo choco install dotnet-sdk -yr
-sudo choco innstall zoom -yr
+sudo choco install zoom -yr
 
 sudo choco install visualstudiocode -yr
 sudo choco install sqllocaldb -yr
